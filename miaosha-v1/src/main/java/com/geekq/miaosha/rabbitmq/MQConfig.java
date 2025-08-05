@@ -31,6 +31,38 @@ public class MQConfig {
     public static final String HEADERS_EXCHANGE = "headersExchage";
 
     /**
+     * 秒杀队列 - 用于异步处理秒杀请求
+     */
+    @Bean
+    public Queue miaoshaQueue() {
+        return new Queue(MIAOSHA_QUEUE, true);
+    }
+
+    /**
+     * 秒杀测试队列 - 用于站内信等功能
+     */
+    @Bean
+    public Queue miaoshaTestQueue() {
+        return new Queue(MIAOSHATEST, true);
+    }
+
+    /**
+     * Topic交换机 - 用于站内信路由
+     */
+    @Bean
+    public TopicExchange exchangeTopic() {
+        return new TopicExchange(EXCHANGE_TOPIC);
+    }
+
+    /**
+     * 绑定秒杀测试队列到Topic交换机
+     */
+    @Bean
+    public Binding miaoshaTestBinding() {
+        return BindingBuilder.bind(miaoshaTestQueue()).to(exchangeTopic()).with("miaosha.*");
+    }
+
+    /**
      * Direct模式 交换机Exchange
      */
     @Bean

@@ -212,7 +212,8 @@ public class MiaoshaController implements InitializingBean {
             return;
         }
         for (GoodsVo goods : goodsList) {
-            redisService.set(GoodsKey.getMiaoshaGoodsStock, "" + goods.getId(), goods.getStockCount());
+            // 临时注释掉Redis初始化，用于测试UserUtil
+            // redisService.set(GoodsKey.getMiaoshaGoodsStock, "" + goods.getId(), goods.getStockCount());
             localOverMap.put(goods.getId(), false);
         }
     }
