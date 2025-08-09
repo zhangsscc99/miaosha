@@ -48,3 +48,10 @@ three-high-import 项目意义在于利用多线程进行千万级别导入,实�
 已不更新、如果想看之前思考记录文档和一些画的图可以看下
 
 
+cd "C:\Users\ZhuanZ（无密码）\Downloads\Redis-x64-5.0.14.1"
+redis-server.exe
+
+mvn spring-boot:run
+
+javac -d target/classes -cp target/classes src/main/java/com/geekq/miaosha/utils/TokenGenerator.java
+>> java -cp target/classes com.geekq.miaosha.utils.TokenGenerator
