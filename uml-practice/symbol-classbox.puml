@@ -1,0 +1,27 @@
+@startuml symbol-classbox
+skinparam classAttributeIconSize 0
+title 符号1：类框三格 + 可见性 + 构造型
+
+class OrderService {
+  {static} - instance : OrderService   <comment:static=下划线>
+  - orderDao : OrderDao      <comment: - private 私有>
+  # helper : Helper          <comment: # protected 子类可见>
+  ~ cache : Cache            <comment: ~ package 包内可见>
+  + createOrder() : Order    <comment: + public 公有>
+  + getInstance() : OrderService
+}
+
+interface Payable {
+  + pay(amount) : boolean
+}
+
+abstract class Shape {
+  + area() : double
+}
+note right of Shape : 抽象类：类名斜体\n面试常配模板方法模式
+
+class VIPUser extends User
+class User {
+  + name : String
+}
+@enduml

@@ -16,7 +16,7 @@
 
 	<!-- 暴露具体的服务接口 本地伪装-->
 	<dubbo:service retries="3" interface="com.geekq.api.service.GoodsService"
-		ref="goodsService" group="goods2" timeout="6000" mock="true">
+		ref="goodsService" group="goods2" timeout="6000">
 		<dubbo:method name="listGoodsVo" timeout="3000" ></dubbo:method>
 	</dubbo:service>
 

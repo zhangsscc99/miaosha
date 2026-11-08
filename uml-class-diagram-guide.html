@@ -1,0 +1,981 @@
+<title>UML 类图符号手册</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f3f6f8;
+    --surface: #ffffff;
+    --diagram-bg: #ecf1f6;
+    --ink: #1b2531;
+    --muted: #5d6b7a;
+    --line: #d6dfe7;
+    --accent: #1f5f9e;
+    --accent-soft: #e7eff8;
+    --warn: #a34a1e;
+    --warn-soft: #fbf0e7;
+    --grid: rgba(31, 95, 158, 0.06);
+    --font-display: "Noto Serif SC", "Songti SC", serif;
+    --font-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
+    --radius: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0e141a;
+      --surface: #151d25;
+      --diagram-bg: #111a23;
+      --ink: #e7eef5;
+      --muted: #95a4b3;
+      --line: #2a3541;
+      --accent: #75aae6;
+      --accent-soft: #16273a;
+      --warn: #e6a06b;
+      --warn-soft: #2b2118;
+      --grid: rgba(117, 170, 230, 0.07);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0e141a;
+    --surface: #151d25;
+    --diagram-bg: #111a23;
+    --ink: #e7eef5;
+    --muted: #95a4b3;
+    --line: #2a3541;
+    --accent: #75aae6;
+    --accent-soft: #16273a;
+    --warn: #e6a06b;
+    --warn-soft: #2b2118;
+    --grid: rgba(117, 170, 230, 0.07);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.75;
+    font-variant-numeric: tabular-nums;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: env(safe-area-inset-top, 0px);
+    background: var(--bg);
+    z-index: 19;
+  }
+  ::selection {
+    background: var(--accent-soft);
+  }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+  svg {
+    color: var(--ink);
+  }
+  svg text {
+    font-family: var(--font-mono);
+    fill: currentColor;
+  }
+  svg .muted { fill: var(--muted); }
+  svg .cjk { font-family: var(--font-body); }
+
+  .site-head {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  .head-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    min-height: 56px;
+  }
+  .brand {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--ink);
+    flex: 0 0 auto;
+  }
+  .brand-mark {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    border: 1px solid var(--line);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .brand-sub {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .nav {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    min-width: 0;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    white-space: nowrap;
+    padding-block: 6px;
+    border-bottom: 2px solid transparent;
+  }
+  .nav a:hover {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .hero {
+    padding-block: 64px 48px;
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 12px 0 16px;
+    text-wrap: balance;
+  }
+  .lead {
+    max-width: 64ch;
+    margin: 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+  }
+  .rules {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 34px;
+  }
+  .rule {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .rule svg {
+    width: 48px;
+    height: 26px;
+    flex: 0 0 auto;
+    margin-top: 3px;
+    color: var(--accent);
+  }
+  .rule b {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .rule span {
+    display: block;
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .section {
+    padding-block: 54px;
+    border-top: 1px solid var(--line);
+  }
+  section { scroll-margin-top: 76px; }
+  .sec-head { margin-bottom: 26px; }
+  .sec-kicker {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 3.2vw, 32px);
+    line-height: 1.35;
+    font-weight: 700;
+    margin: 6px 0 8px;
+  }
+  .sec-intro {
+    max-width: 66ch;
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+  }
+
+  figure { margin: 0; }
+  .fig-frame {
+    background: var(--diagram-bg);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px;
+    overflow-x: auto;
+  }
+  .fig-frame svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .fig-scroll svg { min-width: 680px; }
+  figcaption {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 22px;
+    align-items: start;
+    margin-top: 24px;
+  }
+  .syntax {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px;
+  }
+  .syntax h3 {
+    font-size: 15px;
+    margin: 0 0 12px;
+  }
+  .code-line {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    padding: 7px 0;
+    border-top: 1px dashed var(--line);
+  }
+  .code-line:first-of-type { border-top: 0; }
+  .code-line .lbl {
+    font-size: 11px;
+    color: var(--muted);
+    width: 36px;
+    flex: 0 0 auto;
+  }
+  .code-line code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    background: none;
+    padding: 0;
+    overflow-wrap: anywhere;
+  }
+  .syntax p {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 12px 0 0;
+  }
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.92em;
+    background: var(--accent-soft);
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  td {
+    padding: 12px 16px;
+    border-top: 1px solid var(--line);
+    vertical-align: top;
+  }
+  tbody tr:first-child td { border-top: 0; }
+  td.sym {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  td.mono { font-family: var(--font-mono); font-size: 13px; }
+
+  .note {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: var(--accent-soft);
+    border-radius: 8px;
+    font-size: 13.5px;
+    line-height: 1.65;
+  }
+  .note .mark {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    flex: 0 0 auto;
+  }
+  .note.warn {
+    background: var(--warn-soft);
+    border-left: 3px solid var(--warn);
+    border-radius: 0 8px 8px 0;
+  }
+  .note.warn .mark { color: var(--warn); }
+
+  .rel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 18px;
+  }
+  .rel-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .rel-fig {
+    background: var(--diagram-bg);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 16px 8px;
+  }
+  .rel-fig svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .rel-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    padding: 16px 18px 18px;
+  }
+  .rel-title {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .rel-title h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+  }
+  .rel-title .en {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .rel-body p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .rel-body .read {
+    color: var(--ink);
+    font-size: 13.5px;
+  }
+  .code {
+    margin-top: auto;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.6;
+    background: var(--accent-soft);
+    border-radius: 6px;
+    padding: 8px 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .sym-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+  }
+  .sym-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 16px;
+  }
+  .sym-card h3 {
+    font-size: 15px;
+    margin: 0 0 4px;
+  }
+  .sym-card > p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0 0 12px;
+  }
+  .mini {
+    background: var(--diagram-bg);
+    border-radius: 6px;
+    padding: 10px;
+  }
+  .mini svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .sym-wide { grid-column: 1 / -1; }
+  .tokens { margin-top: 12px; }
+  .token-row {
+    display: grid;
+    grid-template-columns: 122px 1fr;
+    gap: 14px;
+    padding: 10px 0;
+    border-top: 1px dashed var(--line);
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+  .token-row:first-child { border-top: 0; }
+  .token-row .t {
+    font-family: var(--font-mono);
+    color: var(--accent);
+    font-size: 12.5px;
+  }
+
+  .example svg { min-width: 760px; }
+
+  footer {
+    padding-block: 32px 8px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 820px) {
+    .split { grid-template-columns: 1fr; }
+    .rules { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding-block: 46px 38px; }
+    .brand-sub { display: none; }
+    .rel-grid { grid-template-columns: 1fr; }
+    .sym-grid { grid-template-columns: 1fr; }
+    .token-row { grid-template-columns: 100px 1fr; gap: 10px; }
+    .section { padding-block: 44px; }
+  }
+</style>
+
+<header class="site-head">
+  <div class="head-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark">UML</span>
+      <span class="brand-sub">类图符号手册</span>
+    </a>
+    <nav class="nav" aria-label="章节导航">
+      <a href="#class-box">类框</a>
+      <a href="#relations">六种关系</a>
+      <a href="#multiplicity">多重性</a>
+      <a href="#notation">其他符号</a>
+      <a href="#mistakes">易混点</a>
+      <a href="#example">综合示例</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" id="top">
+    <p class="eyebrow">UML 2.5 · Class Diagram</p>
+    <h1>UML 类图符号手册</h1>
+    <p class="lead">一条线画成实线还是虚线、末端是空心三角还是实心菱形，含义完全不同。按「类框 → 六种关系 → 多重性 → 易混点」看一遍，常见的类图符号就都能读了。</p>
+    <div class="rules">
+      <div class="rule">
+        <svg viewBox="0 0 56 26" aria-hidden="true">
+          <polygon points="10,4 10,22 28,13" fill="var(--surface)" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <line x1="28" y1="13" x2="50" y2="13" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <div><b>空心三角</b><span>指向父类或接口，表示 is-a。</span></div>
+      </div>
+      <div class="rule">
+        <svg viewBox="0 0 56 26" aria-hidden="true">
+          <polygon points="8,13 17,6 26,13 17,20" fill="var(--surface)" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <line x1="26" y1="13" x2="50" y2="13" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <div><b>菱形</b><span>永远在「整体」那一端，表示 has-a。</span></div>
+      </div>
+      <div class="rule">
+        <svg viewBox="0 0 56 26" aria-hidden="true">
+          <line x1="6" y1="13" x2="46" y2="13" stroke="currentColor" stroke-width="1.5" stroke-dasharray="6 4"/>
+          <path d="M36 7 L46 13 L36 19" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div><b>开放箭头</b><span>指向被依赖、被调用的一方，表示 uses。</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="class-box">
+    <div class="sec-head">
+      <p class="sec-kicker">Class Box</p>
+      <h2>类框的解剖</h2>
+      <p class="sec-intro">一个类画成三格：类名、属性、方法。成员前面的符号表示可见性，后面的写法遵循同一套语法。</p>
+    </div>
+
+    <figure>
+      <div class="fig-frame fig-scroll">
+        <svg viewBox="0 0 820 340" role="img" aria-label="类框解剖图：类名、属性、方法三个分栏，以及可见性、派生属性、静态成员等标注">
+          <rect x="40" y="36" width="300" height="270" rx="3" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <line x1="40" y1="100" x2="340" y2="100" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+          <line x1="40" y1="214" x2="340" y2="214" stroke="currentColor" stroke-width="1.2" opacity="0.55"/>
+          <text x="190" y="72" text-anchor="middle" font-size="17" font-weight="600">OrderService</text>
+          <text x="54" y="124" font-size="12">- orderRepo: OrderRepository</text>
+          <text x="54" y="148" font-size="12">+ retryLimit: int = 3</text>
+          <text x="54" y="172" font-size="12">/ totalAmount: Money</text>
+          <text x="54" y="196" font-size="12" text-decoration="underline">+ INSTANCE: OrderService</text>
+          <text x="54" y="240" font-size="12">+ submit(order: Order): Result</text>
+          <text x="54" y="264" font-size="12">- validate(order: Order): boolean</text>
+          <text x="54" y="288" font-size="12">+ cancel(orderId: Long): void</text>
+
+          <g stroke="var(--muted)" stroke-width="1">
+            <line x1="340" y1="68" x2="364" y2="68"/>
+            <line x1="340" y1="120" x2="364" y2="120"/>
+            <line x1="340" y1="144" x2="364" y2="144"/>
+            <line x1="340" y1="168" x2="364" y2="168"/>
+            <line x1="340" y1="192" x2="364" y2="192"/>
+            <line x1="340" y1="236" x2="364" y2="236"/>
+          </g>
+
+          <text x="374" y="72" font-size="12.5"><tspan font-weight="600">类名</tspan><tspan dx="8" class="muted">斜体表示抽象类</tspan></text>
+          <text x="374" y="124" font-size="12.5"><tspan font-weight="600">属性</tspan><tspan dx="8" class="muted">可见性 名称: 类型 = 默认值</tspan></text>
+          <text x="374" y="148" font-size="12.5"><tspan font-weight="600">可见性</tspan><tspan dx="8" class="muted">+ 公开 · - 私有 · # 受保护 · ~ 同包</tspan></text>
+          <text x="374" y="172" font-size="12.5"><tspan font-weight="600">派生属性</tspan><tspan dx="8" class="muted">以 / 开头，由其他属性计算得出</tspan></text>
+          <text x="374" y="196" font-size="12.5"><tspan font-weight="600">静态成员</tspan><tspan dx="8" class="muted">整行加下划线</tspan></text>
+          <text x="374" y="240" font-size="12.5"><tspan font-weight="600">方法</tspan><tspan dx="8" class="muted">名称(参数: 类型): 返回类型</tspan></text>
+        </svg>
+      </div>
+      <figcaption>三格从上到下依次是类名、属性、方法。抽象类的类名用斜体；静态成员加下划线；以 / 开头的是派生属性。</figcaption>
+    </figure>
+
+    <div class="split">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>记号</th><th>含义</th><th>说明</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="sym">+</td><td>public</td><td>任何地方可访问</td></tr>
+            <tr><td class="sym">-</td><td>private</td><td>仅本类内部可见</td></tr>
+            <tr><td class="sym">#</td><td>protected</td><td>本类及子类可见</td></tr>
+            <tr><td class="sym">~</td><td>package</td><td>同一个包内可见</td></tr>
+            <tr><td class="sym">/name</td><td>derived</td><td>派生属性，由其他属性计算</td></tr>
+            <tr><td class="sym"><span style="text-decoration:underline">name</span></td><td>static</td><td>属于类，不属于某个实例</td></tr>
+            <tr><td class="sym"><em>name</em></td><td>abstract</td><td>抽象类或抽象方法，名称用斜体</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="syntax">
+        <h3>成员写法</h3>
+        <div class="code-line"><span class="lbl">属性</span><code>+ name: Type = default</code></div>
+        <div class="code-line"><span class="lbl">方法</span><code>+ name(param: Type): ReturnType</code></div>
+        <div class="code-line"><span class="lbl">泛型</span><code>List&lt;Order&gt;</code></div>
+        <p>可见性符号写在最前面，类型在冒号后，默认值用等号。约束写在花括号里，例如 <code>{readOnly}</code>。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="relations">
+    <div class="sec-head">
+      <p class="sec-kicker">Relationships</p>
+      <h2>六种关系</h2>
+      <p class="sec-intro">先记三句话：三角指向父类或接口，菱形留在整体端，开放箭头指向被依赖者。前四种按耦合由弱到强排列，后两种属于继承轴。</p>
+    </div>
+
+    <div class="rel-grid">
+      <article class="rel-card">
+        <div class="rel-fig">
+          <svg viewBox="0 0 360 110" role="img" aria-label="依赖：虚线加开放箭头，箭头指向被依赖的类">
+            <rect x="14" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="60" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">OrderService</text>
+            <rect x="254" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="300" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">PayService</text>
+            <line x1="106" y1="47" x2="254" y2="47" stroke="currentColor" stroke-width="1.4" stroke-dasharray="7 5"/>
+            <path d="M244 42 L254 47 L244 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="180" y="38" text-anchor="middle" font-size="10" class="muted">«use»</text>
+          </svg>
+        </div>
+        <div class="rel-body">
+          <div class="rel-title"><h3>依赖</h3><span class="en">Dependency</span></div>
+          <p>一个类在方法里临时用到另一个类：参数、局部变量、返回值或静态调用。被依赖方变化时，使用方可能受影响。</p>
+          <p class="read">OrderService 调用 PayService，但没有把它保存为成员变量。</p>
+          <div class="code">void submit(Order o, PayService pay)</div>
+        </div>
+      </article>
+
+      <article class="rel-card">
+        <div class="rel-fig">
+          <svg viewBox="0 0 360 110" role="img" aria-label="关联：实线连接两个类，带开放箭头表示可导航，两端标注多重性和角色名">
+            <rect x="14" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="60" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">User</text>
+            <rect x="254" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="300" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">Order</text>
+            <line x1="106" y1="47" x2="254" y2="47" stroke="currentColor" stroke-width="1.4"/>
+            <path d="M244 42 L254 47 L244 52" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="112" y="41" font-size="10" class="muted">1</text>
+            <text x="248" y="41" text-anchor="end" font-size="10" class="muted">0..*</text>
+            <text x="112" y="80" font-size="10" class="muted">buyer</text>
+            <text x="248" y="80" text-anchor="end" font-size="10" class="muted">orders</text>
+          </svg>
+        </div>
+        <div class="rel-body">
+          <div class="rel-title"><h3>关联</h3><span class="en">Association</span></div>
+          <p>两个类之间有长期的结构联系，通常落成成员变量。两端可以标注角色名和多重性。</p>
+          <p class="read">一个 User 对应 0..* 个 Order；buyer 和 orders 是两端扮演的角色名。</p>
+          <div class="code">private List&lt;Order&gt; orders;</div>
+        </div>
+      </article>
+
+      <article class="rel-card">
+        <div class="rel-fig">
+          <svg viewBox="0 0 360 110" role="img" aria-label="聚合：实线加空心菱形，菱形在整体端">
+            <rect x="14" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="60" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">Team</text>
+            <rect x="254" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="300" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">Member</text>
+            <polygon points="106,47 115,41 124,47 115,53" fill="var(--surface)" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <line x1="124" y1="47" x2="254" y2="47" stroke="currentColor" stroke-width="1.4"/>
+            <text x="106" y="80" font-size="10" class="muted">整体</text>
+            <text x="248" y="80" text-anchor="end" font-size="10" class="muted">部分</text>
+          </svg>
+        </div>
+        <div class="rel-body">
+          <div class="rel-title"><h3>聚合</h3><span class="en">Aggregation</span></div>
+          <p>弱的「整体—部分」关系。部分可以脱离整体单独存在，整体销毁时部分通常不受影响。</p>
+          <p class="read">Team 由 Member 组成；成员离开团队后仍然是一个 Member。</p>
+          <div class="code">private List&lt;Member&gt; members;</div>
+        </div>
+      </article>
+
+      <article class="rel-card">
+        <div class="rel-fig">
+          <svg viewBox="0 0 360 110" role="img" aria-label="组合：实线加实心菱形，菱形在整体端">
+            <rect x="14" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="60" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">Order</text>
+            <rect x="254" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="300" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">OrderItem</text>
+            <polygon points="106,47 115,41 124,47 115,53" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+            <line x1="124" y1="47" x2="254" y2="47" stroke="currentColor" stroke-width="1.4"/>
+            <text x="106" y="80" font-size="10" class="muted">整体</text>
+            <text x="248" y="80" text-anchor="end" font-size="10" class="muted">部分</text>
+          </svg>
+        </div>
+        <div class="rel-body">
+          <div class="rel-title"><h3>组合</h3><span class="en">Composition</span></div>
+          <p>强的「整体—部分」关系。部分随整体创建和销毁，脱离整体没有独立意义。</p>
+          <p class="read">Order 由 OrderItem 组成；订单一删，订单项随之删除。</p>
+          <div class="code">private final List&lt;OrderItem&gt; items = new ArrayList&lt;&gt;();</div>
+        </div>
+      </article>
+
+      <article class="rel-card">
+        <div class="rel-fig">
+          <svg viewBox="0 0 360 110" role="img" aria-label="泛化：实线加空心三角，三角指向父类">
+            <rect x="14" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="60" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">AdminUser</text>
+            <rect x="254" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="300" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">User</text>
+            <line x1="106" y1="47" x2="242" y2="47" stroke="currentColor" stroke-width="1.4"/>
+            <polygon points="254,47 242,40 242,54" fill="var(--surface)" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <text x="180" y="38" text-anchor="middle" font-size="10" class="muted">extends</text>
+          </svg>
+        </div>
+        <div class="rel-body">
+          <div class="rel-title"><h3>泛化</h3><span class="en">Generalization</span></div>
+          <p>子类继承父类的属性和方法，是 is-a 关系。空心三角指向父类。</p>
+          <p class="read">AdminUser 是一种 User，继承了 User 的属性和方法。</p>
+          <div class="code">class AdminUser extends User</div>
+        </div>
+      </article>
+
+      <article class="rel-card">
+        <div class="rel-fig">
+          <svg viewBox="0 0 360 110" role="img" aria-label="实现：虚线加空心三角，三角指向接口">
+            <rect x="14" y="30" width="92" height="34" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="60" y="47" text-anchor="middle" dominant-baseline="middle" font-size="11">AlipayPay</text>
+            <rect x="254" y="24" width="92" height="48" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="300" y="38" text-anchor="middle" font-size="9" class="muted">«interface»</text>
+            <text x="300" y="58" text-anchor="middle" font-size="11">PayService</text>
+            <line x1="106" y1="47" x2="242" y2="47" stroke="currentColor" stroke-width="1.4" stroke-dasharray="7 5"/>
+            <polygon points="254,47 242,40 242,54" fill="var(--surface)" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <text x="180" y="38" text-anchor="middle" font-size="10" class="muted">implements</text>
+          </svg>
+        </div>
+        <div class="rel-body">
+          <div class="rel-title"><h3>实现</h3><span class="en">Realization</span></div>
+          <p>类兑现接口定义的契约。虚线加空心三角，三角指向接口。</p>
+          <p class="read">AlipayPay 实现了 PayService 声明的支付能力。</p>
+          <div class="code">class AlipayPay implements PayService</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="note">
+      <span class="mark">i</span>
+      <span>实线表示结构关系，虚线表示临时关系或实现。线上的开放箭头只说明「能从哪里走到哪里」，不改变关系种类。</span>
+    </div>
+  </section>
+
+  <section class="section" id="multiplicity">
+    <div class="sec-head">
+      <p class="sec-kicker">Multiplicity</p>
+      <h2>多重性</h2>
+      <p class="sec-intro">多重性写在关联线的一端，描述「另一端的 1 个对象，对应这一端的多少个对象」。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>写法</th><th>含义</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sym">1</td><td>恰好 1 个</td></tr>
+          <tr><td class="sym">0..1</td><td>0 或 1 个</td></tr>
+          <tr><td class="sym">*</td><td>0 个或多个，等同于 0..*</td></tr>
+          <tr><td class="sym">1..*</td><td>至少 1 个</td></tr>
+          <tr><td class="sym">2..5</td><td>2 到 5 个</td></tr>
+          <tr><td class="sym">n</td><td>恰好 n 个</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="mark">→</span>
+      <span><code>Order 1 —— 0..* OrderItem</code> 读作「一个订单对应零个或多个订单项」：数字标在它描述的那一端，不要写反。</span>
+    </div>
+  </section>
+
+  <section class="section" id="notation">
+    <div class="sec-head">
+      <p class="sec-kicker">Other Notation</p>
+      <h2>其他常见符号</h2>
+      <p class="sec-intro">除了关系线，这几个记号也经常出现在类图里。</p>
+    </div>
+
+    <div class="sym-grid">
+      <article class="sym-card">
+        <div class="mini">
+          <svg viewBox="0 0 300 100" role="img" aria-label="接口的棒棒糖画法：类通过实线连接一个空心圆">
+            <rect x="16" y="34" width="112" height="32" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="72" y="50" text-anchor="middle" dominant-baseline="middle" font-size="10.5">OrderService</text>
+            <line x1="128" y1="50" x2="230" y2="50" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="244" cy="50" r="14" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="244" y="82" text-anchor="middle" font-size="10">PayService</text>
+          </svg>
+        </div>
+        <h3>接口：棒棒糖画法</h3>
+        <p>空心圆表示这个类提供的接口，实线把圆连到类。类框画法则在名称上方写 «interface»。</p>
+      </article>
+
+      <article class="sym-card">
+        <div class="mini">
+          <svg viewBox="0 0 300 100" role="img" aria-label="包的画法：带标签的文件夹形状">
+            <path d="M30 24 h70 v12 h86 v46 h-156 z" fill="var(--surface)" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <text x="46" y="60" font-size="11">com.miaosha.service</text>
+          </svg>
+        </div>
+        <h3>包</h3>
+        <p>带标签的文件夹形状，用来给类分组。包之间也可以画依赖。</p>
+      </article>
+
+      <article class="sym-card">
+        <div class="mini">
+          <svg viewBox="0 0 300 100" role="img" aria-label="注释：折角矩形用虚线连到类">
+            <rect x="20" y="40" width="84" height="30" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <text x="62" y="55" text-anchor="middle" dominant-baseline="middle" font-size="10.5">Order</text>
+            <path d="M152 18 h92 l18 18 v48 h-110 z" fill="var(--surface)" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+            <path d="M244 18 v18 h18" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <text x="162" y="44" font-size="9.5" class="cjk">30 分钟未支付</text>
+            <text x="162" y="60" font-size="9.5" class="cjk">自动关闭订单</text>
+            <line x1="104" y1="55" x2="152" y2="55" stroke="var(--muted)" stroke-width="1" stroke-dasharray="4 3"/>
+          </svg>
+        </div>
+        <h3>注释</h3>
+        <p>折角矩形加一条虚线，用来补充说明，不参与类之间的结构。</p>
+      </article>
+
+      <article class="sym-card">
+        <div class="mini">
+          <svg viewBox="0 0 300 118" role="img" aria-label="枚举：标注 enumeration 的类框，列出常量">
+            <rect x="60" y="8" width="180" height="100" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.4"/>
+            <line x1="60" y1="46" x2="240" y2="46" stroke="currentColor" stroke-width="1.1" opacity="0.55"/>
+            <text x="150" y="24" text-anchor="middle" font-size="9.5" class="muted">«enumeration»</text>
+            <text x="150" y="38" text-anchor="middle" font-size="11">OrderStatus</text>
+            <text x="76" y="66" font-size="10.5">UNPAID</text>
+            <text x="76" y="84" font-size="10.5">PAID</text>
+            <text x="76" y="102" font-size="10.5">CANCELLED</text>
+          </svg>
+        </div>
+        <h3>枚举</h3>
+        <p>«enumeration» 类框里列出有限个常量，方法栏通常省略。</p>
+      </article>
+
+      <article class="sym-card sym-wide">
+        <h3>文字记号</h3>
+        <div class="tokens">
+          <div class="token-row"><span class="t">抽象类</span><span>类名用斜体，或者标注 <code>{abstract}</code>。</span></div>
+          <div class="token-row"><span class="t">构造型</span><span><code>«service»</code>、<code>«entity»</code>、<code>«repository»</code> 写在类名上方。</span></div>
+          <div class="token-row"><span class="t">模板类</span><span>右上角画一个虚线小框写 <code>T</code>，如 <code>Repository&lt;T&gt;</code>。</span></div>
+          <div class="token-row"><span class="t">约束</span><span><code>{ordered}</code>、<code>{unique}</code>、<code>{readOnly}</code> 写在元素旁边。</span></div>
+          <div class="token-row"><span class="t">接口（类框）</span><span>名称上方一行 <code>«interface»</code>，名称可以用斜体。</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="mistakes">
+    <div class="sec-head">
+      <p class="sec-kicker">Common Mistakes</p>
+      <h2>最容易画错的几处</h2>
+      <p class="sec-intro">这些符号长得像，含义却差得很远。先看末端装饰，再看线型。</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>符号</th><th>正确含义</th><th>常见误用</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">实线 + 空心三角</td><td>泛化 / 继承</td><td>三角画向子类</td></tr>
+          <tr><td class="mono">虚线 + 空心三角</td><td>实现</td><td>画成实线，变成继承</td></tr>
+          <tr><td class="mono">实线 + 空心菱形</td><td>聚合</td><td>菱形画在「部分」那一端</td></tr>
+          <tr><td class="mono">实线 + 实心菱形</td><td>组合</td><td>与聚合混用，忽略生命周期</td></tr>
+          <tr><td class="mono">虚线 + 开放箭头</td><td>依赖</td><td>当成成员变量的关联</td></tr>
+          <tr><td class="mono">实线 + 开放箭头</td><td>可导航关联</td><td>以为箭头代表继承</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note warn">
+      <span class="mark">!</span>
+      <span>判断聚合还是组合，只看生命周期：部分能独立存在，用空心菱形；部分随整体消亡，用实心菱形。</span>
+    </div>
+    <div class="note warn">
+      <span class="mark">!</span>
+      <span>多重性标在它描述的那一端：<code>Order 1 —— 0..* OrderItem</code> 是一个订单对应多个订单项。写反是最常见的错误。</span>
+    </div>
+  </section>
+
+  <section class="section" id="example">
+    <div class="sec-head">
+      <p class="sec-kicker">Putting It Together</p>
+      <h2>综合示例</h2>
+      <p class="sec-intro">把上面的符号放进一张电商下单场景的类图。窄屏可以横向滚动查看。</p>
+    </div>
+
+    <figure class="example">
+      <div class="fig-frame">
+        <svg viewBox="0 0 880 430" role="img" aria-label="电商下单类图示例：User 与 Order 关联，Order 组合 OrderItem，Order 依赖 PayService，AlipayPay 实现 PayService，VipUser 继承 User，OrderItem 关联 Product">
+          <rect x="30" y="36" width="130" height="52" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="95" y="62" text-anchor="middle" dominant-baseline="middle" font-size="11">User</text>
+          <rect x="320" y="36" width="130" height="52" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="385" y="62" text-anchor="middle" dominant-baseline="middle" font-size="11">Order</text>
+          <rect x="650" y="36" width="130" height="52" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="715" y="62" text-anchor="middle" dominant-baseline="middle" font-size="11">OrderItem</text>
+          <rect x="30" y="156" width="130" height="46" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="95" y="179" text-anchor="middle" dominant-baseline="middle" font-size="11">VipUser</text>
+          <rect x="30" y="280" width="130" height="52" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="95" y="306" text-anchor="middle" dominant-baseline="middle" font-size="11">AlipayPay</text>
+          <rect x="320" y="280" width="130" height="52" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="385" y="298" text-anchor="middle" font-size="9" class="muted">«interface»</text>
+          <text x="385" y="316" text-anchor="middle" font-size="11">PayService</text>
+          <rect x="650" y="280" width="130" height="52" rx="2" fill="var(--surface)" stroke="currentColor" stroke-width="1.5"/>
+          <text x="715" y="306" text-anchor="middle" dominant-baseline="middle" font-size="11">Product</text>
+
+          <line x1="160" y1="62" x2="320" y2="62" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M310 57 L320 62 L310 67" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="170" y="55" font-size="10" class="muted">1</text>
+          <text x="310" y="55" text-anchor="end" font-size="10" class="muted">0..*</text>
+
+          <polygon points="450,62 459,56 468,62 459,68" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          <line x1="468" y1="62" x2="650" y2="62" stroke="currentColor" stroke-width="1.5"/>
+          <text x="640" y="55" text-anchor="end" font-size="10" class="muted">1..*</text>
+
+          <line x1="95" y1="156" x2="95" y2="100" stroke="currentColor" stroke-width="1.5"/>
+          <polygon points="88,100 95,88 102,100" fill="var(--surface)" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <text x="106" y="130" font-size="10" class="muted">extends</text>
+
+          <line x1="385" y1="88" x2="385" y2="280" stroke="currentColor" stroke-width="1.5" stroke-dasharray="7 5"/>
+          <path d="M380 270 L385 280 L390 270" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="394" y="188" font-size="10" class="muted">«use»</text>
+
+          <line x1="160" y1="306" x2="308" y2="306" stroke="currentColor" stroke-width="1.5" stroke-dasharray="7 5"/>
+          <polygon points="320,306 308,299 308,313" fill="var(--surface)" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+          <text x="240" y="298" text-anchor="middle" font-size="10" class="muted">implements</text>
+
+          <line x1="715" y1="88" x2="715" y2="280" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M710 270 L715 280 L720 270" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="724" y="112" font-size="10" class="muted">*</text>
+          <text x="724" y="268" font-size="10" class="muted">1</text>
+        </svg>
+      </div>
+      <figcaption>User 与 Order 是关联，Order 与 OrderItem 是组合，Order 在提交时依赖 PayService，AlipayPay 实现 PayService，VipUser 继承 User，OrderItem 关联 Product。</figcaption>
+    </figure>
+  </section>
+
+  <footer>
+    <p>按 OMG UML 2.5 规范整理，代码示例使用 Java 语法。不同建模工具的画法略有差异，但线型和末端符号的含义一致。</p>
+  </footer>
+</main>

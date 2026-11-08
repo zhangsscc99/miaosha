@@ -1,0 +1,34 @@
+@startuml symbol-relations
+skinparam classAttributeIconSize 0
+title 符号2-7：六种关系（箭头方向 = 给分点）
+
+' ② 继承 Generalization
+class Animal
+class Dog
+Animal <|-- Dog : ② 继承\n实线+空心三角→指向父类
+
+' ③ 实现 Realization
+interface Payable
+class Alipay
+Payable <|.. Alipay : ③ 实现\n虚线+空心三角→指向接口
+
+' ④ 关联 Association
+class Customer
+class Order
+Customer "1" --> "0..*" Order : ④ 关联\n实线箭头→长期持有(成员变量)
+
+' ⑤ 依赖 Dependency
+class ReportService
+class PDFExporter
+ReportService ..> PDFExporter : ⑤ 依赖\n虚线箭头→临时使用(参数/局部变量)
+
+' ⑥ 组合 Composition
+class House
+class Room
+House *-- Room : ⑥ 组合\n实心菱形在整体端→同生共死
+
+' ⑦ 聚合 Aggregation
+class Team
+class Member
+Team o-- Member : ⑦ 聚合\n空心菱形在整体端→可独立存在
+@enduml

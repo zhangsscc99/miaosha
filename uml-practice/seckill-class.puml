@@ -1,0 +1,72 @@
+@startuml seckill-class
+skinparam classAttributeIconSize 0
+title 秒杀系统核心类图
+
+class MiaoshaController {
+  + doMiaosha(goodsId) : Result
+}
+
+class MiaoshaService {
+  - stockService : StockService
+  - mqSender : MQSender
+  - orderService : OrderService
+  + miaosha(user, goodsId) : Result
+  + verifyPath(user, goodsId) : String
+}
+
+interface StockService {
+  + preDeduct(goodsId) : long
+  + incrBack(goodsId) : void
+  + getStock(goodsId) : long
+}
+
+class RedisStockService {
+  - jedisPool : JedisPool
+  - luaScript : String
+  + preDeduct(goodsId) : long
+  + incrBack(goodsId) : void
+  + getStock(goodsId) : long
+}
+
+class DbStockService {
+  - goodsDao : GoodsDao
+  + preDeduct(goodsId) : long
+  + incrBack(goodsId) : void
+  + getStock(goodsId) : long
+}
+
+class MQSender {
+  - rabbitTemplate : RabbitTemplate
+  + send(msg : MiaoshaMessage) : void
+}
+
+class MiaoshaMessage {
+  - userId : long
+  - goodsId : long
+}
+
+class OrderService {
+  - orderDao : OrderDao
+  - goodsDao : GoodsDao
+  + createOrder(user, goods) : OrderInfo
+}
+
+MiaoshaController ..> MiaoshaService : 依赖（调用）
+MiaoshaService --> StockService : 关联
+MiaoshaService --> MQSender : 关联
+MiaoshaService --> OrderService : 关联
+RedisStockService ..|> StockService : 实现
+DbStockService ..|> StockService : 实现
+MQSender *-- MiaoshaMessage : 组合
+OrderService --> MiaoshaMessage : 关联（消费）
+
+note right of MiaoshaService
+  编排者：预减库存→发消息
+  秒杀特有逻辑集中在这（单一职责）
+end note
+
+note bottom of StockService
+  接口抽象：Redis预减/DB乐观锁可替换
+  → 依赖倒置 + 开闭原则
+end note
+@enduml

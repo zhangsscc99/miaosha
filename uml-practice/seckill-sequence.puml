@@ -1,0 +1,33 @@
+@startuml seckill-sequence
+title 秒杀下单时序图
+
+actor User as 用户
+participant "MiaoshaService" as svc
+participant "RedisStock" as redis
+participant "MQ" as mq
+participant "Consumer" as consumer
+database "DB" as db
+
+用户 -> svc : 1: miaosha(goodsId)
+activate svc
+svc -> redis : 2: preDeduct() Lua原子减
+activate redis
+redis --> svc : 3: stock = 99
+deactivate redis
+
+alt 库存 < 0
+    svc --> 用户 : 4a: 直接返回"已售罄"
+else 库存充足
+    svc -> mq : 4b: send(MiaoshaMessage)
+    svc --> 用户 : 5: 立即返回"排队中"
+    mq -> consumer : 6: consume(msg)
+    activate consumer
+    consumer -> db : 7: createOrder + 乐观锁扣库存\n(update where stock>0)
+    alt DB扣减失败 / 超时
+        consumer -> redis : 8: incrBack() 回补库存
+        note right : 否则超卖：\nRedis已减但订单没建成
+    end
+    deactivate consumer
+end
+deactivate svc
+@enduml

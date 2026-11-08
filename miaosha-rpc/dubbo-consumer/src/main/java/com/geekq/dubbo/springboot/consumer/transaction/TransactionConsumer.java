@@ -1,13 +1,13 @@
 package com.geekq.dubbo.springboot.consumer.transaction;
 
+import com.alibaba.dubbo.config.annotation.Reference;
 import com.geekq.dubbo.springboot.ServiceAPI;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class TransactionConsumer {
 
-    @Autowired
+    @Reference(interfaceClass = ServiceAPI.class)
     private ServiceAPI serviceAPI;
 
     public void sendMessage(String message) {
