@@ -1,0 +1,58 @@
+{
+  "scenario": "ask-follow-w16",
+  "note": "键已经在目标上，槽还没改主。每次从源节点拿到 ASK，再 ASKING 后去目标读。",
+  "pass": true,
+  "workers": 16,
+  "elapsedSec": 4.000129771,
+  "ops": 370784,
+  "qps": 92692.99278440834,
+  "redisCommands": 741574,
+  "redisCpuPercent": 141.49540949980346,
+  "clientCpuPercent": 181.74410372147898,
+  "p50us": 200,
+  "p99us": 500,
+  "p999us": 2000,
+  "maxus": 6687,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7101",
+      "port": 7101,
+      "pid": 8395,
+      "id": "349790b151086c1791db7cc1d6598f4faba63234",
+      "slots": 5461,
+      "flags": "myself,master",
+      "cpuPercent": 86.49719379316606,
+      "rssKB": 9740,
+      "usedMemory": 2602560,
+      "commands": 741570
+    },
+    {
+      "addr": "127.0.0.1:7102",
+      "port": 7102,
+      "pid": 8406,
+      "id": "25d42af1affdf8df367bee46e3ffbf16ec557dbf",
+      "slots": 5462,
+      "flags": "master",
+      "rssKB": 9632,
+      "usedMemory": 2137512,
+      "commands": 2
+    },
+    {
+      "addr": "127.0.0.1:7103",
+      "port": 7103,
+      "pid": 8417,
+      "id": "2db0a681615536d169d77c8c45f2ad7ac1a3eb9b",
+      "slots": 5461,
+      "flags": "master",
+      "cpuPercent": 54.99821570663739,
+      "rssKB": 9468,
+      "usedMemory": 2375112,
+      "commands": 2
+    }
+  ],
+  "extra": {
+    "slot": 13006,
+    "source": "127.0.0.1:7103",
+    "target": "127.0.0.1:7101"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "scenario": "tryagain",
+  "note": "库存键已经迁走、已购集合还在源上时，同一次 EVAL 在两边都是 TRYAGAIN。两个键都到了目标上之后，ASKING 再执行才扣成 4。",
+  "pass": true,
+  "detail": "srcHalf=TRYAGAIN Multiple keys request during rehashing of slot dstHalf=TRYAGAIN Multiple keys request during rehashing of slot srcBoth=ASK 8943 127.0.0.1:7101 dstBoth=1 stock=4",
+  "extra": {
+    "migrateStock": "OK",
+    "migrateWin": "OK",
+    "sourceBoth": "ASK 8943 127.0.0.1:7101",
+    "sourceHalf": "TRYAGAIN Multiple keys request during rehashing of slot",
+    "stock": "4",
+    "targetBoth": "1",
+    "targetHalf": "TRYAGAIN Multiple keys request during rehashing of slot"
+  }
+}

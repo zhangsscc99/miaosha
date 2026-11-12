@@ -1,0 +1,11 @@
+{
+  "scenario": "noreplace",
+  "note": "目标上已经有这个键时，不带 REPLACE 的 MIGRATE 失败。源上的 7 还在，目标上的 9 也还在。",
+  "pass": true,
+  "detail": "migrate=ERR Target instance replied with error: BUSYKEY Target key name already exists. source=7 target=9",
+  "extra": {
+    "migrate": "ERR Target instance replied with error: BUSYKEY Target key name already exists.",
+    "source": "7",
+    "target": "9"
+  }
+}

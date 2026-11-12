@@ -20,6 +20,7 @@
 | [12 本机一个 RocketMQ 5.5.1](12-rocketmq-flush-delay/README.md) | 2026-11-12 已实测 | 胜出者进一个 RocketMQ 进程之后，异步刷盘和同步刷盘差多少，延迟级别的存储时间为什么不能当等待，一个队列为什么喂不满两个消费者，扩到 10 万 / 100 万 / 1000 万点击时自建和按条计费各要什么 |
 | [13 同机 Redis 主从和 WAIT](13-redis-replica-wait/README.md) | 2026-11-12 已实测 | 一个热 key 的从库能不能分担成功扣减，WAIT 比异步复制慢多少，从库断开和 lag 各放进多少写，kill -9 之后主库和从库各剩多少，同机一起读是几倍 |
 | [14 同机 Redis Sentinel](14-redis-sentinel-failover/README.md) | 2026-11-12 已实测 | 主库被 kill -9 以后从库多久开始应答、地址多久改口，quorum 和多数派差在哪，旧主库还活着时已经返回的写入会丢掉多少，每个点击都问地址要多买多少核 |
-| 15 | 还没做 | 真的第二台机器、Redis Cluster 槽迁移、DLedger 还没跑。这台机器没有 dockerd，也没有 kubelet。第 14 章的哨兵和第 13 章的从库都在同一台机器上 |
+| [15 同机 Redis Cluster 的槽](15-redis-cluster-slot/README.md) | 2026-11-12 已实测 | 三个主库为什么没有把一个热 key 变成三倍，MOVED 和 ASK 差在哪，槽迁到一半时 Lua 会怎样，一个主库被杀掉之后活着的槽还能不能读，扩到 10 万 / 100 万 / 1000 万时分片和空转的主库各是什么账 |
+| 16 | 还没做 | Cluster 副本和 CLUSTER FAILOVER、真的第二台机器、DLedger 还没跑。这台机器没有 dockerd，也没有 kubelet。第 15 章的三个主库和第 14 章的哨兵都在同一台机器上 |
 
 面试时先看 [技术报告](REPORT.md)，需要复现再进章节目录执行 `bash run.sh`。

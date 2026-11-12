@@ -1,0 +1,16 @@
+{
+  "scenario": "setslot-third",
+  "note": "SETSLOT NODE 先只打给源节点。第三方的 CLUSTER NODES 还指着旧主库时，GET 会按它自己的地图回 MOVED。",
+  "pass": true,
+  "detail": "get=MOVED 4748 127.0.0.1:7101 agreedMs=-1 owner=349790b151086c1791db7cc1d6598f4faba63234",
+  "extra": {
+    "getOnThird": "MOVED 4748 127.0.0.1:7101",
+    "slot": 4748,
+    "source": "127.0.0.1:7101",
+    "target": "127.0.0.1:7102",
+    "targetID": "25d42af1affdf8df367bee46e3ffbf16ec557dbf",
+    "third": "127.0.0.1:7103",
+    "thirdAgreedMs": -1,
+    "thirdOwnerAtEndOfWait": "349790b151086c1791db7cc1d6598f4faba63234"
+  }
+}

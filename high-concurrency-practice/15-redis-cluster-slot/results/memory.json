@@ -1,0 +1,22 @@
+{
+  "scenario": "memory",
+  "note": "3 万个 200 字节的值。used_memory 增量除以键数。Cluster 和没开 cluster 的进程各写一遍。",
+  "pass": true,
+  "detail": "clusterDelta=9272416 aloneDelta=8662368 usage=288/272",
+  "extra": {
+    "clusterBytesPerKey": 309.08053333333334,
+    "clusterMemoryUsage": 288,
+    "clusterUsedDelta": 9272416,
+    "delta:7101": 3091960,
+    "delta:7102": 3089616,
+    "delta:7103": 3090840,
+    "keys": 30000,
+    "keys:7101": 10004,
+    "keys:7102": 9996,
+    "keys:7103": 10000,
+    "standaloneBytesPerKey": 288.7456,
+    "standaloneMemoryUsage": 272,
+    "standaloneUsedDelta": 8662368,
+    "valueBytes": 200
+  }
+}

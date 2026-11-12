@@ -1,0 +1,22 @@
+{
+  "scenario": "crossslot",
+  "note": "没有同一个 hash tag 时，库存和已购集合不能放进同一次 EVAL。带 tag 的 8 个连接把 100 件卖给 100 个人。",
+  "pass": true,
+  "detail": "cross=CROSSSLOT Keys in request don't hash to the same slot stockLeft=5 tagged ok=100 sold=700 dup=0 err=0 stock=0 winners=100",
+  "extra": {
+    "crossslot": "CROSSSLOT Keys in request don't hash to the same slot",
+    "mget": "CROSSSLOT Keys in request don't hash to the same slot",
+    "plainStockSlot": 14190,
+    "plainWinSlot": 6177,
+    "stockAfterCrossslot": "5",
+    "tag": "t2",
+    "tagSlot": 4748,
+    "taggedDup": 0,
+    "taggedError": "",
+    "taggedErrors": 0,
+    "taggedSoldOut": 700,
+    "taggedStock": "0",
+    "taggedSuccess": 100,
+    "taggedWinners": 100
+  }
+}
