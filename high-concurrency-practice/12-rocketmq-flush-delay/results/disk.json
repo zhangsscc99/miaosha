@@ -1,0 +1,19 @@
+{
+  "scenario": "disk",
+  "note": "CommitLog 按消息总长度往前走。文件本身按 mappedFileSizeCommitLog 预分配，规划用走出的字节，不用整文件除条数。",
+  "pass": true,
+  "detail": "walked=100000 bytes=39700000 per=397.00 preallocDelta=0 allocDelta=39702528 cqDelta=2007040 indexDelta=3203072 tail=0 rss=1217960-\u003e1260160 elapsed=9.521s",
+  "topic": "ms12_disk",
+  "messages": 100000,
+  "payload": 200,
+  "success": 100000,
+  "elapsedSec": 9.5208383,
+  "rssBeforeKB": 1217960,
+  "rssAfterKB": 1260160,
+  "commitLogMessages": 100000,
+  "commitBytes": 39700000,
+  "bytesPerMessage": 397,
+  "allocBytes": 39702528,
+  "consumeQueueAllocBytes": 2007040,
+  "indexAllocBytes": 3203072
+}

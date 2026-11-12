@@ -1,0 +1,13 @@
+{
+  "scenario": "delay",
+  "note": "延迟级别 1 是 1 秒，级别 2 是 5 秒，和发行版默认的前两档一样。用出生时间算，不用第二次写入的存储时间。",
+  "pass": true,
+  "detail": "level=2 expectMs=5000 got=20 early=0 born=5006..5107 store=2..6",
+  "topic": "ms12_delay2",
+  "messages": 20,
+  "deliveries": 20,
+  "minBornMs": 5006,
+  "maxBornMs": 5107,
+  "minStoreMs": 2,
+  "maxStoreMs": 6
+}

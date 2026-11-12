@@ -1,0 +1,9 @@
+{
+  "scenario": "tx",
+  "note": "6 条本地事务提交，3 条回滚，1 条未知。未知的等 broker 回查，回查把它提交。transactionTimeOut=1000，transactionCheckInterval=2000，代码默认是 6000 和 30000。",
+  "pass": true,
+  "detail": "got=7 missing=[] extra=[]",
+  "topic": "ms12_tx",
+  "messages": 10,
+  "unique": 7
+}

@@ -1,0 +1,10 @@
+{
+  "scenario": "dedup",
+  "note": "broker 不按业务键去重。120 次发送，应用按用户收成 100。",
+  "pass": true,
+  "detail": "unique=100 deliveries=120 sent=120",
+  "topic": "ms12_dedup",
+  "messages": 120,
+  "deliveries": 120,
+  "unique": 100
+}

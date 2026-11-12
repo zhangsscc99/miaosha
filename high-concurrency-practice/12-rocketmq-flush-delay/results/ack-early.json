@@ -1,0 +1,10 @@
+{
+  "scenario": "ack-early",
+  "note": "先返回成功再决定记不记。id 能被 5 整除的 20 条不记。同一组再启动，第二次不应该再读到。",
+  "pass": true,
+  "detail": "first=100 orders=80 second=0",
+  "topic": "ms12_ack",
+  "messages": 100,
+  "deliveries": 100,
+  "orders": 80
+}

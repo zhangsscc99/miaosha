@@ -1,0 +1,31 @@
+{
+  "scenario": "produce",
+  "note": "同步发送，等 broker 返回。oneway 只表示调用返回，不是已经落盘。",
+  "pass": true,
+  "detail": "ok=127076 err=0 qps=31767 elapsed=4.000s p99us=1000 maxus=10000 queues=[0 1 2 3 4 5 6 7] brokerCPU=217.0 clientCPU=96.5",
+  "topic": "ms12_p8",
+  "queues": 8,
+  "workers": 8,
+  "payload": 200,
+  "success": 127076,
+  "qps": 31767.33312038017,
+  "elapsedSec": 4.000209886,
+  "p50us": 500,
+  "p99us": 1000,
+  "maxus": 10000,
+  "brokerCpuPercent": 216.9886142819257,
+  "clientCpuPercent": 96.49493676592547,
+  "brokerRssKB": 1175904,
+  "rssBeforeKB": 1129644,
+  "routeMs": 2,
+  "queueIds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ]
+}

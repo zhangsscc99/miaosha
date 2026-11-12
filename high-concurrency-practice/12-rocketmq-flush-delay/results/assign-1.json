@@ -1,0 +1,16 @@
+{
+  "scenario": "assign",
+  "note": "集群消费里一个队列只分给组内一个消费者。队列比消费者少时，多出来的消费者是 0。",
+  "pass": true,
+  "detail": "counts=[1000 0] sum=1000 deliveries=1000 zeros=1",
+  "topic": "ms12_assign1",
+  "queues": 1,
+  "consumers": 2,
+  "messages": 1000,
+  "deliveries": 1000,
+  "unique": 1000,
+  "counts": [
+    1000,
+    0
+  ]
+}

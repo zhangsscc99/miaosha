@@ -1,0 +1,10 @@
+{
+  "scenario": "retry",
+  "note": "maxReconsumeTimes=2。消费失败后 broker 在重试次数达到 2 时把消息放进 %DLQ%。级别 3 和 4 在这次的配置里是 1 秒，不是发行版的 10 秒和 30 秒。",
+  "pass": true,
+  "detail": "attempts=24 dlq=8 wantAttempts=24 wantDlq=8",
+  "topic": "ms12_retry",
+  "messages": 8,
+  "dlq": 8,
+  "attempts": 24
+}

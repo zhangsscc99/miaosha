@@ -1,0 +1,11 @@
+{
+  "scenario": "seed",
+  "note": "同步发送指定条数，返回之后才允许杀进程。",
+  "pass": true,
+  "detail": "sent=100 err=0 elapsed=0.032s",
+  "topic": "ms12_crash_mmap_1",
+  "messages": 100,
+  "payload": 200,
+  "success": 100,
+  "elapsedSec": 0.031591093
+}
