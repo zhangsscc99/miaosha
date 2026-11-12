@@ -1,0 +1,173 @@
+{
+  "downAfterMs": 500,
+  "pass": true,
+  "poll": "5ms",
+  "samples": [
+    {
+      "addrUs": {
+        "26379": 2065812,
+        "26380": 1985502,
+        "26381": 2059152
+      },
+      "agreed": 3,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 51502
+        },
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1082637
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2060524
+        }
+      ],
+      "firstAddrUs": 1985502,
+      "firstEventUs": {
+        "+sdown": 51502,
+        "+switch-master": 2060524
+      },
+      "firstRoleUs": 1406131,
+      "i": 0,
+      "killDoneUs": 20302,
+      "marks": null,
+      "monitorLine": "sentinel monitor miaosha 127.0.0.1 6380 2",
+      "newPort": 6380,
+      "pingUs": 1406541,
+      "promoted": true,
+      "replicaofLines": null,
+      "samplePass": true,
+      "stockAfter": "100",
+      "stockOk": true,
+      "subscribed": 26379
+    },
+    {
+      "addrUs": {
+        "26379": 2256317,
+        "26380": 2195119,
+        "26381": 2256317
+      },
+      "agreed": 3,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 121932
+        },
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1106948
+        },
+        {
+          "ch": "+odown",
+          "payload": "master miaosha 127.0.0.1 6379 #quorum 3/2",
+          "us": 2200887
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2254186
+        }
+      ],
+      "firstAddrUs": 2195119,
+      "firstEventUs": {
+        "+odown": 2200887,
+        "+sdown": 121932,
+        "+switch-master": 2254186
+      },
+      "firstRoleUs": 1451910,
+      "i": 1,
+      "killDoneUs": 20309,
+      "marks": null,
+      "monitorLine": "sentinel monitor miaosha 127.0.0.1 6380 2",
+      "newPort": 6380,
+      "pingUs": 1452415,
+      "promoted": true,
+      "replicaofLines": null,
+      "samplePass": true,
+      "stockAfter": "100",
+      "stockOk": true,
+      "subscribed": 26379
+    },
+    {
+      "addrUs": {
+        "26379": 2160974,
+        "26380": 2098593,
+        "26381": 2152437
+      },
+      "agreed": 3,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 88227
+        },
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1206479
+        },
+        {
+          "ch": "+odown",
+          "payload": "master miaosha 127.0.0.1 6379 #quorum 2/2",
+          "us": 1290554
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2155759
+        }
+      ],
+      "firstAddrUs": 2098593,
+      "firstEventUs": {
+        "+odown": 1290554,
+        "+sdown": 88227,
+        "+switch-master": 2155759
+      },
+      "firstRoleUs": 1513927,
+      "i": 2,
+      "killDoneUs": 20357,
+      "marks": null,
+      "monitorLine": "sentinel monitor miaosha 127.0.0.1 6380 2",
+      "newPort": 6380,
+      "pingUs": 1515011,
+      "promoted": true,
+      "replicaofLines": null,
+      "samplePass": true,
+      "stockAfter": "100",
+      "stockOk": true,
+      "subscribed": 26379
+    }
+  ],
+  "scenario": "failover-500"
+}

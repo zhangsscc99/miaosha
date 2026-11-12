@@ -19,6 +19,7 @@
 | [11 本机一个 RabbitMQ 4.4.0](11-rabbitmq-winner-queue/README.md) | 2026-11-12 已实测 | 胜出者进一个 RabbitMQ 进程之后，manual 和不确认会留下多少未确认消息，prefetch 1 为什么喂不满，confirm 要等多少，单节点 quorum 在 kill -9 之后还剩几条，扩到 10 万 / 100 万 / 1000 万点击时队列和云上按条计费各要什么 |
 | [12 本机一个 RocketMQ 5.5.1](12-rocketmq-flush-delay/README.md) | 2026-11-12 已实测 | 胜出者进一个 RocketMQ 进程之后，异步刷盘和同步刷盘差多少，延迟级别的存储时间为什么不能当等待，一个队列为什么喂不满两个消费者，扩到 10 万 / 100 万 / 1000 万点击时自建和按条计费各要什么 |
 | [13 同机 Redis 主从和 WAIT](13-redis-replica-wait/README.md) | 2026-11-12 已实测 | 一个热 key 的从库能不能分担成功扣减，WAIT 比异步复制慢多少，从库断开和 lag 各放进多少写，kill -9 之后主库和从库各剩多少，同机一起读是几倍 |
-| 14 | 还没做 | Sentinel 自动切换、真的第二台机器、DLedger 还没跑。这台机器没有 dockerd，也没有 kubelet。第 13 章的 2 毫秒是本机代理里的 sleep |
+| [14 同机 Redis Sentinel](14-redis-sentinel-failover/README.md) | 2026-11-12 已实测 | 主库被 kill -9 以后从库多久开始应答、地址多久改口，quorum 和多数派差在哪，旧主库还活着时已经返回的写入会丢掉多少，每个点击都问地址要多买多少核 |
+| 15 | 还没做 | 真的第二台机器、Redis Cluster 槽迁移、DLedger 还没跑。这台机器没有 dockerd，也没有 kubelet。第 14 章的哨兵和第 13 章的从库都在同一台机器上 |
 
 面试时先看 [技术报告](REPORT.md)，需要复现再进章节目录执行 `bash run.sh`。

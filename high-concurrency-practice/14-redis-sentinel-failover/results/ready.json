@@ -1,0 +1,55 @@
+{
+  "ckquorum": "OK 3 usable Sentinels. Quorum and failover authorization can be reached",
+  "debug": {
+    "ASK-PERIOD": "1000",
+    "DEFAULT-DOWN-AFTER": "30000",
+    "DEFAULT-FAILOVER-TIMEOUT": "180000",
+    "ELECTION-TIMEOUT": "10000",
+    "INFO-PERIOD": "200",
+    "MIN-LINK-RECONNECT-PERIOD": "15000",
+    "PING-PERIOD": "1000",
+    "PUBLISH-PERIOD": "200",
+    "SCRIPT-MAX-RUNTIME": "60000",
+    "SCRIPT-RETRY-DELAY": "30000",
+    "SLAVE-RECONF-TIMEOUT": "10000",
+    "TILT-PERIOD": "30000",
+    "TILT-TRIGGER": "2000"
+  },
+  "infoPeriodMs": "200",
+  "pass": true,
+  "pingPeriodMs": "1000",
+  "procs": [
+    {
+      "pid": 8528,
+      "port": 6379,
+      "rssKB": 6372,
+      "usedMemory": 1247648
+    },
+    {
+      "pid": 8534,
+      "port": 6380,
+      "rssKB": 6284,
+      "usedMemory": 1224344
+    },
+    {
+      "pid": 8541,
+      "port": 26379,
+      "rssKB": 6164,
+      "usedMemory": 0
+    },
+    {
+      "pid": 8547,
+      "port": 26380,
+      "rssKB": 6124,
+      "usedMemory": 0
+    },
+    {
+      "pid": 8553,
+      "port": 26381,
+      "rssKB": 6052,
+      "usedMemory": 0
+    }
+  ],
+  "publishPeriodMs": "200",
+  "scenario": "ready"
+}

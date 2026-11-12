@@ -1,0 +1,6 @@
+{
+  "clientReconfigScript": "",
+  "error": "redis: ERR Reconfiguration of scripts path is denied for security reasons. Check the deny-scripts-reconfig configuration directive in your Sentinel configuration",
+  "pass": true,
+  "scenario": "deny-script"
+}
