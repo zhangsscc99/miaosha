@@ -1,0 +1,51 @@
+{
+  "scenario": "hash-skew",
+  "note": "流量全部打到 0 号桶。1 号桶的库存会剩下来，不能当成还能卖。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 32,
+  "elapsedSec": 0.023540933,
+  "ops": 4000,
+  "qps": 169916.799814179,
+  "success": 50,
+  "soldOut": 3500,
+  "duplicate": 450,
+  "errors": 0,
+  "initialStock": 100,
+  "finalStock": 50,
+  "winners": 50,
+  "redisCommands": 11652,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "redisRssKB": 13072,
+  "usedMemory": 4150592,
+  "p50us": 0,
+  "p99us": 0,
+  "p999us": 0,
+  "maxus": 0,
+  "pass": true,
+  "detail": "stock0=50 win0=50 final0=0 stock1=50 win1=0 final1=50 overlap=0 fatLeft=0",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7507,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6644,
+      "usedMemory": 2392680,
+      "finalStock": 0,
+      "winners": 50
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7513,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6428,
+      "usedMemory": 1757912,
+      "finalStock": 50,
+      "winners": 0
+    }
+  ]
+}

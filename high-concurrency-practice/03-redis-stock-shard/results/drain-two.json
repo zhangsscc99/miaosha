@@ -1,0 +1,51 @@
+{
+  "scenario": "drain-two",
+  "note": "同样的库存对半放到两个进程，卖完的墙钟时间。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 32,
+  "elapsedSec": 0.744606196,
+  "ops": 201184,
+  "qps": 268598.35584822344,
+  "success": 200000,
+  "soldOut": 1184,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 200000,
+  "finalStock": 0,
+  "winners": 200000,
+  "redisCommands": 1003554,
+  "redisCpuSec": 1.42,
+  "redisCpuPercent": 190.41646177453092,
+  "clientCpuSec": 1.27,
+  "clientCpuPercent": 170.30204679834807,
+  "redisRssKB": 23540,
+  "usedMemory": 11691144,
+  "p50us": 200,
+  "p99us": 500,
+  "p999us": 1000,
+  "maxus": 6392,
+  "pass": true,
+  "detail": "joinSec=0.745734 each=100000",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7507,
+      "cpus": "0-3",
+      "cpuPercent": 95.20823088726546,
+      "rssKB": 11624,
+      "usedMemory": 5847664,
+      "finalStock": 0,
+      "winners": 100000
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7513,
+      "cpus": "0-3",
+      "cpuPercent": 95.20823088726546,
+      "rssKB": 11916,
+      "usedMemory": 5843480,
+      "finalStock": 0,
+      "winners": 100000
+    }
+  ]
+}

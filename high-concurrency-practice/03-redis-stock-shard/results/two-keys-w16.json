@@ -1,0 +1,41 @@
+{
+  "scenario": "two-keys-tps",
+  "note": "两个库存 key 放在同一个进程。Redis 还是一个线程，成功 QPS 不该翻倍。",
+  "addrs": "127.0.0.1:6379",
+  "workers": 16,
+  "elapsedSec": 4.000070189,
+  "ops": 570400,
+  "qps": 142597.49780605664,
+  "success": 570400,
+  "soldOut": 0,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 5000000,
+  "finalStock": 4280979,
+  "winners": 719021,
+  "redisCommands": 2852001,
+  "redisCpuSec": 3.98,
+  "redisCpuPercent": 99.49825407926112,
+  "clientCpuSec": 5.15,
+  "clientCpuPercent": 128.74774083120474,
+  "redisRssKB": 44820,
+  "usedMemory": 32936736,
+  "p50us": 200,
+  "p99us": 200,
+  "p999us": 500,
+  "maxus": 862,
+  "pass": true,
+  "detail": "stock0=2140490 stock1=2140489 win0=359510 win1=359511",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7451,
+      "cpus": "0-3",
+      "cpuPercent": 99.49825407926112,
+      "rssKB": 44820,
+      "usedMemory": 32936736,
+      "finalStock": 4280979,
+      "winners": 719021
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "scenario": "rebalance-lua",
+  "note": "源桶用 Lua 一次取走剩余库存，再 INCRBY 到目标桶。两边的写入都做完时，卖出加剩余等于最初库存。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 16,
+  "elapsedSec": 0.040285728,
+  "ops": 0,
+  "qps": 0,
+  "success": 0,
+  "soldOut": 0,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 200000,
+  "finalStock": 195480,
+  "winners": 4520,
+  "redisCommands": 0,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "redisRssKB": 13396,
+  "usedMemory": 3459024,
+  "p50us": 0,
+  "p99us": 0,
+  "p999us": 0,
+  "maxus": 0,
+  "pass": true,
+  "detail": "taken=195480 accounted=200000 movedTo0=195480",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7507,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6516,
+      "usedMemory": 1439768,
+      "finalStock": 195480,
+      "winners": 0
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7513,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6880,
+      "usedMemory": 2019256,
+      "finalStock": 0,
+      "winners": 4520
+    }
+  ]
+}

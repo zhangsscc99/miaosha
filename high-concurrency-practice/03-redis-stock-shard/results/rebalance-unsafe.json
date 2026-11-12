@@ -1,0 +1,51 @@
+{
+  "scenario": "rebalance-unsafe",
+  "note": "搬库存用 GET 再 SET。中间还有人在买，按读到的旧值加到另一个进程，账上的库存会变多。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 16,
+  "elapsedSec": 0.060617683,
+  "ops": 0,
+  "qps": 0,
+  "success": 0,
+  "soldOut": 0,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 200000,
+  "finalStock": 196965,
+  "winners": 7633,
+  "redisCommands": 0,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "redisRssKB": 13344,
+  "usedMemory": 3218056,
+  "p50us": 0,
+  "p99us": 0,
+  "p999us": 0,
+  "maxus": 0,
+  "pass": true,
+  "detail": "read=196965 accounted=204598 phantom=4598",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7507,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6516,
+      "usedMemory": 1286168,
+      "finalStock": 196965,
+      "winners": 0
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7513,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6828,
+      "usedMemory": 1931888,
+      "finalStock": 0,
+      "winners": 7633
+    }
+  ]
+}

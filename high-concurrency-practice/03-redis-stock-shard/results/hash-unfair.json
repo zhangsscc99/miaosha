@@ -1,0 +1,51 @@
+{
+  "scenario": "hash-unfair",
+  "note": "流量对半，库存 10 和 90。薄桶先售罄时，厚桶里还有库存，取模用户进不去。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 32,
+  "elapsedSec": 0.013415311,
+  "ops": 4000,
+  "qps": 298166.77377065655,
+  "success": 100,
+  "soldOut": 3000,
+  "duplicate": 900,
+  "errors": 0,
+  "initialStock": 100,
+  "finalStock": 0,
+  "winners": 100,
+  "redisCommands": 11303,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "redisRssKB": 13040,
+  "usedMemory": 4188808,
+  "p50us": 0,
+  "p99us": 0,
+  "p999us": 0,
+  "maxus": 0,
+  "pass": true,
+  "detail": "stock0=10 win0=10 final0=0 stock1=90 win1=90 final1=0 overlap=0 fatLeft=67",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7507,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6568,
+      "usedMemory": 2065048,
+      "finalStock": 0,
+      "winners": 10
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7513,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6472,
+      "usedMemory": 2123760,
+      "finalStock": 0,
+      "winners": 90
+    }
+  ]
+}
