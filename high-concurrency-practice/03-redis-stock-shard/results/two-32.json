@@ -1,0 +1,51 @@
+{
+  "scenario": "two-tps",
+  "note": "成功扣减按 worker 固定分到两个进程。每个进程一份库存、一份已购集合。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 32,
+  "elapsedSec": 2.000045301,
+  "ops": 509437,
+  "qps": 254712.73062929488,
+  "success": 509437,
+  "soldOut": 0,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 4000000,
+  "finalStock": 3416016,
+  "winners": 583984,
+  "redisCommands": 2547187,
+  "redisCpuSec": 3.69,
+  "redisCpuPercent": 184.49582107740468,
+  "clientCpuSec": 3.23,
+  "clientCpuPercent": 161.4963420271049,
+  "redisRssKB": 45696,
+  "usedMemory": 34391032,
+  "p50us": 200,
+  "p99us": 500,
+  "p999us": 1000,
+  "maxus": 6249,
+  "pass": true,
+  "detail": "",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7628,
+      "cpus": "0-3",
+      "cpuPercent": 92.49790487620561,
+      "rssKB": 22780,
+      "usedMemory": 17182048,
+      "finalStock": 1708109,
+      "winners": 291891
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7634,
+      "cpus": "0-3",
+      "cpuPercent": 91.99791620119908,
+      "rssKB": 22916,
+      "usedMemory": 17208984,
+      "finalStock": 1707907,
+      "winners": 292093
+    }
+  ]
+}

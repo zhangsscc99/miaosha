@@ -1,0 +1,51 @@
+{
+  "scenario": "fallback-dup",
+  "note": "同一个用户同时打两个桶，桶之间没有共享的已购集合。库存能卖完，但一个人可以买到两件。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 2,
+  "elapsedSec": 0.002991801,
+  "ops": 200,
+  "qps": 66849.36598390067,
+  "success": 100,
+  "soldOut": 100,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 100,
+  "finalStock": 0,
+  "winners": 100,
+  "redisCommands": 802,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "redisRssKB": 12956,
+  "usedMemory": 2425776,
+  "p50us": 0,
+  "p99us": 0,
+  "p999us": 0,
+  "maxus": 0,
+  "pass": true,
+  "detail": "overlap=50 distinct=50 half=50",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7507,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6512,
+      "usedMemory": 1212872,
+      "finalStock": 0,
+      "winners": 50
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7513,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6444,
+      "usedMemory": 1212904,
+      "finalStock": 0,
+      "winners": 50
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "scenario": "drain-one",
+  "note": "一个进程把库存卖完的墙钟时间。",
+  "addrs": "127.0.0.1:6379",
+  "workers": 32,
+  "elapsedSec": 1.425117761,
+  "ops": 200036,
+  "qps": 140339.27965339558,
+  "success": 200000,
+  "soldOut": 36,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 200000,
+  "finalStock": 0,
+  "winners": 200000,
+  "redisCommands": 1000109,
+  "redisCpuSec": 1.41,
+  "redisCpuPercent": 98.8517901166369,
+  "clientCpuSec": 1.61,
+  "clientCpuPercent": 112.87332062963506,
+  "redisRssKB": 16384,
+  "usedMemory": 10399232,
+  "p50us": 500,
+  "p99us": 500,
+  "p999us": 1000,
+  "maxus": 1024,
+  "pass": true,
+  "detail": "joinSec=1.426378 each=200000",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7451,
+      "cpus": "0-3",
+      "cpuPercent": 98.8517901166369,
+      "rssKB": 16384,
+      "usedMemory": 10399232,
+      "finalStock": 0,
+      "winners": 200000
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "scenario": "hash-correct",
+  "note": "用户按 id 取模进两个进程，库存对半。一人一单只在自己的桶里成立。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 32,
+  "elapsedSec": 0.013396668,
+  "ops": 4000,
+  "qps": 298581.70703342056,
+  "success": 100,
+  "soldOut": 3000,
+  "duplicate": 900,
+  "errors": 0,
+  "initialStock": 100,
+  "finalStock": 0,
+  "winners": 100,
+  "redisCommands": 11302,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "redisRssKB": 12832,
+  "usedMemory": 4101384,
+  "p50us": 0,
+  "p99us": 0,
+  "p999us": 0,
+  "maxus": 0,
+  "pass": true,
+  "detail": "stock0=50 win0=50 final0=0 stock1=50 win1=50 final1=0 overlap=0 fatLeft=0",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7507,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6444,
+      "usedMemory": 2040440,
+      "finalStock": 0,
+      "winners": 50
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7513,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6388,
+      "usedMemory": 2060944,
+      "finalStock": 0,
+      "winners": 50
+    }
+  ]
+}
