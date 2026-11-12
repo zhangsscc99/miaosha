@@ -1,0 +1,29 @@
+{
+  "scenario": "local-multi",
+  "note": "四个独立的固定窗口，各自在 999 和 1000 放行 100。加起来 800。共用一个对象是 200。本地计数器不会替别的进程守额度。",
+  "pass": true,
+  "detail": "4 个对象 800，共用 200",
+  "limit": 100,
+  "windowMs": 1000,
+  "workers": 4,
+  "admits": 800,
+  "finalCount": 200,
+  "rounds": [
+    {
+      "name": "local-0",
+      "admits": 200
+    },
+    {
+      "name": "local-1",
+      "admits": 200
+    },
+    {
+      "name": "local-2",
+      "admits": 200
+    },
+    {
+      "name": "local-3",
+      "admits": 200
+    }
+  ]
+}

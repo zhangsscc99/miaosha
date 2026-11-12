@@ -1,0 +1,80 @@
+{
+  "scenario": "commands",
+  "note": "total_commands_processed 含 EVALSHA 和脚本里的 redis.call。差值已减去收尾那次 INFO。固定窗口拒绝不再 INCR；fixedhot 拒绝也 INCR。",
+  "pass": true,
+  "detail": "all matched",
+  "phases": [
+    {
+      "name": "fixed-admit",
+      "admits": 0,
+      "commands": 4,
+      "want": 4
+    },
+    {
+      "name": "fixed-admit-2",
+      "admits": 0,
+      "commands": 4,
+      "want": 4
+    },
+    {
+      "name": "fixed-reject",
+      "admits": 0,
+      "commands": 2,
+      "want": 2
+    },
+    {
+      "name": "fixedhot-admit",
+      "admits": 0,
+      "commands": 3,
+      "want": 3
+    },
+    {
+      "name": "fixedhot-admit-2",
+      "admits": 0,
+      "commands": 2,
+      "want": 2
+    },
+    {
+      "name": "fixedhot-reject",
+      "admits": 0,
+      "commands": 2,
+      "want": 2
+    },
+    {
+      "name": "slide-admit",
+      "admits": 0,
+      "commands": 5,
+      "want": 5
+    },
+    {
+      "name": "slide-reject",
+      "admits": 0,
+      "commands": 3,
+      "want": 3
+    },
+    {
+      "name": "log-admit",
+      "admits": 0,
+      "commands": 7,
+      "want": 7
+    },
+    {
+      "name": "log-reject",
+      "admits": 0,
+      "commands": 4,
+      "want": 4
+    },
+    {
+      "name": "bucket-admit",
+      "admits": 0,
+      "commands": 4,
+      "want": 4
+    },
+    {
+      "name": "bucket-reject",
+      "admits": 0,
+      "commands": 4,
+      "want": 4
+    }
+  ]
+}

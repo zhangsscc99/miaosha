@@ -1,0 +1,13 @@
+{
+  "scenario": "interceptor-forced",
+  "note": "128 个调用都先 GET 到空，再各自 SETEX 1。代码在两次调用之间没有原子性，这个交错是允许的。",
+  "pass": true,
+  "detail": "nil 128 admits 128 final 1 errors 0",
+  "limit": 5,
+  "windowMs": 5000,
+  "workers": 128,
+  "attempts": 128,
+  "admits": 128,
+  "finalCount": 1,
+  "members": 128
+}

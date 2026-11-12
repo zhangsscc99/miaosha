@@ -1,0 +1,25 @@
+{
+  "scenario": "realclock-log",
+  "algo": "log",
+  "note": "now=0，窗口用 Redis TIME。先用同样长度的管线量墙钟，再提前这个时间加 20ms 站到秒边界前。第二段要在边界后 50ms 内开始，自身墙钟不超过 80ms，否则换一次。固定窗口两侧都要满额。滑动日志第二段是 0。滑动计数和令牌桶第二段要小于上限的五分之一。",
+  "pass": true,
+  "detail": "warmup 1.1ms; 前 100 后 0，第一段墙钟 1.12ms，间隔 20ms，第二段墙钟 0.53ms，尝试 1 次",
+  "limit": 100,
+  "windowMs": 1000,
+  "admitsBefore": 100,
+  "logicalGapMs": 20,
+  "wallMs": 1.64977,
+  "clockAttempts": [
+    {
+      "admitsBefore": 100,
+      "admitsAfter": 0,
+      "redisMsStart": 1794494310979,
+      "redisMsMid": 1794494310980,
+      "redisMsEnd": 1794494311000,
+      "wallBeforeMs": 1.121529,
+      "wallAfterMs": 0.528241,
+      "gapMs": 20,
+      "ok": true
+    }
+  ]
+}
