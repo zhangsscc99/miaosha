@@ -1,0 +1,45 @@
+{
+  "pass": true,
+  "rounds": [
+    {
+      "demoteUs": 1801205,
+      "firstSetUs": 4929,
+      "i": 0,
+      "keptOnNew": "from-new",
+      "keptOnOld": "from-new",
+      "reconfErr": "",
+      "replicaof": [
+        "replicaof 127.0.0.1 6380"
+      ],
+      "roundPass": true,
+      "zombieSets": 96880
+    },
+    {
+      "demoteUs": 81763,
+      "firstSetUs": 4836,
+      "i": 1,
+      "keptOnNew": "from-new",
+      "keptOnOld": "from-new",
+      "reconfErr": "",
+      "replicaof": [
+        "replicaof 127.0.0.1 6380"
+      ],
+      "roundPass": true,
+      "zombieSets": 4308
+    },
+    {
+      "demoteUs": 1388765,
+      "firstSetUs": 3263,
+      "i": 2,
+      "keptOnNew": "from-new",
+      "keptOnOld": "from-new",
+      "reconfErr": "",
+      "replicaof": [
+        "replicaof 127.0.0.1 6380"
+      ],
+      "roundPass": true,
+      "zombieSets": 74433
+    }
+  ],
+  "scenario": "zombie"
+}

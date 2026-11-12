@@ -1,0 +1,90 @@
+{
+  "addrUs": {
+    "26379": 2218744,
+    "26380": 2274523,
+    "26381": 2274523
+  },
+  "agreed": 3,
+  "endAddrs": {
+    "26379": 6380,
+    "26380": 6380,
+    "26381": 6380
+  },
+  "endRoles": {
+    "6380": "master",
+    "6381": "slave",
+    "6381-master": "6380",
+    "6381-state": "connected"
+  },
+  "events": [
+    {
+      "ch": "+sdown",
+      "payload": "master miaosha 127.0.0.1 6379",
+      "us": 85754
+    },
+    {
+      "ch": "+sdown",
+      "payload": "master miaosha 127.0.0.1 6379",
+      "us": 1107185
+    },
+    {
+      "ch": "+odown",
+      "payload": "master miaosha 127.0.0.1 6379 #quorum 2/2",
+      "us": 1180694
+    },
+    {
+      "ch": "+try-failover",
+      "payload": "master miaosha 127.0.0.1 6379",
+      "us": 1180696
+    },
+    {
+      "ch": "+elected-leader",
+      "payload": "master miaosha 127.0.0.1 6379",
+      "us": 1247721
+    },
+    {
+      "ch": "+selected-slave",
+      "payload": "slave 127.0.0.1:6380 127.0.0.1 6380 @ miaosha 127.0.0.1 6379",
+      "us": 1331464
+    },
+    {
+      "ch": "+promoted-slave",
+      "payload": "slave 127.0.0.1:6380 127.0.0.1 6380 @ miaosha 127.0.0.1 6379",
+      "us": 2221490
+    }
+  ],
+  "firstAddrUs": 2218744,
+  "firstEventUs": {
+    "+elected-leader": 1247721,
+    "+odown": 1180694,
+    "+promoted-slave": 2221490,
+    "+sdown": 85754,
+    "+selected-slave": 1331464,
+    "+try-failover": 1180696
+  },
+  "firstRoleUs": 1406816,
+  "killDoneUs": 20377,
+  "marks": null,
+  "newPort": 6380,
+  "pass": true,
+  "pingUs": 1408540,
+  "promoted": true,
+  "r2Master": 6380,
+  "r2Role": "slave",
+  "r2State": "connected",
+  "reconfErr": "",
+  "replicasBefore": [
+    {
+      "flags": "slave",
+      "port": "6381",
+      "slave-priority": "0"
+    },
+    {
+      "flags": "slave",
+      "port": "6380",
+      "slave-priority": "100"
+    }
+  ],
+  "scenario": "priority",
+  "subscribed": 26379
+}

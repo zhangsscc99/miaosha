@@ -1,0 +1,513 @@
+{
+  "delay2ms": [
+    {
+      "addrUs": {
+        "26379": 2135661,
+        "26380": 2068308,
+        "26381": 2135661
+      },
+      "agreed": 3,
+      "delayUs": 2000,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 956521
+        },
+        {
+          "ch": "+odown",
+          "payload": "master miaosha 127.0.0.1 6379 #quorum 3/2",
+          "us": 2067243
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2134596
+        }
+      ],
+      "final": 12640,
+      "firstAddrUs": 2068308,
+      "firstEventUs": {
+        "+odown": 2067243,
+        "+sdown": 956521,
+        "+switch-master": 2134596
+      },
+      "firstRoleUs": 1275607,
+      "i": 0,
+      "lastAck": 12640,
+      "loopErr": "read tcp 127.0.0.1:46546-\u003e127.0.0.1:6379: read: connection reset by peer",
+      "loopUs": 250443,
+      "loss": 0,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1276990,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true,
+      "successes": 12640
+    },
+    {
+      "addrUs": {
+        "26379": 2087697,
+        "26380": 2087697,
+        "26381": 1996038
+      },
+      "agreed": 3,
+      "delayUs": 2000,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 947094
+        },
+        {
+          "ch": "+odown",
+          "payload": "master miaosha 127.0.0.1 6379 #quorum 3/2",
+          "us": 2056603
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2085633
+        }
+      ],
+      "final": 13119,
+      "firstAddrUs": 1996038,
+      "firstEventUs": {
+        "+odown": 2056603,
+        "+sdown": 947094,
+        "+switch-master": 2085633
+      },
+      "firstRoleUs": 1271581,
+      "i": 1,
+      "lastAck": 13119,
+      "loopErr": "EOF",
+      "loopUs": 250406,
+      "loss": 0,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1272082,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true,
+      "successes": 13119
+    },
+    {
+      "addrUs": {
+        "26379": 2032139,
+        "26380": 1962143,
+        "26381": 2024557
+      },
+      "agreed": 3,
+      "delayUs": 2000,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 954234
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2026850
+        }
+      ],
+      "final": 12670,
+      "firstAddrUs": 1962143,
+      "firstEventUs": {
+        "+sdown": 954234,
+        "+switch-master": 2026850
+      },
+      "firstRoleUs": 1360772,
+      "i": 2,
+      "lastAck": 12670,
+      "loopErr": "read tcp 127.0.0.1:47018-\u003e127.0.0.1:6379: read: connection reset by peer",
+      "loopUs": 250405,
+      "loss": 0,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1361189,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true,
+      "successes": 12670
+    }
+  ],
+  "delayNote": "local tcp proxy sleep per chunk per direction, not a second machine",
+  "direct": [
+    {
+      "addrUs": {
+        "26379": 1754170,
+        "26380": 1684551,
+        "26381": 1754170
+      },
+      "agreed": 3,
+      "delayUs": 0,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 968672
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 1754960
+        }
+      ],
+      "final": 12311,
+      "firstAddrUs": 1684551,
+      "firstEventUs": {
+        "+sdown": 968672,
+        "+switch-master": 1754960
+      },
+      "firstRoleUs": 1293874,
+      "i": 0,
+      "lastAck": 12310,
+      "loopErr": "EOF",
+      "loopUs": 250484,
+      "loss": -1,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1295294,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true,
+      "successes": 12310
+    },
+    {
+      "addrUs": {
+        "26379": 2094793,
+        "26380": 2008196,
+        "26381": 2087104
+      },
+      "agreed": 3,
+      "delayUs": 0,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1004502
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2089413
+        }
+      ],
+      "final": 11101,
+      "firstAddrUs": 2008196,
+      "firstEventUs": {
+        "+sdown": 1004502,
+        "+switch-master": 2089413
+      },
+      "firstRoleUs": 1358150,
+      "i": 1,
+      "lastAck": 11101,
+      "loopErr": "read tcp 127.0.0.1:33414-\u003e127.0.0.1:6379: read: connection reset by peer",
+      "loopUs": 250748,
+      "loss": 0,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1358694,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true,
+      "successes": 11101
+    },
+    {
+      "addrUs": {
+        "26379": 1815623,
+        "26380": 1888990,
+        "26381": 1888990
+      },
+      "agreed": 3,
+      "delayUs": 0,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 879919
+        },
+        {
+          "ch": "+odown",
+          "payload": "master miaosha 127.0.0.1 6379 #quorum 2/2",
+          "us": 982638
+        },
+        {
+          "ch": "+try-failover",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 982642
+        },
+        {
+          "ch": "+elected-leader",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1073098
+        },
+        {
+          "ch": "+selected-slave",
+          "payload": "slave 127.0.0.1:6380 127.0.0.1 6380 @ miaosha 127.0.0.1 6379",
+          "us": 1132139
+        },
+        {
+          "ch": "+promoted-slave",
+          "payload": "slave 127.0.0.1:6380 127.0.0.1 6380 @ miaosha 127.0.0.1 6379",
+          "us": 1817956
+        },
+        {
+          "ch": "+failover-end",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1889405
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 1889409
+        }
+      ],
+      "final": 11183,
+      "firstAddrUs": 1815623,
+      "firstEventUs": {
+        "+elected-leader": 1073098,
+        "+failover-end": 1889405,
+        "+odown": 982638,
+        "+promoted-slave": 1817956,
+        "+sdown": 879919,
+        "+selected-slave": 1132139,
+        "+switch-master": 1889409,
+        "+try-failover": 982642
+      },
+      "firstRoleUs": 1194055,
+      "i": 2,
+      "lastAck": 11182,
+      "loopErr": "EOF",
+      "loopUs": 250467,
+      "loss": -1,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1194529,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true,
+      "successes": 11182
+    }
+  ],
+  "pass": true,
+  "scenario": "tail",
+  "stale": [
+    {
+      "addrUs": {
+        "26379": 2236363,
+        "26380": 2154255,
+        "26381": 2236363
+      },
+      "agreed": 3,
+      "base": 1482,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 83317
+        },
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1139517
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2236908
+        }
+      ],
+      "extra": 2000,
+      "final": 1482,
+      "firstAddrUs": 2154255,
+      "firstEventUs": {
+        "+sdown": 83317,
+        "+switch-master": 2236908
+      },
+      "firstRoleUs": 1440492,
+      "frozen": 1482,
+      "i": 0,
+      "lastAck": 3482,
+      "linkState": "connect",
+      "loss": 2000,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1441960,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true
+    },
+    {
+      "addrUs": {
+        "26379": 2353965,
+        "26380": 2289563,
+        "26381": 2353965
+      },
+      "agreed": 3,
+      "base": 1427,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 101084
+        },
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1129358
+        },
+        {
+          "ch": "+odown",
+          "payload": "master miaosha 127.0.0.1 6379 #quorum 3/2",
+          "us": 2232544
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2353958
+        }
+      ],
+      "extra": 2000,
+      "final": 1427,
+      "firstAddrUs": 2289563,
+      "firstEventUs": {
+        "+odown": 2232544,
+        "+sdown": 101084,
+        "+switch-master": 2353958
+      },
+      "firstRoleUs": 1480671,
+      "frozen": 1427,
+      "i": 1,
+      "lastAck": 3427,
+      "linkState": "connect",
+      "loss": 2000,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1481236,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true
+    },
+    {
+      "addrUs": {
+        "26379": 2138898,
+        "26380": 2059941,
+        "26381": 2128951
+      },
+      "agreed": 3,
+      "base": 1462,
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380,
+        "26381": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 122013
+        },
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1142653
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2133615
+        }
+      ],
+      "extra": 2000,
+      "final": 1462,
+      "firstAddrUs": 2059941,
+      "firstEventUs": {
+        "+sdown": 122013,
+        "+switch-master": 2133615
+      },
+      "firstRoleUs": 1517722,
+      "frozen": 1462,
+      "i": 2,
+      "lastAck": 3462,
+      "linkState": "connect",
+      "loss": 2000,
+      "marks": null,
+      "newPort": 6380,
+      "pingUs": 1518290,
+      "promoted": true,
+      "samplePass": true,
+      "subscribedAfterKill": true
+    }
+  ],
+  "staleNote": "REPLICAOF 127.0.0.1 1 freezes the replica, then 2000 more INCRs, then kill the master"
+}

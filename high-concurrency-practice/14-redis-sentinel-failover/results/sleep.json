@@ -1,0 +1,57 @@
+{
+  "addrUs": {
+    "26379": 2414599,
+    "26380": 2349011,
+    "26381": 2414599
+  },
+  "agreed": 3,
+  "demoteUs": 4907244,
+  "downAfterMs": 800,
+  "endAddrs": {
+    "26379": 6380,
+    "26380": 6380,
+    "26381": 6380
+  },
+  "endRoles": {
+    "6380": "master"
+  },
+  "events": [
+    {
+      "ch": "+sdown",
+      "payload": "master miaosha 127.0.0.1 6379",
+      "us": 1264460
+    },
+    {
+      "ch": "+odown",
+      "payload": "master miaosha 127.0.0.1 6379 #quorum 3/2",
+      "us": 2375704
+    },
+    {
+      "ch": "+switch-master",
+      "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+      "us": 2415352
+    }
+  ],
+  "firstAddrUs": 2349011,
+  "firstEventUs": {
+    "+odown": 2375704,
+    "+sdown": 1264460,
+    "+switch-master": 2415352
+  },
+  "firstRoleUs": 1663620,
+  "ghostFinal": "",
+  "ghostOK": 374,
+  "ghostPresent": false,
+  "marks": null,
+  "newPort": 6380,
+  "oldPid": 8839,
+  "oldPidStillThere": true,
+  "overlapUs": 892547,
+  "pass": true,
+  "pingUs": 1664628,
+  "promoted": true,
+  "promotedBeforeSleepReturn": true,
+  "scenario": "sleep",
+  "sleepReturnUs": 4000684,
+  "stockAfter": "7"
+}

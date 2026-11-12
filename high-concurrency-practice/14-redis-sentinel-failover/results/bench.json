@@ -1,0 +1,67 @@
+{
+  "get": {
+    "clientCpu": 185,
+    "cpu": 98.8,
+    "errors": 0,
+    "maxus": 5907,
+    "op": "GET",
+    "ops": 926427,
+    "p50us": 100,
+    "p99us": 200,
+    "qps": 231608.9293242205,
+    "saturated": true,
+    "seconds": 4,
+    "target": 6379,
+    "workers": 16
+  },
+  "note": "4s window after 1s warmup, same host, no pipeline",
+  "pass": true,
+  "scenario": "bench",
+  "sentinel": [
+    {
+      "clientCpu": 55.8,
+      "cpu": 46.3,
+      "errors": 0,
+      "maxus": 3010,
+      "op": "get-master-addr-by-name",
+      "ops": 225295,
+      "p50us": 20,
+      "p99us": 50,
+      "qps": 56324.34027908613,
+      "saturated": false,
+      "seconds": 4,
+      "target": 26379,
+      "workers": 1
+    },
+    {
+      "clientCpu": 188.7,
+      "cpu": 98.7,
+      "errors": 0,
+      "maxus": 5655,
+      "op": "get-master-addr-by-name",
+      "ops": 893777,
+      "p50us": 100,
+      "p99us": 200,
+      "qps": 223443.98795606312,
+      "saturated": true,
+      "seconds": 4,
+      "target": 26379,
+      "workers": 16
+    },
+    {
+      "clientCpu": 175.5,
+      "cpu": 97.2,
+      "errors": 0,
+      "maxus": 3773,
+      "op": "get-master-addr-by-name",
+      "ops": 896195,
+      "p50us": 500,
+      "p99us": 1000,
+      "qps": 224040.37453064864,
+      "saturated": true,
+      "seconds": 4,
+      "target": 26379,
+      "workers": 64
+    }
+  ]
+}

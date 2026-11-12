@@ -1,0 +1,30 @@
+{
+  "fresh": {
+    "26379": {
+      "flags": "s_down,master,disconnected",
+      "num-slaves": "0",
+      "port": "6379"
+    },
+    "26380": {
+      "flags": "s_down,master,disconnected",
+      "num-slaves": "0",
+      "port": "6379"
+    },
+    "26381": {
+      "flags": "s_down,master,disconnected",
+      "num-slaves": "0",
+      "port": "6379"
+    }
+  },
+  "monitorLines": [
+    "sentinel monitor miaosha 127.0.0.1 6380 2",
+    "sentinel monitor miaosha 127.0.0.1 6380 2",
+    "sentinel monitor miaosha 127.0.0.1 6380 2"
+  ],
+  "pass": true,
+  "realMasterPort": 6380,
+  "realMasterRole": "master",
+  "restartOK": true,
+  "restartUs": 158777,
+  "scenario": "config-restart"
+}
