@@ -1,0 +1,16 @@
+{
+  "scenario": "sqlite-hotrow",
+  "sync": "NORMAL",
+  "threads": 8,
+  "attempts": 8000,
+  "initialStock": 500,
+  "finalStock": 0,
+  "success": 500,
+  "soldOut": 7500,
+  "errors": 0,
+  "elapsedSec": 0.0462,
+  "qps": 173113.8,
+  "successQps": 10819.6,
+  "pass": true,
+  "note": "SQLite WAL 单行条件更新。无 binlog、无从库，乐观于线上 MySQL 热行。"
+}
