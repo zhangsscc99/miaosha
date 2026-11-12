@@ -1,0 +1,12 @@
+{
+  "scenario": "seed",
+  "note": "同步发送指定条数，返回之后才允许杀进程。",
+  "pass": false,
+  "detail": "sent=1 err=19 elapsed=0.035s first=CODE: 2, DESC: [REJECTREQUEST]system busy, start flow control for a while",
+  "topic": "ms12_crash_pool",
+  "messages": 20,
+  "payload": 200,
+  "success": 1,
+  "errors": 19,
+  "elapsedSec": 0.034571621
+}

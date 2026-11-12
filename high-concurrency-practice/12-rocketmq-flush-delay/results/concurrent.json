@@ -1,0 +1,11 @@
+{
+  "scenario": "concurrent",
+  "note": "消息先写进同一个队列，再启动消费者。0 号睡 400 毫秒。并发消费应该看到后面的号先完成；顺序消费不应该。",
+  "pass": true,
+  "detail": "n=32 got=32 inversion=true orderOk=false head=[1 7 3 8 9 2 12 11]",
+  "topic": "ms12_concurrent",
+  "messages": 32,
+  "deliveries": 32,
+  "unique": 32,
+  "inversion": true
+}

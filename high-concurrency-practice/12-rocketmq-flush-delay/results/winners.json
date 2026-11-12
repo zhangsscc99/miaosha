@@ -1,0 +1,13 @@
+{
+  "scenario": "winners",
+  "note": "5000 条同步发送再读完。墙钟短的话文档不写 CPU。",
+  "pass": true,
+  "detail": "send=0.469s drain=0.041s n=5000 got=5000",
+  "topic": "ms12_winners",
+  "messages": 5000,
+  "payload": 200,
+  "success": 5000,
+  "deliveries": 5000,
+  "elapsedSec": 0.46870119,
+  "drainSec": 0.040827907
+}

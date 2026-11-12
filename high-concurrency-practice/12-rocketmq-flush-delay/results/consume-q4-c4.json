@@ -1,0 +1,18 @@
+{
+  "scenario": "consume",
+  "note": "先把消息写进队列，再启动消费者。耗时含重新分配队列。",
+  "pass": false,
+  "detail": "got=30192 qps=80511 drain=0.375s firstMs=9 storeBytes/msg=395.00",
+  "topic": "ms12_c4",
+  "queues": 4,
+  "consumers": 4,
+  "threads": 4,
+  "messages": 30000,
+  "payload": 200,
+  "deliveries": 30192,
+  "qps": 80511.37995502584,
+  "drainSec": 0.375002888,
+  "firstDelayMs": 9,
+  "bytesPerMessage": 395,
+  "storeSizeSum": 11925840
+}

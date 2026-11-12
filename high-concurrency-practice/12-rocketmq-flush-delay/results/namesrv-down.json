@@ -1,0 +1,9 @@
+{
+  "scenario": "namesrv-down",
+  "note": "先发 1 条把路由放进生产者。再 kill -9 NameServer。老生产者继续发；新生产者在超时里发不出去。",
+  "pass": true,
+  "detail": "cachedOk=50 cachedErr=0 freshFail=true",
+  "topic": "ms12_ns",
+  "cachedOk": 50,
+  "freshFail": true
+}

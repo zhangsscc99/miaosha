@@ -1,0 +1,10 @@
+{
+  "scenario": "count",
+  "note": "重启之后从最早的位点读。expect 是必须相等，expect-less 是必须更少。",
+  "pass": true,
+  "detail": "kept=100 expect=100 expectLess=-1",
+  "topic": "ms12_crash_mmap_2",
+  "messages": 1000,
+  "kept": 100,
+  "storeSizeSum": 40500
+}

@@ -1,0 +1,12 @@
+{
+  "scenario": "broadcast",
+  "note": "广播消费。两个消费者都要拿到全部，不是对半。",
+  "pass": true,
+  "detail": "c1=40 c2=40 want=40",
+  "topic": "ms12_broadcast",
+  "messages": 40,
+  "counts": [
+    40,
+    40
+  ]
+}
