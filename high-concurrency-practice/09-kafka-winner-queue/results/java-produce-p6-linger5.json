@@ -1,0 +1,23 @@
+{
+  "scenario": "java-produce",
+  "name": "p6-linger5",
+  "note": "\u5b98\u65b9 ProducerPerformance\u3002\u767e\u5206\u4f4d\u662f\u5de5\u5177\u6253\u5370\u7684\u6574\u6570\u6beb\u79d2\uff0c\u4e0d\u662f\u76f4\u65b9\u56fe\u6876\u3002\u5806\u662f\u5ba2\u6237\u7aef 512MB\uff0cbroker \u4ecd\u662f 256MB\u3002",
+  "pass": true,
+  "detail": "400000 records sent, 592592.592593 records/sec (113.03 MB/sec), 9.90 ms avg latency, 180.00 ms max latency, 9 ms 50th, 26 ms 95th, 30 ms 99th, 33 ms 99.9th.",
+  "topic": "j-p6",
+  "partitions": 6,
+  "records": 400000,
+  "props": "bootstrap.servers=127.0.0.1:9092 acks=1 linger.ms=5 batch.size=65536 compression.type=none enable.idempotence=false",
+  "elapsedSec": 1.682371498,
+  "brokerCpuPercent": 11.887980760358793,
+  "brokerRssKB": 500156,
+  "sent": 400000.0,
+  "qps": 592592.592593,
+  "mbPerSec": 113.03,
+  "avgMs": 9.9,
+  "maxMs": 180.0,
+  "p50ms": 9.0,
+  "p95ms": 26.0,
+  "p99ms": 30.0,
+  "p999ms": 33.0
+}

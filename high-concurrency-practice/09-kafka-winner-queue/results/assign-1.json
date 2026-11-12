@@ -1,0 +1,18 @@
+{
+  "scenario": "assign",
+  "note": "同一个消费组里，一个分区只会分给一个消费者。分区数是 1 时，第二个进程一条都读不到。",
+  "pass": true,
+  "detail": "assigned=1+0 counts=1000+0",
+  "partitions": 1,
+  "produced": 1000,
+  "deliveries": 1000,
+  "assigned": [
+    1,
+    0
+  ],
+  "counts": [
+    1000,
+    0
+  ],
+  "consumers": 2
+}

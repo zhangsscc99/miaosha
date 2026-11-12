@@ -1,0 +1,23 @@
+{
+  "scenario": "java-produce",
+  "name": "p1-acks-all",
+  "note": "\u5b98\u65b9 ProducerPerformance\u3002\u767e\u5206\u4f4d\u662f\u5de5\u5177\u6253\u5370\u7684\u6574\u6570\u6beb\u79d2\uff0c\u4e0d\u662f\u76f4\u65b9\u56fe\u6876\u3002\u5806\u662f\u5ba2\u6237\u7aef 512MB\uff0cbroker \u4ecd\u662f 256MB\u3002",
+  "pass": true,
+  "detail": "400000 records sent, 439077.936334 records/sec (83.75 MB/sec), 111.02 ms avg latency, 193.00 ms max latency, 139 ms 50th, 169 ms 95th, 175 ms 99th, 175 ms 99.9th.",
+  "topic": "j-all",
+  "partitions": 1,
+  "records": 400000,
+  "props": "bootstrap.servers=127.0.0.1:9092 acks=all linger.ms=5 batch.size=65536 compression.type=none enable.idempotence=true",
+  "elapsedSec": 1.923410899,
+  "brokerCpuPercent": 20.27647863505218,
+  "brokerRssKB": 500256,
+  "sent": 400000.0,
+  "qps": 439077.936334,
+  "mbPerSec": 83.75,
+  "avgMs": 111.02,
+  "maxMs": 193.0,
+  "p50ms": 139.0,
+  "p95ms": 169.0,
+  "p99ms": 175.0,
+  "p999ms": 175.0
+}

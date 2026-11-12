@@ -1,0 +1,10 @@
+{
+  "scenario": "dedup",
+  "note": "幂等生产者只去掉同一次发送的重试。业务上把同一个用户再写一条，日志里仍是两条。消费端用用户 id 收成一单。",
+  "pass": true,
+  "detail": "log=120 unique=100",
+  "produced": 120,
+  "deliveries": 120,
+  "unique": 100,
+  "orders": 100
+}
