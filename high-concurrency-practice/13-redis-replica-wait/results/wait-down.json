@@ -1,0 +1,12 @@
+{
+  "detail": "wait 1 then 0 old=1 newBefore=false after=1",
+  "newKeyOnMaster": true,
+  "newKeyOnReplicaAfter": true,
+  "newKeyOnReplicaBefore": false,
+  "note": "从库断开后 WAIT 返回 0，但主库上的 SET 已经生效，不会回滚。从库在默认配置下仍能读到断开前的旧键。",
+  "oldKeyOnReplica": true,
+  "pass": true,
+  "scenario": "wait-down",
+  "waitDown": 0,
+  "waitOnline": 1
+}

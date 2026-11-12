@@ -1,0 +1,17 @@
+{
+  "backlogAtOOM": 1048592,
+  "debugError": "",
+  "detail": "success=20996 oom=1 extraOOM=20 used=8566312 master=20996 replica=20996 slept=true",
+  "extraOK": 0,
+  "extraOOM": 20,
+  "firstOomMs": 517,
+  "masterKeys": 20996,
+  "note": "这一组把 maxmemory 临时改成 8mb，从库 DEBUG SLEEP。用来看复制缓冲和数据集一起把主库写满。测完改回 64mb。不是 64mb 配置下的容量。",
+  "oom": 1,
+  "pass": true,
+  "replicaKeys": 20996,
+  "scenario": "buffer",
+  "sleptThrough": true,
+  "success": 20996,
+  "usedMemoryAtOOM": 8566312
+}

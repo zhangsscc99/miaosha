@@ -1,0 +1,40 @@
+{
+  "clientCpuPercent": 183.99235525563338,
+  "commandDelta": 5,
+  "delayMs": 0,
+  "detail": "kind=replica qps=229151.7 ops=916645 err=0 p99us=200 masterCPU=0.0 replicaCPU=98.5 clientCPU=184.0 delayMs=0",
+  "elapsedSec": 4.000166197,
+  "errors": 0,
+  "firstError": "",
+  "from": "replica",
+  "masterCpuPercent": 0,
+  "masterRssKB": 7956,
+  "maxus": 4473,
+  "note": "只读从库上的同一个键。主库开着，复制连接闲着。",
+  "ops": 916645,
+  "p50us": 100,
+  "p999us": 500,
+  "p99us": 200,
+  "pass": true,
+  "payload": 16,
+  "qps": 229151.72891752725,
+  "replica2CpuPercent": 0.2499896131190671,
+  "replicaCpuPercent": 98.49590756891243,
+  "replicaRssKB": 8092,
+  "replicas": 1,
+  "scenario": "bench-replica",
+  "sides": [
+    {
+      "errors": 0,
+      "maxus": 4473,
+      "name": "replica",
+      "ops": 916645,
+      "p50us": 100,
+      "p99us": 200,
+      "qps": 229151.72891752725
+    }
+  ],
+  "waitFor": 1,
+  "waitMs": 1000,
+  "workers": 16
+}

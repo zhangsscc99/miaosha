@@ -1,0 +1,12 @@
+{
+  "delayMs": 2,
+  "detail": "delayMs=2 match=0 miss=2000 bad=0 err=0",
+  "errors": 0,
+  "keys": 2000,
+  "match": 0,
+  "mismatch": 0,
+  "miss": 2000,
+  "note": "主库 SET 返回之后立刻读从库。delay 大于 0 时，复制流量经过本机代理，每方向 sleep 一次，不是第二台机器。",
+  "pass": true,
+  "scenario": "stale"
+}

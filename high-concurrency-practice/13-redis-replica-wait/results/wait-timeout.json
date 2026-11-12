@@ -1,0 +1,13 @@
+{
+  "delayMs": 20,
+  "detail": "wait0=30 wait1=0 saw2=30 saw1=0",
+  "iterations": 30,
+  "note": "代理每方向 20 毫秒，WAIT 超时 5 毫秒。超时返回 0 之后又 INCR 一次。WAIT 超时不会把已经写进主库的 INCR 撤掉。",
+  "pass": true,
+  "replicaSaw1": 0,
+  "replicaSaw2": 30,
+  "scenario": "wait-timeout",
+  "wait0": 30,
+  "wait1": 0,
+  "waitMs": 5
+}

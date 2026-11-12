@@ -1,0 +1,14 @@
+{
+  "base": 100,
+  "detail": "wait=1 master=300 replica=100 extra=false",
+  "extra": 200,
+  "masterKeysBeforeKill": 300,
+  "masterPid": 7481,
+  "note": "100 个键已经 WAIT 到从库，然后断开，再写 200 个，kill -9 主库。主库没有 AOF。从库还指着那个没人听的端口。",
+  "pass": true,
+  "replicaHasBase": true,
+  "replicaHasExtra": false,
+  "replicaKeys": 100,
+  "scenario": "loss",
+  "waitReplicas": 1
+}
