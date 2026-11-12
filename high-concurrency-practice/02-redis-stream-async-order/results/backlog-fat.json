@@ -1,0 +1,14 @@
+{
+  "scenario": "backlog",
+  "note": "一条不裁剪的订单流能在 64MB 上限里堆多少条。胜出人数等于库存时这个数字很大；如果每个点击都入队，几秒就会写满。",
+  "pass": true,
+  "detail": "entries=250000 bytesPerEntry=229.8 used=58867984 base=1427184 stopped=memory fat=200 elapsed=4.57s",
+  "elapsedSec": 4.566570259,
+  "initialStock": 200,
+  "redisRssKB": 65848,
+  "usedMemory": 58867984,
+  "memBase": 1427184,
+  "bytesPerEntry": 229.7632,
+  "entries": 250000,
+  "stoppedOn": "memory"
+}

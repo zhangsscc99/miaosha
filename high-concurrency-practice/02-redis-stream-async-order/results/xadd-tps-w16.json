@@ -1,0 +1,21 @@
+{
+  "scenario": "xadd-tps",
+  "note": "只有 XADD，没有扣库存。用来看这条流本身的追加上限，和 Lua 成功路径分开。",
+  "pass": true,
+  "detail": "qps=196462 xlen=10071 mem=1925776 p99us\u003c=200 cpu=99.3%",
+  "workers": 16,
+  "elapsedSec": 3,
+  "qps": 196461.66666666666,
+  "ops": 589385,
+  "success": 589385,
+  "streamLen": 10071,
+  "redisCpuSec": 2.98,
+  "redisCpuPercent": 99.33333333333333,
+  "redisRssKB": 9824,
+  "usedMemory": 1925776,
+  "p50us": 100,
+  "p99us": 200,
+  "p999us": 500,
+  "maxus": 6703,
+  "maxlen": 10000
+}

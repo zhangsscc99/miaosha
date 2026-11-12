@@ -1,0 +1,21 @@
+{
+  "scenario": "xadd-tps",
+  "note": "只有 XADD，没有扣库存。用来看这条流本身的追加上限，和 Lua 成功路径分开。fat 是额外的正文字节，用来接近一条真正的订单消息。",
+  "pass": true,
+  "detail": "qps=137766 xlen=10000 mem=3651456 p99us\u003c=500 cpu=98.7%",
+  "workers": 16,
+  "elapsedSec": 3,
+  "qps": 137766.33333333334,
+  "ops": 413299,
+  "success": 413299,
+  "streamLen": 10000,
+  "redisCpuSec": 2.96,
+  "redisCpuPercent": 98.66666666666667,
+  "redisRssKB": 9912,
+  "usedMemory": 3651456,
+  "p50us": 200,
+  "p99us": 500,
+  "p999us": 500,
+  "maxus": 1880,
+  "maxlen": 10000
+}

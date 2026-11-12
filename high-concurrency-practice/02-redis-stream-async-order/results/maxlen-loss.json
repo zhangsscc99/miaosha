@@ -1,0 +1,9 @@
+{
+  "scenario": "maxlen-loss",
+  "note": "精确 MAXLEN 会裁掉还没 ACK 的旧消息。XAUTOCLAIM 把它们放在删除列表里，订单就找不回来了。近似裁剪只适合压测限内存，不能当消费进度。",
+  "pass": true,
+  "detail": "readPending=200 deletedOnClaim=200 xlenAfterTrim=10",
+  "streamLen": 10,
+  "pending": 200,
+  "deleted": 200
+}

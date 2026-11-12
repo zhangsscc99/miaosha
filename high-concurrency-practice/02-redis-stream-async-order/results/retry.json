@@ -1,0 +1,12 @@
+{
+  "scenario": "retry",
+  "note": "前两次投递在写库前失败并且不 ACK。消息留在 PEL，第三次 XAUTOCLAIM 后写库并 ACK。",
+  "pass": true,
+  "detail": "orders=20 dlq=0 pending=0 failedAttempts=40 maxAttempt=3 deliveries=60",
+  "initialStock": 20,
+  "streamLen": 20,
+  "orders": 20,
+  "deliveries": 60,
+  "failedAttempts": 40,
+  "sqliteSync": "FULL"
+}
