@@ -1,0 +1,3 @@
+# run.sh 在对应 cgroup 里启动 Redis 之后写入。单位字节。进程还没写入测试数据。
+mem256 current=2134016
+mem32 current=2129920
