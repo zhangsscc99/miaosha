@@ -1,0 +1,9 @@
+{
+  "scenario": "reject-publish",
+  "note": "x-max-length=10 且 overflow=reject-publish。多出来的发布被 nack，队列里留下 10 条。不看 confirm 的话，调用方会以为 30 条都发出去了。",
+  "pass": true,
+  "detail": "acks=10 nacks=20 messages=10",
+  "acks": 10,
+  "nacks": 20,
+  "messages": 10
+}

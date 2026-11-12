@@ -1,0 +1,7 @@
+{
+  "scenario": "fanout",
+  "note": "MQConfig 声明了 fanout，但 sendMiaoshaMessage 没走它。一条发布进两个队列，broker 里是两份。按帮助中心的计数，这是两次接收。",
+  "pass": true,
+  "detail": "acks=10 q1=10 q2=10",
+  "acks": 10
+}

@@ -1,0 +1,10 @@
+{
+  "scenario": "dedup",
+  "note": "100 个用户再写 20 条。confirm 不去重。消费端按用户收成 100 单。",
+  "pass": true,
+  "detail": "confirms=120 nacks=0 deliveries=120 users=100",
+  "published": 120,
+  "acks": 120,
+  "orders": 100,
+  "deliveries": 120
+}

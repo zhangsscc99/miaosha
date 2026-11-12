@@ -1,0 +1,7 @@
+{
+  "scenario": "dlx",
+  "note": "nack 且 requeue=false，消息进死信队列。主队列空，订单是 0。",
+  "pass": true,
+  "detail": "main=0 dead=20",
+  "messages": 20
+}

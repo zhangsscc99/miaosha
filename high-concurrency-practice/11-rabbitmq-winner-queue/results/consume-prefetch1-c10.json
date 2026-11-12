@@ -1,0 +1,17 @@
+{
+  "scenario": "consume",
+  "note": "先把持久化消息确认进一个经典队列，再计消费。计时从启动消费者开始，含建立连接。",
+  "pass": true,
+  "detail": "qps=41064 got=100000 elapsedMs=2435.2 ready=0 unacked=0 brokerCpu=209.8 clientCpu=79.7 prefetch=1 consumers=10",
+  "queueType": "classic",
+  "confirms": 100000,
+  "deliveries": 100000,
+  "messages": 100000,
+  "qps": 41064.383076761784,
+  "elapsedSec": 2.435200349,
+  "brokerCpuPercent": 209.83899752225278,
+  "clientCpuPercent": 79.66490316891786,
+  "payload": 200,
+  "prefetch": 1,
+  "consumerN": 10
+}

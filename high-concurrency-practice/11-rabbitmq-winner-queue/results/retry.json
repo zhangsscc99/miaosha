@@ -1,0 +1,8 @@
+{
+  "scenario": "retry",
+  "note": "同一条消息前两次 nack 重新入队，第三次确认并记订单。次数在这个进程里，不是 broker 的投递计数器。经典队列没有 quorum 的 x-delivery-limit。",
+  "pass": true,
+  "detail": "orders=20 deliveries=60 users=20 left=0",
+  "orders": 20,
+  "deliveries": 60
+}
