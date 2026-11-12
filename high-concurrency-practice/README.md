@@ -13,6 +13,7 @@
 | [05 商品详情缓存击穿和 singleflight](05-detail-cache-singleflight/README.md) | 2026-11-12 已实测 | 详情页过期时有多少请求打进数据库，singleflight、分布式锁和逻辑过期各收成几次，热 key 的 GET 为什么不能靠加进程变快 |
 | [06 多 key 同时过期](06-cache-avalanche/README.md) | 2026-11-12 已实测 | 一批 key 一起过期时回源是多少次，TTL 抖动和单个重建者各能压住什么，singleflight 为什么收不掉雪崩 |
 | [07 未支付订单到期关单](07-unpaid-order-delay/README.md) | 2026-11-12 已实测 | 超时关单怎样不多加库存，键 TTL 为什么不是延迟队列，一个连接和 16 个连接差多少，每个点击都建单并留 2 小时要买多少 Redis |
-| 08 Docker / Kubernetes | 还没做 | 上面的进程怎样扩容。这台机器没有容器运行时。当前 cgroup 只下放了 memory，没有 cpu.max，不能写成已经实测 |
+| [08 cgroup 的 CPU 和内存限额](08-cgroup-cpu-limit/README.md) | 2026-11-12 已实测 | Kubernetes 的 limit 和 request 写进 cpu.max、cpu.weight、memory.max 之后，一个热 key 的 QPS 和尾巴怎么变，500m 为什么省不下核，进程被 cgroup 杀掉和 Redis 自己返回 OOM 差在哪 |
+| 09 消息队列进程 | 还没做 | RabbitMQ、Kafka、RocketMQ 的进程还没跑。dockerd 和 kubelet 也没跑，第 8 章只写了它们会写进内核的那三个文件 |
 
 面试时先看 [技术报告](REPORT.md)，需要复现再进章节目录执行 `bash run.sh`。
