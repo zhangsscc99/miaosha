@@ -21,6 +21,7 @@
 | [13 同机 Redis 主从和 WAIT](13-redis-replica-wait/README.md) | 2026-11-12 已实测 | 一个热 key 的从库能不能分担成功扣减，WAIT 比异步复制慢多少，从库断开和 lag 各放进多少写，kill -9 之后主库和从库各剩多少，同机一起读是几倍 |
 | [14 同机 Redis Sentinel](14-redis-sentinel-failover/README.md) | 2026-11-12 已实测 | 主库被 kill -9 以后从库多久开始应答、地址多久改口，quorum 和多数派差在哪，旧主库还活着时已经返回的写入会丢掉多少，每个点击都问地址要多买多少核 |
 | [15 同机 Redis Cluster 的槽](15-redis-cluster-slot/README.md) | 2026-11-12 已实测 | 三个主库为什么没有把一个热 key 变成三倍，MOVED 和 ASK 差在哪，槽迁到一半时 Lua 会怎样，一个主库被杀掉之后活着的槽还能不能读，扩到 10 万 / 100 万 / 1000 万时分片和空转的主库各是什么账 |
-| 16 | 还没做 | Cluster 副本和 CLUSTER FAILOVER、真的第二台机器、DLedger 还没跑。这台机器没有 dockerd，也没有 kubelet。第 15 章的三个主库和第 14 章的哨兵都在同一台机器上 |
+| [16 同机 Redis Cluster 的副本和切换](16-redis-cluster-failover/README.md) | 2026-11-12 已实测 | 副本为什么没有把热 key 的写变成两倍，手动切换、FORCE 和 TAKEOVER 各丢掉多少已经返回的递增，多数派不够时为什么不会自动切换，扩到 10 万 / 100 万 / 1000 万时主库和副本各是一笔什么账 |
+| 17 | 还没做 | 真的第二台机器、DLedger 还没跑。这台机器没有 dockerd，也没有 kubelet。第 16 章的副本和第 15 章的槽都在同一台机器上 |
 
 面试时先看 [技术报告](REPORT.md)，需要复现再进章节目录执行 `bash run.sh`。

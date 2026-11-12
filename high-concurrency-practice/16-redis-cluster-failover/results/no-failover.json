@@ -1,0 +1,26 @@
+{
+  "scenario": "no-failover",
+  "note": "副本上 cluster-replica-no-failover yes。kill -9 主库后等 10 秒。然后在还活着的主库上打开 cluster-allow-reads-when-down。主库没有 AOF，重启是空进程。",
+  "pass": true,
+  "detail": "promoted=false stateFail=2910 own=CLUSTERDOWN The cluster is down ownRead=up set=CLUSTERDOWN The cluster is down and only accepts read commands masterVal=nil replicaVal=MOVED 13006 127.0.0.1:7203",
+  "extra": {
+    "config": "cluster-replica-no-failover yes",
+    "getDead": "CLUSTERDOWN The cluster is down",
+    "getDeadWhenDown": "MOVED 13006 127.0.0.1:7203",
+    "getOwn": "CLUSTERDOWN The cluster is down",
+    "getOwnWhenDown": "up",
+    "healthy": "",
+    "killed": "127.0.0.1:7203",
+    "lastRole": "slave",
+    "promoted": false,
+    "replica": "127.0.0.1:7204",
+    "restartErr": "",
+    "setOwnWhenDown": "CLUSTERDOWN The cluster is down and only accepts read commands",
+    "stateAtEnd": "fail",
+    "stateFailMs": 2910,
+    "survivor": "127.0.0.1:7205",
+    "valueOnReplica": "MOVED 13006 127.0.0.1:7203",
+    "valueOnRestarted": "nil",
+    "waitedMs": 10000
+  }
+}

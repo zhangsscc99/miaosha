@@ -1,0 +1,11 @@
+{
+  "scenario": "failover-on-master",
+  "note": "CLUSTER FAILOVER 打到主库上会被拒绝，角色不变。",
+  "pass": true,
+  "detail": "ERR You should send CLUSTER FAILOVER to a replica role master -\u003e master",
+  "extra": {
+    "after": "master",
+    "before": "master",
+    "reply": "ERR You should send CLUSTER FAILOVER to a replica"
+  }
+}

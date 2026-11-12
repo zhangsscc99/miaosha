@@ -1,0 +1,28 @@
+{
+  "scenario": "takeover-alive",
+  "note": "主库还活着时 CLUSTER FAILOVER TAKEOVER。不选举。两边可能同时是 master，后写进旧主库的递增会在它降成副本时丢掉。",
+  "pass": true,
+  "detail": "both=-1..-1 incrOK=14588 final=14421 oldRoleMs=1",
+  "extra": {
+    "bothMasterFirstMs": -1,
+    "bothMasterLastMs": -1,
+    "cmdErr": "",
+    "cmdMs": 1,
+    "cmdReply": "OK",
+    "final": "14421",
+    "finalMinusIncrOK": -167,
+    "incrErr": 8,
+    "incrMaxMs": 1,
+    "incrOK": 14588,
+    "incrSample": "MOVED 13006 127.0.0.1:7204",
+    "logs": [
+      "9671:S 12 Nov 2026 20:05:11.855 # Taking over the master (user request).",
+      "9671:S 12 Nov 2026 20:05:11.855 # New configEpoch set to 13"
+    ],
+    "master": "127.0.0.1:7203",
+    "oldRole": "slave",
+    "oldRoleMs": 1,
+    "replica": "127.0.0.1:7204",
+    "samples": 16
+  }
+}

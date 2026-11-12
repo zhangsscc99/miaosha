@@ -1,0 +1,49 @@
+{
+  "scenario": "majority",
+  "note": "杀掉 3 个主库里的 2 个。等 10 秒。然后 CLUSTER FAILOVER TAKEOVER。集群仍是 fail 时，关掉 full coverage 也不接受写入。没有第二台机器，没有网络分区。",
+  "pass": true,
+  "detail": "auto=false role=master setDown=CLUSTERDOWN The cluster is down setAfter=CLUSTERDOWN The cluster is down final=before owner=127.0.0.1:7206 pfail=10923 fail=0 probeOK=0",
+  "extra": {
+    "askFromSurvivor": "CLUSTERDOWN The cluster is down",
+    "askOtherDeadSlot": "CLUSTERDOWN The cluster is down",
+    "autoPromoted": false,
+    "cmdErr": "",
+    "cmdMs": 2,
+    "cmdReply": "OK",
+    "coverageErr": "",
+    "final": "before",
+    "healthy": "",
+    "killed": [
+      "127.0.0.1:7202",
+      "127.0.0.1:7203"
+    ],
+    "knownAfter": "6",
+    "ownerAfter": "127.0.0.1:7206",
+    "probe": {
+      "err": 84311,
+      "firstOKMs": -1,
+      "ms": 1500,
+      "ok": 0,
+      "sample": "MOVED 8943 127.0.0.1:7206"
+    },
+    "replicas": [
+      "127.0.0.1:7206",
+      "127.0.0.1:7204"
+    ],
+    "restart1": "",
+    "restart2": "",
+    "role1": "slave",
+    "role2": "slave",
+    "roleAfter": "master",
+    "roleMs": 0,
+    "setAfterCoverageNo": "CLUSTERDOWN The cluster is down",
+    "setWhileDown": "CLUSTERDOWN The cluster is down",
+    "slotsFailAfter": "5461",
+    "slotsFailDuring": "0",
+    "slotsPfailDuring": "10923",
+    "stateAfterTakeover": "fail",
+    "stateDuring": "fail",
+    "survivor": "127.0.0.1:7201",
+    "waitedMs": 10025
+  }
+}

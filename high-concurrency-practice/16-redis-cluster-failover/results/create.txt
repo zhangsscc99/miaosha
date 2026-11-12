@@ -1,0 +1,49 @@
+>>> Performing hash slots allocation on 6 nodes...
+Master[0] -> Slots 0 - 5460
+Master[1] -> Slots 5461 - 10922
+Master[2] -> Slots 10923 - 16383
+Adding replica 127.0.0.1:7205 to 127.0.0.1:7201
+Adding replica 127.0.0.1:7206 to 127.0.0.1:7202
+Adding replica 127.0.0.1:7204 to 127.0.0.1:7203
+>>> Trying to optimize slaves allocation for anti-affinity
+[WARNING] Some slaves are in the same host as their master
+M: 8f0b95cdfb8a499323e2c5b66a78678df5f64c50 127.0.0.1:7201
+   slots:[0-5460] (5461 slots) master
+M: 5672c9ffc02fd5bdd99e530a7b8728f641576323 127.0.0.1:7202
+   slots:[5461-10922] (5462 slots) master
+M: 646f93432de4eebc70db6a9b81ae06e08adbc698 127.0.0.1:7203
+   slots:[10923-16383] (5461 slots) master
+S: 04b8c531be96b97511891c2208fca6cbe4463b74 127.0.0.1:7204
+   replicates 646f93432de4eebc70db6a9b81ae06e08adbc698
+S: 18682229a507804cfd2cf9e9aa5cdad95bc6d0ac 127.0.0.1:7205
+   replicates 8f0b95cdfb8a499323e2c5b66a78678df5f64c50
+S: e8ee1f40b8c7d3cb76f96d4c1fe03ed2e9ecfb54 127.0.0.1:7206
+   replicates 5672c9ffc02fd5bdd99e530a7b8728f641576323
+>>> Nodes configuration updated
+>>> Assign a different config epoch to each node
+>>> Sending CLUSTER MEET messages to join the cluster
+Waiting for the cluster to join
+.
+>>> Performing Cluster Check (using node 127.0.0.1:7201)
+M: 8f0b95cdfb8a499323e2c5b66a78678df5f64c50 127.0.0.1:7201
+   slots:[0-5460] (5461 slots) master
+   1 additional replica(s)
+S: 04b8c531be96b97511891c2208fca6cbe4463b74 127.0.0.1:7204
+   slots: (0 slots) slave
+   replicates 646f93432de4eebc70db6a9b81ae06e08adbc698
+S: e8ee1f40b8c7d3cb76f96d4c1fe03ed2e9ecfb54 127.0.0.1:7206
+   slots: (0 slots) slave
+   replicates 5672c9ffc02fd5bdd99e530a7b8728f641576323
+M: 5672c9ffc02fd5bdd99e530a7b8728f641576323 127.0.0.1:7202
+   slots:[5461-10922] (5462 slots) master
+   1 additional replica(s)
+S: 18682229a507804cfd2cf9e9aa5cdad95bc6d0ac 127.0.0.1:7205
+   slots: (0 slots) slave
+   replicates 8f0b95cdfb8a499323e2c5b66a78678df5f64c50
+M: 646f93432de4eebc70db6a9b81ae06e08adbc698 127.0.0.1:7203
+   slots:[10923-16383] (5461 slots) master
+   1 additional replica(s)
+[OK] All nodes agree about slots configuration.
+>>> Check for open slots...
+>>> Check slots coverage...
+[OK] All 16384 slots covered.

@@ -1,0 +1,19 @@
+{
+  "scenario": "route",
+  "note": "副本不执行 READONLY 时，读和写都回到主库。READONLY 只服务本主库的槽。READWRITE 之后又回到 MOVED。",
+  "pass": true,
+  "detail": "get=MOVED 4748 127.0.0.1:7201 set=MOVED 4748 127.0.0.1:7201 after=v1 other=MOVED 8943 127.0.0.1:7202 back=MOVED 4748 127.0.0.1:7201",
+  "extra": {
+    "getAfterReadonly": "v1",
+    "getAfterReadwrite": "MOVED 4748 127.0.0.1:7201",
+    "getOtherSlot": "MOVED 8943 127.0.0.1:7202",
+    "getWithoutReadonly": "MOVED 4748 127.0.0.1:7201",
+    "master": "127.0.0.1:7201",
+    "masterStill": "v1",
+    "other": "127.0.0.1:7202",
+    "readonly": "OK",
+    "readwrite": "OK",
+    "replica": "127.0.0.1:7205",
+    "setOnReplica": "MOVED 4748 127.0.0.1:7201"
+  }
+}

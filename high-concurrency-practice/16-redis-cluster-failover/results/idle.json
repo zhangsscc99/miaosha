@@ -1,0 +1,50 @@
+{
+  "scenario": "idle",
+  "note": "6 个进程空闲 4 秒。命令增量里含采样自己打的 INFO。总线消息不进 total_commands_processed。",
+  "pass": true,
+  "detail": "cmd=24 busSent=238 cpuSum=0.8",
+  "elapsedSec": 4,
+  "redisCommands": 24,
+  "redisCpuPercent": 0.75,
+  "extra": {
+    "busSent": 238,
+    "nodes": [
+      {
+        "addr": "127.0.0.1:7201",
+        "busSent": 39,
+        "commands": 6,
+        "cpu": 0
+      },
+      {
+        "addr": "127.0.0.1:7202",
+        "busSent": 40,
+        "commands": 6,
+        "cpu": 0.3
+      },
+      {
+        "addr": "127.0.0.1:7203",
+        "busSent": 40,
+        "commands": 6,
+        "cpu": 0
+      },
+      {
+        "addr": "127.0.0.1:7204",
+        "busSent": 39,
+        "commands": 2,
+        "cpu": 0.3
+      },
+      {
+        "addr": "127.0.0.1:7205",
+        "busSent": 40,
+        "commands": 2,
+        "cpu": 0
+      },
+      {
+        "addr": "127.0.0.1:7206",
+        "busSent": 40,
+        "commands": 2,
+        "cpu": 0.3
+      }
+    ]
+  }
+}
