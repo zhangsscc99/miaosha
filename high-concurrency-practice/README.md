@@ -12,6 +12,7 @@
 | [04 多实例售罄标记和准入额度](04-multi-instance-admission/README.md) | 2026-11-12 已实测 | 多台应用的售罄标记互不相通时漏进 Redis 多少次，本地额度怎样把总和留在一个分片里，限流放在 Redis 里为什么省不了核 |
 | [05 商品详情缓存击穿和 singleflight](05-detail-cache-singleflight/README.md) | 2026-11-12 已实测 | 详情页过期时有多少请求打进数据库，singleflight、分布式锁和逻辑过期各收成几次，热 key 的 GET 为什么不能靠加进程变快 |
 | [06 多 key 同时过期](06-cache-avalanche/README.md) | 2026-11-12 已实测 | 一批 key 一起过期时回源是多少次，TTL 抖动和单个重建者各能压住什么，singleflight 为什么收不掉雪崩 |
-| 07 Docker / Kubernetes | 还没做 | 上面的进程怎样扩容。这台机器没有容器运行时，不能写成已经实测 |
+| [07 未支付订单到期关单](07-unpaid-order-delay/README.md) | 2026-11-12 已实测 | 超时关单怎样不多加库存，键 TTL 为什么不是延迟队列，一个连接和 16 个连接差多少，每个点击都建单并留 2 小时要买多少 Redis |
+| 08 Docker / Kubernetes | 还没做 | 上面的进程怎样扩容。这台机器没有容器运行时。当前 cgroup 只下放了 memory，没有 cpu.max，不能写成已经实测 |
 
 面试时先看 [技术报告](REPORT.md)，需要复现再进章节目录执行 `bash run.sh`。
