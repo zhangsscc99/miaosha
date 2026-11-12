@@ -1,0 +1,69 @@
+{
+  "scenario": "ready",
+  "note": "3 个主库、没有副本。16384 个槽要正好分完。独立的 7104 不开 cluster。",
+  "pass": true,
+  "detail": "slots=16384 min=5461 max=5462 missing=0 masters=3 cluster=1 alone=0",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7101",
+      "port": 7101,
+      "pid": 8395,
+      "id": "349790b151086c1791db7cc1d6598f4faba63234",
+      "slots": 5461,
+      "flags": "myself,master",
+      "rssKB": 6960,
+      "usedMemory": 1779576
+    },
+    {
+      "addr": "127.0.0.1:7102",
+      "port": 7102,
+      "pid": 8406,
+      "id": "25d42af1affdf8df367bee46e3ffbf16ec557dbf",
+      "slots": 5462,
+      "flags": "master",
+      "rssKB": 6904,
+      "usedMemory": 1814424
+    },
+    {
+      "addr": "127.0.0.1:7103",
+      "port": 7103,
+      "pid": 8417,
+      "id": "2db0a681615536d169d77c8c45f2ad7ac1a3eb9b",
+      "slots": 5461,
+      "flags": "master",
+      "rssKB": 6876,
+      "usedMemory": 1804232
+    },
+    {
+      "addr": "127.0.0.1:7104",
+      "port": 7104,
+      "pid": 8427,
+      "rssKB": 6240,
+      "usedMemory": 946424
+    }
+  ],
+  "extra": {
+    "allocator": "jemalloc-5.2.1",
+    "clusterEnabled": "1",
+    "coverage:127.0.0.1:7101": "",
+    "coverage:127.0.0.1:7102": "",
+    "coverage:127.0.0.1:7103": "",
+    "coverageCfg:7101": "yes",
+    "coverageCfg:7102": "yes",
+    "coverageCfg:7103": "yes",
+    "masters": 3,
+    "maxSlots": 5462,
+    "maxmemory:7101": "67108864",
+    "maxmemory:7102": "67108864",
+    "maxmemory:7103": "67108864",
+    "minSlots": 5461,
+    "missingSlots": 0,
+    "nodeTimeoutMs": "5000",
+    "redisVersion": "7.0.15",
+    "slotSum": 16384,
+    "standaloneClusterEnabled": "0",
+    "state:127.0.0.1:7101": "ok",
+    "state:127.0.0.1:7102": "ok",
+    "state:127.0.0.1:7103": "ok"
+  }
+}

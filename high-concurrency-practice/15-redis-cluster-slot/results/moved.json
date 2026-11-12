@@ -1,0 +1,20 @@
+{
+  "scenario": "moved",
+  "note": "槽不在这个节点上时，每次都是 MOVED，不会因为多问几次就改口。缓存地址之后，后面的 GET 不再经过错的节点。",
+  "pass": true,
+  "detail": "first=MOVED 3451 127.0.0.1:7101 stickyMoved=20 followMoved=1 followOK=20",
+  "extra": {
+    "first": "MOVED 3451 127.0.0.1:7101",
+    "followMoved": 1,
+    "followOK": 20,
+    "key": "moved:2",
+    "kind": "MOVED",
+    "owner": "127.0.0.1:7101",
+    "replyAddr": "127.0.0.1:7101",
+    "replySlot": 3451,
+    "slot": 3451,
+    "stickyDirect": 0,
+    "stickyMoved": 20,
+    "wrong": "127.0.0.1:7102"
+  }
+}

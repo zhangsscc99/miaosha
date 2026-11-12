@@ -1,0 +1,13 @@
+{
+  "scenario": "replace-loss",
+  "note": "目标上先 ASKING INCR 出一份新值，再 MIGRATE REPLACE。源上的旧值盖掉目标上的 50 次递增。",
+  "pass": true,
+  "detail": "before=50 migrate=OK after=100",
+  "extra": {
+    "after": "100",
+    "before": "50",
+    "incrs": 50,
+    "migrate": "OK",
+    "slot": 8943
+  }
+}

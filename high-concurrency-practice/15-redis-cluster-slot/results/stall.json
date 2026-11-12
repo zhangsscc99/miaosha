@@ -1,0 +1,30 @@
+{
+  "scenario": "stall",
+  "note": "MIGRATE 在主线程里做完才返回。同一进程上的 GET 会排在这条命令后面。另一个主库上的 GET 不排这条队。",
+  "pass": true,
+  "detail": "oneMax=138 batchUs=742 sameMax=730 otherMax=150 state=ok",
+  "elapsedSec": 0.007577066,
+  "extra": {
+    "batchKeys": 200,
+    "batchOtherGetMaxus": 150,
+    "batchOtherGetN": 820,
+    "batchOtherGetP99us": 100,
+    "batchReply": "OK",
+    "batchSameGetMaxus": 730,
+    "batchSameGetN": 813,
+    "batchSameGetP99us": 100,
+    "batchUs": 742,
+    "oneElapsedSec": 0.007577066,
+    "oneMigrateFailed": false,
+    "oneMigrateMaxus": 138,
+    "oneMigrateP50us": 100,
+    "oneMigrateP99us": 200,
+    "oneOtherGetMaxus": 118,
+    "oneOtherGetN": 993,
+    "oneOtherGetP99us": 100,
+    "oneSameGetMaxus": 141,
+    "oneSameGetN": 819,
+    "oneSameGetP99us": 200,
+    "state": "ok"
+  }
+}

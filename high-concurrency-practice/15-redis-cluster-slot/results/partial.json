@@ -1,0 +1,11 @@
+{
+  "scenario": "partial",
+  "note": "同一个槽先迁 40 个键。不跟着 ASK 的客户端，这 40 个读不到；还留在源上的 60 个仍然能读。",
+  "pass": true,
+  "detail": "ask=40 still=60 bad=0",
+  "extra": {
+    "ask": 40,
+    "bad": 0,
+    "stillOnSource": 60
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "scenario": "standalone-get-w16",
+  "note": "同一个 GET，打到没开 cluster 的 7104。用来看直连时 cluster 模式本身贵多少。",
+  "pass": true,
+  "workers": 16,
+  "elapsedSec": 4.000051389,
+  "ops": 785074,
+  "qps": 196265.9785219074,
+  "redisCommands": 785076,
+  "redisCpuPercent": 94.99877952692971,
+  "clientCpuPercent": 175.49774533659118,
+  "p50us": 100,
+  "p99us": 500,
+  "p999us": 2000,
+  "maxus": 11826,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7104",
+      "port": 7104,
+      "pid": 8427,
+      "cpuPercent": 94.99877952692971,
+      "rssKB": 6424,
+      "usedMemory": 1343680,
+      "ops": 785074,
+      "commands": 785076
+    }
+  ]
+}

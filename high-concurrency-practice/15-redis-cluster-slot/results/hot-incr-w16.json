@@ -1,0 +1,58 @@
+{
+  "scenario": "hot-incr-w16",
+  "note": "同一个键的 INCR，仍然只打到一个主库。",
+  "pass": true,
+  "workers": 16,
+  "elapsedSec": 4.000057454,
+  "ops": 925019,
+  "qps": 231251.42842010787,
+  "redisCommands": 925025,
+  "redisCpuPercent": 98.49858521557125,
+  "clientCpuPercent": 181.7473894713713,
+  "p50us": 100,
+  "p99us": 200,
+  "p999us": 200,
+  "maxus": 9904,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7101",
+      "port": 7101,
+      "pid": 8395,
+      "id": "349790b151086c1791db7cc1d6598f4faba63234",
+      "slots": 5461,
+      "flags": "myself,master",
+      "cpuPercent": 98.24858880639468,
+      "rssKB": 7184,
+      "usedMemory": 2400208,
+      "ops": 925019,
+      "commands": 925021
+    },
+    {
+      "addr": "127.0.0.1:7102",
+      "port": 7102,
+      "pid": 8406,
+      "id": "25d42af1affdf8df367bee46e3ffbf16ec557dbf",
+      "slots": 5462,
+      "flags": "master",
+      "rssKB": 6908,
+      "usedMemory": 1838736,
+      "commands": 2
+    },
+    {
+      "addr": "127.0.0.1:7103",
+      "port": 7103,
+      "pid": 8417,
+      "id": "2db0a681615536d169d77c8c45f2ad7ac1a3eb9b",
+      "slots": 5461,
+      "flags": "master",
+      "cpuPercent": 0.24999640917657676,
+      "rssKB": 7076,
+      "usedMemory": 1863600,
+      "commands": 2
+    }
+  ],
+  "extra": {
+    "owner": "127.0.0.1:7101",
+    "slot": 2447
+  }
+}
