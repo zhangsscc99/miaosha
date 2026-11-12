@@ -1,0 +1,38 @@
+{
+  "scenario": "local-spike",
+  "note": "进程内决策，时间戳是传入的，不读时钟。墙钟是把两段额度放出去要多久。不是接口 QPS，也不引用 CPU。",
+  "pass": true,
+  "detail": "fixed-100 wall 0.004ms; fixed-1e6 wall 5.010ms",
+  "phases": [
+    {
+      "name": "fixed-100",
+      "attempts": 200,
+      "admits": 200,
+      "wallMs": 0.003804
+    },
+    {
+      "name": "fixed-100000",
+      "attempts": 200000,
+      "admits": 200000,
+      "wallMs": 0.530002
+    },
+    {
+      "name": "fixed-1000000",
+      "attempts": 2000000,
+      "admits": 2000000,
+      "wallMs": 5.01001
+    },
+    {
+      "name": "log-100000",
+      "admits": 100000,
+      "wallMs": 0.815541
+    },
+    {
+      "name": "bucket-100000",
+      "attempts": 100,
+      "admits": 100100,
+      "wallMs": 0.406697,
+      "note": "attempts 字段这里是第二段放行"
+    }
+  ]
+}

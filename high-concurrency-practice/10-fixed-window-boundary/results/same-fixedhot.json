@@ -1,0 +1,13 @@
+{
+  "scenario": "same-fixedhot",
+  "algo": "fixedhot",
+  "note": "同一个时间戳上连续打两倍次数。正确的放行是上限本身。fixed 的计数停在上限，fixedhot 把拒绝也计进去。",
+  "pass": true,
+  "detail": "admits 100 rejects 100 final 200",
+  "limit": 100,
+  "windowMs": 1000,
+  "attempts": 200,
+  "admits": 100,
+  "rejects": 100,
+  "finalCount": 200
+}

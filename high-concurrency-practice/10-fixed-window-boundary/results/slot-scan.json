@@ -1,0 +1,30 @@
+{
+  "scenario": "slot-scan",
+  "note": "修正是用窗口号乘回去核对。bad 是未修正的 math.floor 和修正结果不一致的毫秒数。slotof 必须和 Go 的整数除法一致。",
+  "pass": true,
+  "detail": "from-zero bad=0 checked=200001; around-now bad=0 checked=200001; around-2^52 bad=0 checked=50001; slotof matched",
+  "windowMs": 1000,
+  "phases": [
+    {
+      "name": "from-zero",
+      "attempts": 200001,
+      "admits": 0,
+      "final": -1,
+      "note": "admits 字段这里是不一致的次数，final 是第一次不一致的 now，没有则是 -1"
+    },
+    {
+      "name": "around-now",
+      "attempts": 200001,
+      "admits": 0,
+      "final": -1,
+      "note": "admits 字段这里是不一致的次数，final 是第一次不一致的 now，没有则是 -1"
+    },
+    {
+      "name": "around-2^52",
+      "attempts": 50001,
+      "admits": 0,
+      "final": -1,
+      "note": "admits 字段这里是不一致的次数，final 是第一次不一致的 now，没有则是 -1"
+    }
+  ]
+}

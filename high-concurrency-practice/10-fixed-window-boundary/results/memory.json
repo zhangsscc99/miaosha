@@ -1,0 +1,40 @@
+{
+  "scenario": "memory",
+  "algo": "log",
+  "note": "滑动日志每个放行一个有序集合成员。used_memory 的差包含序号键和分配器。MEMORY USAGE 是这个键的估计。固定窗口对照是同一个整数键上 INCR 10 万次。规划用较大的那个每成员字节。",
+  "pass": true,
+  "detail": "n=10000 delta=975616 usage=1029408 perDelta=97.56 perUsage=102.94; n=100000 delta=8834416 usage=9049376 perDelta=88.34 perUsage=90.49; fixedDelta=136 fixedUsage=56",
+  "admits": 100000,
+  "usedMemory": 10139392,
+  "memoryDelta": 8834416,
+  "keyBytes": 9049376,
+  "bytesPerMember": 88.34416,
+  "members": 100000,
+  "phases": [
+    {
+      "name": "log-10000",
+      "attempts": 10000,
+      "admits": 10000,
+      "final": 10000,
+      "commands": 975616,
+      "want": 1029408,
+      "note": "commands 字段是 used_memory 差，want 是 zset 的 MEMORY USAGE，序号键 56 字节"
+    },
+    {
+      "name": "log-100000",
+      "attempts": 100000,
+      "admits": 100000,
+      "final": 100000,
+      "commands": 8834416,
+      "want": 9049376,
+      "note": "commands 字段是 used_memory 差，want 是 zset 的 MEMORY USAGE，序号键 56 字节"
+    },
+    {
+      "name": "fixed-100000",
+      "admits": 100000,
+      "commands": 136,
+      "want": 56,
+      "note": "commands 是 used_memory 差，want 是这个字符串键的 MEMORY USAGE"
+    }
+  ]
+}

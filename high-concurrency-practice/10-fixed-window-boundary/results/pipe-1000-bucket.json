@@ -1,0 +1,16 @@
+{
+  "scenario": "pipe-1000-bucket",
+  "algo": "bucket",
+  "note": "两段请求写进同一次管线，服务端背靠背执行。墙钟含一次往返。这是尖峰的宽度，不是 4 秒吞吐。",
+  "pass": true,
+  "detail": "前 1000 后 1，窗口内最多 1001，管线墙钟 9.120ms，ping 39us",
+  "limit": 1000,
+  "windowMs": 1000,
+  "admits": 1001,
+  "admitsBefore": 1000,
+  "admitsAfter": 1,
+  "maxInWindow": 1001,
+  "logicalGapMs": 1,
+  "wallMs": 9.120408,
+  "pingUs": 39
+}

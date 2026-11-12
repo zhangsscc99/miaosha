@@ -1,0 +1,16 @@
+{
+  "scenario": "pipe-100-fixedhot",
+  "algo": "fixedhot",
+  "note": "两段请求写进同一次管线，服务端背靠背执行。墙钟含一次往返。这是尖峰的宽度，不是 4 秒吞吐。",
+  "pass": true,
+  "detail": "前 100 后 100，窗口内最多 200，管线墙钟 0.623ms，ping 21us",
+  "limit": 100,
+  "windowMs": 1000,
+  "admits": 200,
+  "admitsBefore": 100,
+  "admitsAfter": 100,
+  "maxInWindow": 200,
+  "logicalGapMs": 1,
+  "wallMs": 0.622772,
+  "pingUs": 21
+}

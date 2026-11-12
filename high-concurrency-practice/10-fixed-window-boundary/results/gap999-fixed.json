@@ -1,0 +1,15 @@
+{
+  "scenario": "gap999-fixed",
+  "algo": "fixed",
+  "note": "调用方传入两个时间戳。第一段打满上限，第二段打两倍次数。窗口内最多含差值小于窗口的放行。",
+  "pass": true,
+  "detail": "前 100 后 100，窗口内最多 200，逻辑间隔 999ms，串行墙钟 8.420ms",
+  "limit": 100,
+  "windowMs": 1000,
+  "admits": 200,
+  "admitsBefore": 100,
+  "admitsAfter": 100,
+  "maxInWindow": 200,
+  "logicalGapMs": 999,
+  "wallMs": 8.420277
+}

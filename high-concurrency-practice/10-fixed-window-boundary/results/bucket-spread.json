@@ -1,0 +1,11 @@
+{
+  "scenario": "bucket-spread",
+  "algo": "bucket",
+  "note": "逐步对照进程里的毫令牌规则。cap 等于速率时，铺满一个窗口的放行数会接近两倍。cap=1 时任意一段里不超过速率。",
+  "pass": true,
+  "detail": "admits 200 maxInWindow 199 mismatch 0",
+  "limit": 100,
+  "windowMs": 1000,
+  "admits": 200,
+  "maxInWindow": 199
+}

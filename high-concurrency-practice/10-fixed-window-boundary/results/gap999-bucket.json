@@ -1,0 +1,15 @@
+{
+  "scenario": "gap999-bucket",
+  "algo": "bucket",
+  "note": "调用方传入两个时间戳。第一段打满上限，第二段打两倍次数。窗口内最多含差值小于窗口的放行。",
+  "pass": true,
+  "detail": "前 100 后 99，窗口内最多 199，逻辑间隔 999ms，串行墙钟 6.872ms",
+  "limit": 100,
+  "windowMs": 1000,
+  "admits": 199,
+  "admitsBefore": 100,
+  "admitsAfter": 99,
+  "maxInWindow": 199,
+  "logicalGapMs": 999,
+  "wallMs": 6.871967
+}

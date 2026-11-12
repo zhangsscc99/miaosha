@@ -1,0 +1,42 @@
+{
+  "scenario": "interceptor-ttl",
+  "note": "注解是 5 秒 5 次。INCR 不刷新 TTL。额度留到 TTL 末尾再用，过期后立刻又有 5 次。窗口内最多看的是这 5000ms。",
+  "pass": true,
+  "detail": "pttl 5000 -\u003e 4800 -\u003e 4799; late 4 post 5 max 9 span 872ms",
+  "limit": 5,
+  "windowMs": 5000,
+  "admits": 10,
+  "admitsBefore": 4,
+  "admitsAfter": 5,
+  "maxInWindow": 9,
+  "wallMs": 872,
+  "phases": [
+    {
+      "name": "pttl-before-sleep",
+      "admits": 0,
+      "final": 5000
+    },
+    {
+      "name": "pttl-after-200ms",
+      "admits": 0,
+      "final": 4800
+    },
+    {
+      "name": "pttl-after-incr",
+      "admits": 0,
+      "final": 4799
+    }
+  ],
+  "timestamps": [
+    1794494299379,
+    1794494303510,
+    1794494303511,
+    1794494303511,
+    1794494303511,
+    1794494304382,
+    1794494304382,
+    1794494304382,
+    1794494304382,
+    1794494304382
+  ]
+}

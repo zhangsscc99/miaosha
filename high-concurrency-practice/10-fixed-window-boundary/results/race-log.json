@@ -1,0 +1,14 @@
+{
+  "scenario": "race-log",
+  "algo": "log",
+  "note": "64 个连接同时打同一个窗口。Lua 串行执行，放行正好是上限。fixedhot 的计数等于尝试次数。",
+  "pass": true,
+  "detail": "admits 100 rejects 1180 errors 0 final 0",
+  "limit": 100,
+  "windowMs": 1000,
+  "workers": 64,
+  "attempts": 1280,
+  "admits": 100,
+  "rejects": 1180,
+  "members": 100
+}

@@ -15,6 +15,7 @@
 | [07 未支付订单到期关单](07-unpaid-order-delay/README.md) | 2026-11-12 已实测 | 超时关单怎样不多加库存，键 TTL 为什么不是延迟队列，一个连接和 16 个连接差多少，每个点击都建单并留 2 小时要买多少 Redis |
 | [08 cgroup 的 CPU 和内存限额](08-cgroup-cpu-limit/README.md) | 2026-11-12 已实测 | Kubernetes 的 limit 和 request 写进 cpu.max、cpu.weight、memory.max 之后，一个热 key 的 QPS 和尾巴怎么变，500m 为什么省不下核，进程被 cgroup 杀掉和 Redis 自己返回 OOM 差在哪 |
 | [09 一个 256MB 堆的 Kafka](09-kafka-winner-queue/README.md) | 2026-11-12 已实测 | 胜出者进一个 Kafka 进程之后，位移先提交会丢多少，一个分区为什么喂不满两个消费者，按点击把 200 字节都写进日志要几台机器 |
-| 10 | 还没做 | RabbitMQ 和 RocketMQ 的进程还没跑。固定窗口跨秒的双倍额度还没专门压 |
+| [10 固定窗口的跨秒双倍额度](10-fixed-window-boundary/README.md) | 2026-11-12 已实测 | 固定窗口在秒边界为什么会放出两倍，滑动计数和令牌桶各守住哪一种形状，拦截器的 GET 再写会放进多少次，扩到 10 万 / 100 万 / 1000 万时下游和限流器各要多买什么 |
+| 11 | 还没做 | RabbitMQ 和 RocketMQ 的进程还没跑 |
 
 面试时先看 [技术报告](REPORT.md)，需要复现再进章节目录执行 `bash run.sh`。
