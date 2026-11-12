@@ -1,0 +1,20 @@
+{
+  "scenario": "async-path",
+  "note": "请求只等 Lua 入队就返回。SQLite 在旁边的消费者里提交。用户面对的时间只包括 Redis，订单可见的时间还包括把队列写完。",
+  "pass": true,
+  "detail": "stock=5000 orders=5000 userFacingSec=0.0650 orderVisibleSec=0.0654 producerQps=76930 maxStream=5000",
+  "workers": 4,
+  "elapsedSec": 0.065425896,
+  "qps": 76929.98641939565,
+  "ops": 5003,
+  "initialStock": 5000,
+  "streamLen": 5000,
+  "orders": 5000,
+  "sqliteSync": "FULL",
+  "batch": 100,
+  "userFacingSec": 0.064994162,
+  "orderVisibleSec": 0.065425896,
+  "producerQps": 76929.98641939565,
+  "drainQps": 76422.33894664583,
+  "maxStreamLen": 5000
+}

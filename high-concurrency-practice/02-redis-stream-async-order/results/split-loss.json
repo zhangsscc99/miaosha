@@ -1,0 +1,15 @@
+{
+  "scenario": "split-loss",
+  "note": "先 DECR 再 XADD。用户 id 能被 5 整除的胜出者在两次调用之间被丢掉，用来模拟进程在发消息前崩溃。现有控制器就是先 decr 再 sendMiaoshaMessage。",
+  "pass": true,
+  "detail": "decrOk=100 lostBeforeXadd=20 stream=80 orders=80 finalStock=0",
+  "workers": 32,
+  "elapsedSec": 0.008468764,
+  "ops": 1000,
+  "success": 100,
+  "soldOut": 900,
+  "initialStock": 100,
+  "streamLen": 80,
+  "orders": 80,
+  "sqliteSync": "FULL"
+}
