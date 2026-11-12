@@ -1,0 +1,16 @@
+{
+  "scenario": "gc",
+  "note": "\u6574\u4e2a broker \u8fdb\u7a0b\u8fd9\u4e00\u6b21\u8fd0\u884c\u7684\u505c\u987f\uff0c\u4e0d\u662f\u67d0\u4e00\u7ec4 4 \u79d2\u7a97\u53e3\u5355\u72ec\u7684\u3002Young \u7684\u5206\u4f4d\u53ea\u5728 Young \u91cc\u9762\u6392\u3002",
+  "pauses": 728,
+  "young": 394,
+  "remark": 166,
+  "cleanup": 166,
+  "full": 2,
+  "maxPauseMs": 23.661,
+  "maxYoungMs": 9.028,
+  "youngP50Ms": 1.486,
+  "youngP99Ms": 6.035,
+  "maxFullMs": 23.661,
+  "fullOver10ms": 2,
+  "pass": true
+}

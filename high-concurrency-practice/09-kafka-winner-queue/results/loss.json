@@ -1,0 +1,10 @@
+{
+  "scenario": "loss",
+  "note": "先提交位移再落库。receiveMiaoShaMessage 先 basicAck 再 insert，进程死在两步之间时，这 20 条不会再投递。",
+  "pass": true,
+  "detail": "first=200 committed-then-dropped=20 second=0",
+  "produced": 200,
+  "deliveries": 200,
+  "unique": 180,
+  "orders": 180
+}
