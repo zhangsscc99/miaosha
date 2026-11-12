@@ -1,0 +1,12 @@
+{
+  "detail": "master=0 replica=100",
+  "masterHasBase": false,
+  "masterHasExtra": false,
+  "masterKeys": 0,
+  "note": "主库用空目录重新拉起，没有 AOF。从库进程没重启，仍指着断开的地址，所以不会被空主库盖掉。",
+  "pass": true,
+  "replicaHasBase": true,
+  "replicaHasExtra": false,
+  "replicaKeys": 100,
+  "scenario": "loss-after"
+}

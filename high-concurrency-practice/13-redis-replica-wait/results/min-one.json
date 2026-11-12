@@ -1,0 +1,13 @@
+{
+  "detail": "A 20/0 B 0/20 C 0/0 val=20",
+  "finalValue": 20,
+  "note": "min-replicas-to-write 1 且 max-lag 10。断开的是复制连接，不是 kill。写被拒绝时键不会增加。max-lag 设成 0 会把这项检查关掉，这里没有设 0。",
+  "okAfterFirstDrop": 0,
+  "okAfterSecondDrop": 0,
+  "okWhileUp": 20,
+  "pass": true,
+  "rejectedAfterFirstDrop": 20,
+  "rejectedAfterSecondDrop": 0,
+  "rejectedWhileUp": 0,
+  "scenario": "min-1"
+}

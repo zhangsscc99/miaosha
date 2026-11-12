@@ -1,0 +1,40 @@
+{
+  "clientCpuPercent": 9.738651901964774,
+  "commandDelta": 21599,
+  "delayMs": 2,
+  "detail": "kind=set-wait qps=2276.1 ops=9115 err=0 p99us=10000 masterCPU=4.7 replicaCPU=1.7 clientCPU=9.7 delayMs=2",
+  "elapsedSec": 4.004661055,
+  "errors": 0,
+  "firstError": "",
+  "from": "set-wait",
+  "masterCpuPercent": 4.744471439418736,
+  "masterRssKB": 7976,
+  "maxus": 9186,
+  "note": "一次操作是 SET 再 WAIT，QPS 按这一对算，不是按 Redis 命令数。没有用管线。",
+  "ops": 9115,
+  "p50us": 10000,
+  "p999us": 10000,
+  "p99us": 10000,
+  "pass": true,
+  "payload": 16,
+  "qps": 2276.0977458053567,
+  "replica2CpuPercent": 0.24970902312730187,
+  "replicaCpuPercent": 1.7479631618911133,
+  "replicaRssKB": 7996,
+  "replicas": 1,
+  "scenario": "bench-set-wait",
+  "sides": [
+    {
+      "errors": 0,
+      "maxus": 9186,
+      "name": "master",
+      "ops": 9115,
+      "p50us": 10000,
+      "p99us": 10000,
+      "qps": 2276.0977458053567
+    }
+  ],
+  "waitFor": 1,
+  "waitMs": 1000,
+  "workers": 16
+}

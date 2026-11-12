@@ -1,0 +1,13 @@
+{
+  "detail": "split on-master/on-replica rejoin on-master fullDelta=1",
+  "fullDelta": 1,
+  "masterValue": "on-master",
+  "note": "REPLICAOF NO ONE 之后两边都能写同一个键。再挂回原来的主库时，从库自己收下的那次写入不会合并。没有 Sentinel，没有隔离写入。",
+  "partialOkDelta": 0,
+  "pass": true,
+  "replicaValue": "on-replica",
+  "replicaValueAfterRejoin": "on-master",
+  "roleAfterPromote": "master",
+  "roleAfterRejoin": "slave",
+  "scenario": "promote"
+}

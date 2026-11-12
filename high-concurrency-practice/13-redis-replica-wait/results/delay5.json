@@ -1,0 +1,10 @@
+{
+  "detail": "wallMs=4907 fullDelta=1 keys=10",
+  "fullDelta": 1,
+  "note": "磁盘复制的等待只在 repl-diskless-sync 打开时生效。默认是 5 秒，这次配置文件写成 0，这一组临时改成 5。墙钟含 replicationCron。数据只有 10 个键。",
+  "partialOkDelta": 0,
+  "pass": true,
+  "replicaKeys": 10,
+  "scenario": "delay5",
+  "wallMs": 4907
+}

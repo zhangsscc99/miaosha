@@ -1,0 +1,49 @@
+{
+  "clientCpuPercent": 199.98442036371986,
+  "commandDelta": 641712,
+  "delayMs": 0,
+  "detail": "kind=both qps=320244.1 ops=1281076 err=0 p99us=500 masterCPU=88.0 replicaCPU=88.2 clientCPU=200.0 delayMs=0",
+  "elapsedSec": 4.000311617,
+  "errors": 0,
+  "firstError": "",
+  "from": "both",
+  "masterCpuPercent": 87.99314496003674,
+  "masterRssKB": 7888,
+  "maxus": 16156,
+  "note": "主库和从库同时读同一个键。workers 是每一侧的连接数。QPS 是两侧相加。",
+  "ops": 1281076,
+  "p50us": 100,
+  "p999us": 5000,
+  "p99us": 500,
+  "pass": true,
+  "payload": 16,
+  "qps": 320244.05162734096,
+  "replica2CpuPercent": 0.24998052545464983,
+  "replicaCpuPercent": 88.24312548549138,
+  "replicaRssKB": 8028,
+  "replicas": 1,
+  "scenario": "bench-both",
+  "sides": [
+    {
+      "errors": 0,
+      "maxus": 16156,
+      "name": "master",
+      "ops": 641707,
+      "p50us": 100,
+      "p99us": 500,
+      "qps": 160414.25304792696
+    },
+    {
+      "errors": 0,
+      "maxus": 16117,
+      "name": "replica",
+      "ops": 639369,
+      "p50us": 100,
+      "p99us": 500,
+      "qps": 159829.798579414
+    }
+  ],
+  "waitFor": 1,
+  "waitMs": 1000,
+  "workers": 16
+}

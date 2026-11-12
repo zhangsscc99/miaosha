@@ -1,0 +1,13 @@
+{
+  "detail": "wait=1 match=1000 miss=0 bad=0 db=1000/1000",
+  "keys": 1000,
+  "masterKeys": 1000,
+  "match": 1000,
+  "mismatch": 0,
+  "miss": 0,
+  "note": "主库写 1000 个键，WAIT 1 之后逐个读从库。",
+  "pass": true,
+  "replicaKeys": 1000,
+  "scenario": "copy",
+  "waitReplicas": 1
+}

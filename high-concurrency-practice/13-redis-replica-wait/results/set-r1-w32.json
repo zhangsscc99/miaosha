@@ -1,0 +1,40 @@
+{
+  "clientCpuPercent": 158.4868720569269,
+  "commandDelta": 532788,
+  "delayMs": 0,
+  "detail": "kind=set qps=133184.7 ops=532783 err=0 p99us=1000 masterCPU=98.0 replicaCPU=10.0 clientCPU=158.5 delayMs=0",
+  "elapsedSec": 4.000331332,
+  "errors": 0,
+  "firstError": "",
+  "from": "set",
+  "masterCpuPercent": 97.99188303835228,
+  "masterRssKB": 8440,
+  "maxus": 4557,
+  "note": "反复 SET 同一个键。没有用管线。replicas 是挂在主库上的从库个数，摘掉的进程还在，只是不再复制。",
+  "ops": 532783,
+  "p50us": 500,
+  "p999us": 1000,
+  "p99us": 1000,
+  "pass": true,
+  "payload": 16,
+  "qps": 133184.71791026133,
+  "replica2CpuPercent": 0,
+  "replicaCpuPercent": 9.999171738607377,
+  "replicaRssKB": 8036,
+  "replicas": 1,
+  "scenario": "bench-set",
+  "sides": [
+    {
+      "errors": 0,
+      "maxus": 4557,
+      "name": "master",
+      "ops": 532783,
+      "p50us": 500,
+      "p99us": 1000,
+      "qps": 133184.71791026133
+    }
+  ],
+  "waitFor": 1,
+  "waitMs": 1000,
+  "workers": 32
+}

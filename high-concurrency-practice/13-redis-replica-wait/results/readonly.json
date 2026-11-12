@@ -1,0 +1,10 @@
+{
+  "detail": "err=redis: READONLY You can't write against a read only replica. wait=1 got=from-master",
+  "note": "从库默认 replica-read-only。直接 SET 会被拒绝，复制进来的 SET 可以读到。",
+  "pass": true,
+  "replicaError": "redis: READONLY You can't write against a read only replica.",
+  "replicaHit": true,
+  "replicaValue": "from-master",
+  "scenario": "readonly",
+  "waitReplicas": 1
+}

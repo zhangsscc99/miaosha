@@ -1,0 +1,40 @@
+{
+  "clientCpuPercent": 176.479976625972,
+  "commandDelta": 924600,
+  "delayMs": 0,
+  "detail": "kind=master qps=231122.5 ops=924595 err=0 p99us=500 masterCPU=98.2 replicaCPU=0.0 clientCPU=176.5 delayMs=0",
+  "elapsedSec": 4.000453839,
+  "errors": 0,
+  "firstError": "",
+  "from": "master",
+  "masterCpuPercent": 98.23885384420254,
+  "masterRssKB": 8080,
+  "maxus": 3102,
+  "note": "只读主库上的同一个键。从库按 replicas 参数挂着或摘掉。",
+  "ops": 924595,
+  "p50us": 200,
+  "p999us": 500,
+  "p99us": 500,
+  "pass": true,
+  "payload": 16,
+  "qps": 231122.526895879,
+  "replica2CpuPercent": 0,
+  "replicaCpuPercent": 0,
+  "replicaRssKB": 7948,
+  "replicas": 1,
+  "scenario": "bench-master",
+  "sides": [
+    {
+      "errors": 0,
+      "maxus": 3102,
+      "name": "master",
+      "ops": 924595,
+      "p50us": 200,
+      "p99us": 500,
+      "qps": 231122.526895879
+    }
+  ],
+  "waitFor": 1,
+  "waitMs": 1000,
+  "workers": 32
+}
