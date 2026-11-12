@@ -1,0 +1,8 @@
+{
+  "scenario": "requeue",
+  "note": "default-requeue-rejected=true 时，nack 且 requeue=true 会把同一条立刻送回来。这里数到 5 次就确认，避免死循环把测试挂住。",
+  "pass": true,
+  "detail": "deliveries=5 redelivered=4 left=0",
+  "deliveries": 5,
+  "redelivered": 4
+}

@@ -1,0 +1,9 @@
+{
+  "scenario": "drop-head",
+  "note": "x-max-length=10 且 overflow=drop-head。200 条发布都会被 confirm，队头被丢掉，只留下最后 10 个用户。",
+  "pass": true,
+  "detail": "acks=200 nacks=0 left=[191 192 193 194 195 196 197 198 199 200] extra=0",
+  "acks": 200,
+  "messages": 10,
+  "bodies": "[191 192 193 194 195 196 197 198 199 200]"
+}

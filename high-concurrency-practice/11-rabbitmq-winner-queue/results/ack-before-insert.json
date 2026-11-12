@@ -1,0 +1,7 @@
+{
+  "scenario": "ack-before-insert",
+  "note": "receiveMiaoShaMessage 先 basicAck 再 insert。200 条都先确认，其中 20 条没有记入订单。这些确认不会再投递。",
+  "pass": true,
+  "detail": "orders=180 second=0 ready=0 unacked=0",
+  "orders": 180
+}

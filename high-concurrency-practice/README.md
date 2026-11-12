@@ -16,6 +16,7 @@
 | [08 cgroup 的 CPU 和内存限额](08-cgroup-cpu-limit/README.md) | 2026-11-12 已实测 | Kubernetes 的 limit 和 request 写进 cpu.max、cpu.weight、memory.max 之后，一个热 key 的 QPS 和尾巴怎么变，500m 为什么省不下核，进程被 cgroup 杀掉和 Redis 自己返回 OOM 差在哪 |
 | [09 一个 256MB 堆的 Kafka](09-kafka-winner-queue/README.md) | 2026-11-12 已实测 | 胜出者进一个 Kafka 进程之后，位移先提交会丢多少，一个分区为什么喂不满两个消费者，按点击把 200 字节都写进日志要几台机器 |
 | [10 固定窗口的跨秒双倍额度](10-fixed-window-boundary/README.md) | 2026-11-12 已实测 | 固定窗口在秒边界为什么会放出两倍，滑动计数和令牌桶各守住哪一种形状，拦截器的 GET 再写会放进多少次，扩到 10 万 / 100 万 / 1000 万时下游和限流器各要多买什么 |
-| 11 | 还没做 | RabbitMQ 和 RocketMQ 的进程还没跑 |
+| [11 本机一个 RabbitMQ 4.4.0](11-rabbitmq-winner-queue/README.md) | 2026-11-12 已实测 | 胜出者进一个 RabbitMQ 进程之后，manual 和不确认会留下多少未确认消息，prefetch 1 为什么喂不满，confirm 要等多少，单节点 quorum 在 kill -9 之后还剩几条，扩到 10 万 / 100 万 / 1000 万点击时队列和云上按条计费各要什么 |
+| 12 | 还没做 | RocketMQ 的进程还没跑 |
 
 面试时先看 [技术报告](REPORT.md)，需要复现再进章节目录执行 `bash run.sh`。

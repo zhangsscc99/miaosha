@@ -1,0 +1,13 @@
+{
+  "scenario": "restart-quorum",
+  "note": "单节点 quorum，副本数就是 1。这不是仓库里的队列类型。kill -9 再启动，看 100 条还在不在。",
+  "pass": true,
+  "detail": "acks=100 absent=false kept=0 type=quorum",
+  "queue": "ms11-restart-quorum",
+  "queueType": "quorum",
+  "acks": 100,
+  "kept": 0,
+  "durable": true,
+  "persistent": true,
+  "quorum": true
+}

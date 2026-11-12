@@ -1,0 +1,12 @@
+{
+  "scenario": "manual-stall",
+  "note": "配置是 manual、prefetch=1、concurrency=10。receive(String) 没有 Channel，spring-amqp 2.4.0 在 manual 下正常返回不会 basicAck。这里用 10 个消费者各拿 1 条不确认。",
+  "pass": true,
+  "detail": "held ready=90 unacked=10 afterClose ready=100 unacked=0 second=100 redelivered=10",
+  "acks": 100,
+  "deliveries": 100,
+  "redelivered": 10,
+  "ready": 90,
+  "unacked": 10,
+  "consumers": 10
+}

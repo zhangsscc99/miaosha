@@ -1,0 +1,12 @@
+{
+  "scenario": "restart-persistent",
+  "note": "持久化消息、持久队列。kill -9 再启动，看还剩多少。confirm 返回之后才杀进程。",
+  "pass": true,
+  "detail": "acks=100 absent=false kept=100 type=classic",
+  "queue": "ms11-restart-persistent",
+  "queueType": "classic",
+  "acks": 100,
+  "kept": 100,
+  "durable": true,
+  "persistent": true
+}

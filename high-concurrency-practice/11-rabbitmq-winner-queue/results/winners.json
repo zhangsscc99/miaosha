@@ -1,0 +1,14 @@
+{
+  "scenario": "winners",
+  "note": "5000 条持久化消息，4 条连接，等全部 confirm，再用 1 个消费者 prefetch=250 读完。墙钟很短时不把 CPU 当容量。",
+  "pass": true,
+  "detail": "publishMs=55.7 consumeMs=65.8 acks=5000 got=5000 left=0 brokerCpuPublish=179.6",
+  "confirms": 5000,
+  "deliveries": 5000,
+  "messages": 5000,
+  "elapsedSec": 0.055692834,
+  "drainSec": 0.065834116,
+  "brokerCpuPercent": 179.55631419295347,
+  "payload": 200,
+  "workers": 4
+}

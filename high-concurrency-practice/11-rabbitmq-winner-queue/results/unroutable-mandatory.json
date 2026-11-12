@@ -1,0 +1,9 @@
+{
+  "scenario": "unroutable-mandatory",
+  "note": "同样的队列名加上 mandatory。basic.return 会先回来，confirm 仍然是 ack。",
+  "pass": true,
+  "detail": "acks=100 nacks=0 returns=100 queueAbsent=true",
+  "published": 100,
+  "acks": 100,
+  "returns": 100
+}

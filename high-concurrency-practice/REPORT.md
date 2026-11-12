@@ -1,8 +1,8 @@
 # 秒杀高并发技术报告（面试用）
 
-日期：2026-11-12。扣库存的代码和原始 JSON 在 [`01-redis-lua-atomic-stock`](01-redis-lua-atomic-stock/README.md)，异步落库在 [`02-redis-stream-async-order`](02-redis-stream-async-order/README.md)，成功扣减拆进程在 [`03-redis-stock-shard`](03-redis-stock-shard/README.md)，多实例售罄标记和准入额度在 [`04-multi-instance-admission`](04-multi-instance-admission/README.md)，商品详情的缓存击穿和 singleflight 在 [`05-detail-cache-singleflight`](05-detail-cache-singleflight/README.md)，多 key 同时过期在 [`06-cache-avalanche`](06-cache-avalanche/README.md)，未支付订单到期关单在 [`07-unpaid-order-delay`](07-unpaid-order-delay/README.md)，cgroup 的 CPU 和内存限额在 [`08-cgroup-cpu-limit`](08-cgroup-cpu-limit/README.md)，一个 256MB 堆的 Kafka 进程在 [`09-kafka-winner-queue`](09-kafka-winner-queue/README.md)，固定窗口的跨秒双倍额度和拦截器的非原子计数在 [`10-fixed-window-boundary`](10-fixed-window-boundary/README.md)。
+日期：2026-11-12。扣库存的代码和原始 JSON 在 [`01-redis-lua-atomic-stock`](01-redis-lua-atomic-stock/README.md)，异步落库在 [`02-redis-stream-async-order`](02-redis-stream-async-order/README.md)，成功扣减拆进程在 [`03-redis-stock-shard`](03-redis-stock-shard/README.md)，多实例售罄标记和准入额度在 [`04-multi-instance-admission`](04-multi-instance-admission/README.md)，商品详情的缓存击穿和 singleflight 在 [`05-detail-cache-singleflight`](05-detail-cache-singleflight/README.md)，多 key 同时过期在 [`06-cache-avalanche`](06-cache-avalanche/README.md)，未支付订单到期关单在 [`07-unpaid-order-delay`](07-unpaid-order-delay/README.md)，cgroup 的 CPU 和内存限额在 [`08-cgroup-cpu-limit`](08-cgroup-cpu-limit/README.md)，一个 256MB 堆的 Kafka 进程在 [`09-kafka-winner-queue`](09-kafka-winner-queue/README.md)，固定窗口的跨秒双倍额度和拦截器的非原子计数在 [`10-fixed-window-boundary`](10-fixed-window-boundary/README.md)，一个本机 RabbitMQ 4.4.0 进程在 [`11-rabbitmq-winner-queue`](11-rabbitmq-winner-queue/README.md)。
 
-RabbitMQ 和 RocketMQ 的进程没有跑。dockerd 和 kubelet 没有跑。第 8 章写的是它们会写进内核的 `cpu.max`、`cpu.weight`、`memory.max`。第 9 章跑的是本机一个 Kafka 4.2.2 进程，副本数 1。托管 Kafka 的钱仍用第 2 章的帮助中心目录价。第 10 章仍是这一个 64MB 的 Redis。
+RocketMQ 的进程没有跑。RabbitMQ 是 4.4.0，Erlang/OTP 27，副本数 1，管理插件没开。dockerd 和 kubelet 没有跑。第 8 章写的是它们会写进内核的 `cpu.max`、`cpu.weight`、`memory.max`。第 9 章跑的是本机一个 Kafka 4.2.2 进程，副本数 1。托管 Kafka 的钱仍用第 2 章的帮助中心目录价。第 10 章仍是这一个 64MB 的 Redis。
 
 ## 30 秒版本
 
@@ -51,6 +51,8 @@ RabbitMQ 和 RocketMQ 的进程没有跑。dockerd 和 kubelet 没有跑。第 8
 拦截器单连接是 5 次。128 个连接都先 `GET` 到空再 `SETEX`，放行 **128**，键里剩下 **1**。不插屏障的三轮是 47/40、128/1、128/1，不能单拿一轮。`INCR` 不刷新 TTL：`PTTL` 从 5000 到 4800 再到 4799。5 秒 5 次的额度留到末尾，5000 毫秒里最多数到 **9** 次。
 
 一个核打满：仓库那种先 `GET` 再 `INCR` 的放行是 **121,894** QPS（16 连接，p99 不超过 200 微秒）。超限也 `INCR` 的写法是 **146,356**。滑动日志是 **98,339**，Redis CPU 100%。10 万个成员的 `MEMORY USAGE` 是 **90.49** 字节/个。下游按官方 10 万 QPS 为两倍尖峰准备，1000 万是多 **15,120 元/月**。限流器从 121,894 换成 98,339，1000 万次检查多 19 个核、**2,872.8 元/月**。这两笔不要相加，也不要和第 9 章的 71,070 相加。热 key 的库存不在里面。
+
+第 11 章把 RabbitMQ 4.4.0 拉起来，水位是空节点 RSS 加 256MiB，限额 **434,307,072**。`miaosha.queue` 没有 Queue Bean，100 条 confirm 都 ack 了，队列不存在。manual、prefetch 1、10 个消费者不确认：未确认 **10**，就绪 **90**，关掉之后只有 10 条带 redelivered。持久化 confirm、没有消费者是 **67,446**/秒，broker CPU 160.4%，p50 超过 2 秒，最慢 4.573 秒。prefetch 1 的 10 个消费者是 **41,064**，一个 prefetch 250 的消费者是 **80,909**。单节点 quorum 在 kill -9 之后三次都是 **0**，经典持久化消息是 **100**。按 67,446 去除，1000 万点击是 149 个 2 核进程，**70,030 元/月**。Serverless 按条，10 秒一发一收是 **400 元**，5000 个胜出者是 **0.02 元**。这两笔不要和第 9 章的 71,070 相加。
 
 ## 和现有代码的关系
 
@@ -466,12 +468,36 @@ Go 客户端 8 个 goroutine，200 字节，4 秒：
 
 下游按官方 10 万 QPS 为 2R 准备，相对按 R 准备：10 万多 151.2 元/月，100 万多 1,512，1000 万多 **15,120**。这只在下游能水平扩的时候成立。限流器每个检查都打 Redis 时，1000 万次用 121,894 去除是 83 个核，用 98,339 去除是 102 个核，多 **2,872.8 元/月**。10 万次检查时日志是 2 个核、fixed 是 1 个，因为 98,339 比 10 万少 1.7%。应用侧若按第 1 章的 120,452 QPS/台为 2R 准备，1000 万多 83 台、**78,020 元/月**。5.010 毫秒不是那次 HTTP。三笔不要相加。
 
+## 第 11 章：一个 RabbitMQ 4.4.0 进程
+
+`MQSender` 发的就是 RabbitMQ。这一章把进程拉起来了。RocketMQ 仍没有。没有 dockerd，没有 kubelet，也没有把 Spring Boot 跑起来。RabbitMQ 4.4.0，Erlang/OTP 27，4 个调度器，只听 127.0.0.1:5672，管理插件没开。水位是空节点 RSS 165,871,616 再加 256MiB，绝对限额 **434,307,072**，策略是 `rss`。客户端是 amqp091-go 1.10.0。
+
+`MQConfig` 没有 `miaosha.queue` 的 Queue Bean。100 条发到这个名字上，confirm 100 个 ack，return 0，队列不存在。加上 mandatory 之后 return 也是 100，队列仍不存在。Spring Boot 2.6.1 的 `publisher-confirms=true` 对不上 `publisherConfirmType`，源码里不会打开 confirm。这次没跑 Spring。
+
+配置是 manual、prefetch 1、concurrency 10。`receive(String)` 没有 Channel，spring-amqp 2.4.0 在 manual 下正常返回不 `basicAck`。10 个消费者各拿 1 条不确认：未确认 **10**，就绪 **90**。关掉连接后就绪 100，再读到的 100 条里只有 **10** 条带 redelivered。如果改成返回就确认，100 条里订单是 **80**，第二次读取是 0。200 条先确认再只记 180：第二次读取 0。
+
+`basicAck(tag, true)` 只覆盖 tag 小于等于这一条的。prefetch 50 时确认手里那一条，断线仍只丢 **1**，就绪 49。把窗口里最大的 tag 用 multiple=true 确认，50 条都没了。一个经典队列两个消费者是 **500+500**。第 9 章一个分区是 1000 和 0。
+
+持久化 confirm、没有消费者、8 个连接、200 字节：**67,446**/秒，墙钟 5.019 秒，broker CPU **160.4%**，客户端 31.9%。p50 超过 2 秒，最慢 **4.573** 秒。确认了 338,537 条，队列里有 460,404 条。这不是天花板。一个消费者没吃完的是 18,945，四个队列是 36,740，broker 到了 **305.2%**。不等 confirm 的 `Publish` 返回是 100,509/秒，p99 不超过 5 微秒，那不是已经落盘。
+
+quorum 在 2GiB 水位上是 **73,877** 确认/秒，RSS 到了 **1.06 GB**，一个消费者没跟上。紧接着经典队列、水位仍是 434MB 时，quorum 的 RSS 到 541MB，内存告警，4 秒只确认了 **153**。153 不拿去除。
+
+prefetch 1、1 个消费者读 10 万条是 **17,281**/秒，broker CPU 73.1%，窗口 5.787 秒。配置那样的 10 个消费者是 **41,064**，2.38 倍，不是 10 倍。prefetch 250、1 个消费者是 **80,909**。4 个这样的消费者是 85,051，1.05 倍。一个队列到这里就不再随消费者变多。
+
+5000 条 confirm **55.7** 毫秒，读完 **65.8** 毫秒。不引用 CPU。10 万条的 `message_bytes` 是每条 **200.00** 字节，队列 memory 列 **41.20**，已分配磁盘 **400.02**。90 秒写了 **6,760,391** 条，status RSS 仍是 **215,330,816**，没有内存告警。这 676 万条的队列 memory 列只有 1.13 字节/条，和 41.20 对不上，不用它做规划。
+
+kill -9：经典队列持久化消息留下 **100**。非持久化消息是 **0**。非持久队列在 4.4 上声明就被 `transient_nonexcl_queues` 拒绝。单节点 quorum 连着三次都是 **0**。日志是 `name_not_registered`，新成员 `last applied 0`。不是三副本的结论。
+
+按 67,446 去除，每个点击都等 confirm：10 万是 2 个进程，100 万是 15 个，1000 万是 **149** 个。2 核 470 元，1000 万是 **70,030 元/月**。broker 只有 160% CPU，149 是偏多的一侧。只放 5000 个胜出者仍是 1 台。
+
+Serverless 按累积量，接收加投递，普通消息 2 元/百万次。10 秒、1000 万条/秒、一发一收是 **400 元**。5000 个胜出者是 **0.02 元**。不停一个月是 **103,680,000 元/月**，用来说明 400 不是月租。预留 2000 万 TPS 是 **12,096,000 元/月**。按 400.02 字节和 3 天保留外推的存储是 **1,567,720 元/月**。这三笔和 70,030 都不要相加，也不要和第 9 章的 71,070 相加。prefetch 从 17,281 换成 80,909，1000 万少 455 个队列，按 470 元是 **213,850 元/月**，也不要和 70,030 相加。
+
 ## 还不能讲成已经做过的事
 
 - 没测 MySQL、没测主从切换、没测跨机器 RTT
 - 没测第三个 Redis 进程，也没测 Redis Cluster 的槽迁移。两个以上的进程数是除法
 - 没跑第 9 个和第 84 个应用进程，没跑 1344 条连接。8 进程的漏量不能乘成 84 进程
-- 没跑 RabbitMQ、RocketMQ 的进程。第 9 章跑了一个 Kafka 4.2.2 进程，副本数 1，没有跨机器。托管 Kafka 的钱仍是第 2 章的目录价。没有 dockerd，没有 kubelet，没有容器镜像。第 8 章写的是 `cpu.max`、`cpu.weight`、`memory.max`。工作负载 cgroup 仍然只有 memory 控制器，cpu 配额是 root 在父 cgroup 下建出来的。Kafka 的 RSS 采样到 507924 KB，没有放进 cgroup
+- 没跑 RocketMQ 的进程。第 11 章跑了一个 RabbitMQ 4.4.0 进程，副本数 1，没有跨机器，没有管理插件，没有把 Spring Boot 跑起来。非持久队列被 `transient_nonexcl_queues` 拒绝。单节点 quorum 在 kill -9 之后三次都是 0，日志是 `name_not_registered`，不要说成三副本。153 确认/秒是水位告警，不拿去除。67,446 的 broker CPU 是 160.4%，不是天花板。100,509 是 Publish 返回，不是 confirm。4 个队列不是 4 倍。prefetch 1 的 10 个消费者是 2.38 倍，不是 10 倍。676 万条上的 1.13 字节/条不拿来规划。70,030、12,096,000、103,680,000、1,567,720、213,850 不要相加，也不要和第 9 章的 71,070 相加。第 9 章跑了一个 Kafka 4.2.2 进程，副本数 1，没有跨机器。托管 Kafka 的钱仍是第 2 章的目录价。没有 dockerd，没有 kubelet，没有容器镜像。第 8 章写的是 `cpu.max`、`cpu.weight`、`memory.max`。工作负载 cgroup 仍然只有 memory 控制器，cpu 配额是 root 在父 cgroup 下建出来的。Kafka 的 RSS 采样到 507924 KB，没有放进 cgroup
 - 第 5 章没测 MySQL，没测带 6785 字节正文的 HTTP，没把 699 万次本地拷贝当成接口 QPS。详情 `GET` 的 Redis CPU 到过 92.9%，没有到 100%，190962 不是独享分片的上限
 - 快路径击穿三次是 385、423、512，不能单拿一次当稳定值。慢路径的 20 毫秒是 CPU 占住连接，不是 SQLite 的查询时间
 - 没跑第 84 个详情进程。4 个进程各刷新 1 次，84 次是除法。很多 key 一起过期在第 6 章，测的是 200 到 10 万个 key，不是 84 台
@@ -485,4 +511,4 @@ Go 客户端 8 个 goroutine，200 字节，4 秒：
 - 第 8 章没有第 3 个、第 4 个核的单独限额。2 核已经用不满，不能写成「4 核限额也测过」。27 台 2 核机器没有跑。1.70 倍是客户端和两个 Redis 挤在同一台 4 核上，不能外推成 4 倍。weight 39:10 没有跑出 3.9 倍。128 连接的 200m 没有跑。成功路径没有放进 32Mi。128Mi 那次 `memory.current` 只有 401KB，因为进程是挪进去的。229 万胜出者是 57.2 字节的除法。`throttled_usec` 在多线程的共享组里可以超过墙钟，那一组不用它除以 4 秒。共享组里的压测进程不是 Spring Boot
 - 第 9 章的 138.8 万不是 broker 天花板。客户端占了约 2 个核，IO 线程是 2 不是默认 8，三副本和跨机器都没跑。官方工具的 45 万不要拿去除。6 分区的 1.09 倍、1.32 倍、消费拉取的 1.18 倍都不是 6 倍。lz4 的 5.37 字节/条是同一段 200 字节重复写出来的。acks=0 没有更快。消费命令的 CPU 百分比被启动稀释了，不引用。5000 条那组墙钟只有几毫秒，不引用 CPU。67,780 和 71,070 是两种目录价的差，不要和第 2 章的 71,540 再加一次，也不要和第 8 章的 38,070 相加
 
-下一章仍然先用一小部分资源跑通再写扩大之后的机器和费用。RabbitMQ 和 RocketMQ 的进程还没跑。第 10 章已经说明：固定窗口在秒边界放出两倍，滑动日志和容量为 1 的令牌桶可以把任意一段窗口收成一份；拦截器先 `GET` 再写，5 次的上限在 128 个并发下守不住。下游为两倍准备的 15,120 元/月，和限流器改用日志多出来的 2,872.8 元/月，不是同一笔钱。
+下一章仍然先用一小部分资源跑通再写扩大之后的机器和费用。RocketMQ 的进程还没跑。第 11 章已经说明：manual 且不确认时，10 个 prefetch 1 的消费者占住 10 条，关掉之后只有这 10 条带 redelivered；持久化 confirm 在这台 4 核上是 67,446/秒，p50 超过 2 秒；prefetch 250 的一个消费者比配置里的 10 个 prefetch 1 更快；单节点 quorum 在 kill -9 之后消息是 0。第 10 章的 15,120 元/月和第 11 章的 70,030 元/月不是同一笔钱。

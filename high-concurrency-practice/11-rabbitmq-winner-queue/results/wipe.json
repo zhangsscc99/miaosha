@@ -1,0 +1,6 @@
+{
+  "scenario": "wipe",
+  "note": "删掉 ms11- 前缀的队列，给重启测试一个短的恢复。",
+  "pass": true,
+  "detail": "wiped"
+}

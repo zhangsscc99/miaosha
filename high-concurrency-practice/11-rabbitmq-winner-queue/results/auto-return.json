@@ -1,0 +1,8 @@
+{
+  "scenario": "auto-return",
+  "note": "如果确认模式是自动，方法正常返回就会确认。stock\u003c=0 直接 return 的那 20 条被确认，订单没有，队列里也不再有。这不是当前 manual 配置的路径。",
+  "pass": true,
+  "detail": "orders=80 second=0 ready=0 unacked=0",
+  "acks": 100,
+  "orders": 80
+}

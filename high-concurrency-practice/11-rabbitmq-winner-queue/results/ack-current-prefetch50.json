@@ -1,0 +1,8 @@
+{
+  "scenario": "ack-current-prefetch50",
+  "note": "先确认当前这一条（multiple=true）再关掉连接，后面已经投递但 tag 更大的消息不在这次确认里，断线后重新入队。prefetch=1 时窗口里只有这一条。",
+  "pass": true,
+  "detail": "prefetch=50 ready=49 unacked=0",
+  "ready": 49,
+  "prefetch": 50
+}
