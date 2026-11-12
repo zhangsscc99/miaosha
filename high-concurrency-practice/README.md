@@ -9,6 +9,7 @@
 | [01 Redis Lua 原子扣库存](01-redis-lua-atomic-stock/README.md) | 2026-11-12 已实测 | 怎样不超卖，为什么热 key 上不要用分布式锁，售罄流量怎样不把 Redis 和数据库打满，扩到 10 万 / 100 万 / 1000 万点击 QPS 要买什么 |
 | [02 Redis Stream 异步落库](02-redis-stream-async-order/README.md) | 2026-11-12 已实测 | 胜出的人怎样入队再落库，重复投递和失败重试怎样不多单、不占着队列，点击加到 1000 万 QPS 时消息集群要不要跟着买 |
 | [03 成功扣减拆到两个 Redis 进程](03-redis-stock-shard/README.md) | 2026-11-12 已实测 | 同一个商品的成功扣减怎样超过一个核，为什么同进程拆 key 没用，取模和搬库存会把账做成什么样 |
-| 04 Docker / Kubernetes | 还没做 | 上面的进程怎样扩容、怎样限流。这台机器没有容器运行时，不能写成已经实测 |
+| [04 多实例售罄标记和准入额度](04-multi-instance-admission/README.md) | 2026-11-12 已实测 | 多台应用的售罄标记互不相通时漏进 Redis 多少次，本地额度怎样把总和留在一个分片里，限流放在 Redis 里为什么省不了核 |
+| 05 Docker / Kubernetes | 还没做 | 上面的进程怎样扩容。这台机器没有容器运行时，不能写成已经实测 |
 
 面试时先看 [技术报告](REPORT.md)，需要复现再进章节目录执行 `bash run.sh`。
