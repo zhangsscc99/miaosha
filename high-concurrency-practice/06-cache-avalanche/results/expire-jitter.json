@@ -1,0 +1,421 @@
+{
+  "scenario": "expire-jitter",
+  "note": "2000 个 key 的 TTL 铺在 500 到 2500 毫秒。同样用 EXISTS 采样。看一次采样里最多消失多少。",
+  "mode": "expire-jitter",
+  "keys": 2000,
+  "repeat": 0,
+  "instances": 0,
+  "workersPerInstance": 0,
+  "originPool": 0,
+  "serviceMs": 0,
+  "hz": 10,
+  "payloadBytes": 128,
+  "ops": 0,
+  "qps": 0,
+  "hits": 0,
+  "misses": 0,
+  "errors": 0,
+  "polls": 0,
+  "originLoads": 0,
+  "childLoads": 0,
+  "redisCommands": 0,
+  "childRedisCmds": 0,
+  "dbSize": 0,
+  "usedMemory": 1520880,
+  "finalMemory": 1073200,
+  "baseMemory": 1088496,
+  "evictedKeys": 0,
+  "redisRssKB": 6832,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "originCpuSec": 0,
+  "originCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "wallSec": 0,
+  "p50us": 0,
+  "p99us": 0,
+  "maxus": 0,
+  "missP50us": 0,
+  "missP99us": 0,
+  "missMaxus": 0,
+  "hitP99us": 0,
+  "peakOrigin": 0,
+  "peakOrigin2": 0,
+  "bucketMs": 100,
+  "slide100ms": 0,
+  "maxDrop": 101,
+  "samples": [
+    {
+      "tMs": 1,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1115
+    },
+    {
+      "tMs": 102,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1953
+    },
+    {
+      "tMs": 202,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2079
+    },
+    {
+      "tMs": 302,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1991
+    },
+    {
+      "tMs": 402,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1659
+    },
+    {
+      "tMs": 502,
+      "alive": 1997,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1986
+    },
+    {
+      "tMs": 602,
+      "alive": 1898,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2358
+    },
+    {
+      "tMs": 702,
+      "alive": 1798,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1333
+    },
+    {
+      "tMs": 802,
+      "alive": 1698,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1856
+    },
+    {
+      "tMs": 902,
+      "alive": 1597,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2046
+    },
+    {
+      "tMs": 1002,
+      "alive": 1497,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2050
+    },
+    {
+      "tMs": 1102,
+      "alive": 1397,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2312
+    },
+    {
+      "tMs": 1202,
+      "alive": 1297,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1952
+    },
+    {
+      "tMs": 1302,
+      "alive": 1198,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2149
+    },
+    {
+      "tMs": 1402,
+      "alive": 1098,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2106
+    },
+    {
+      "tMs": 1502,
+      "alive": 997,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1794
+    },
+    {
+      "tMs": 1602,
+      "alive": 897,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1516
+    },
+    {
+      "tMs": 1702,
+      "alive": 797,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2180
+    },
+    {
+      "tMs": 1803,
+      "alive": 697,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2016
+    },
+    {
+      "tMs": 1902,
+      "alive": 598,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2417
+    },
+    {
+      "tMs": 2002,
+      "alive": 498,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1797
+    },
+    {
+      "tMs": 2102,
+      "alive": 397,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1703
+    },
+    {
+      "tMs": 2202,
+      "alive": 297,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1555
+    },
+    {
+      "tMs": 2302,
+      "alive": 198,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1495
+    },
+    {
+      "tMs": 2403,
+      "alive": 97,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 3154
+    },
+    {
+      "tMs": 2502,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1615
+    },
+    {
+      "tMs": 2602,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1747
+    },
+    {
+      "tMs": 2701,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1546
+    },
+    {
+      "tMs": 2801,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1344
+    },
+    {
+      "tMs": 2902,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1919
+    },
+    {
+      "tMs": 3002,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1519
+    },
+    {
+      "tMs": 3101,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1522
+    },
+    {
+      "tMs": 3201,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1608
+    },
+    {
+      "tMs": 3301,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1744
+    },
+    {
+      "tMs": 3402,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1412
+    },
+    {
+      "tMs": 3502,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1347
+    },
+    {
+      "tMs": 3601,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1712
+    },
+    {
+      "tMs": 3701,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1549
+    },
+    {
+      "tMs": 3802,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1660
+    },
+    {
+      "tMs": 3902,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1700
+    },
+    {
+      "tMs": 4002,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1597
+    }
+  ],
+  "pass": true,
+  "detail": "ok"
+}
