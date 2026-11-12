@@ -1,0 +1,82 @@
+{
+  "scenario": "ready",
+  "note": "3 个主库各 1 个副本，16384 个槽。每个进程 maxmemory 64mb。没有第二台机器。",
+  "pass": true,
+  "detail": "masters=3 replicas=3 slots=16384 state=ok",
+  "extra": {
+    "clusterSize": "3",
+    "clusterState": "ok",
+    "knownNodes": "6",
+    "masterCount": 3,
+    "nodes": [
+      {
+        "addr": "127.0.0.1:7201",
+        "clusterEnabled": "1",
+        "epoch": 1,
+        "flags": "myself,master",
+        "nodeTimeout": "cluster-node-timeout 2000",
+        "pid": 9638,
+        "replicas": 1,
+        "rssKB": 6928,
+        "slots": 5461,
+        "usedMemory": 1851392
+      },
+      {
+        "addr": "127.0.0.1:7205",
+        "epoch": 1,
+        "flags": "slave",
+        "master": "127.0.0.1:7201",
+        "pid": 9682,
+        "rssKB": 6892,
+        "slots": 0,
+        "usedMemory": 1806312
+      },
+      {
+        "addr": "127.0.0.1:7202",
+        "clusterEnabled": "1",
+        "epoch": 2,
+        "flags": "master",
+        "nodeTimeout": "cluster-node-timeout 2000",
+        "pid": 9649,
+        "replicas": 1,
+        "rssKB": 7060,
+        "slots": 5462,
+        "usedMemory": 1876176
+      },
+      {
+        "addr": "127.0.0.1:7206",
+        "epoch": 2,
+        "flags": "slave",
+        "master": "127.0.0.1:7202",
+        "pid": 9693,
+        "rssKB": 6936,
+        "slots": 0,
+        "usedMemory": 1806312
+      },
+      {
+        "addr": "127.0.0.1:7203",
+        "clusterEnabled": "1",
+        "epoch": 3,
+        "flags": "master",
+        "nodeTimeout": "cluster-node-timeout 2000",
+        "pid": 9660,
+        "replicas": 1,
+        "rssKB": 7104,
+        "slots": 5461,
+        "usedMemory": 1882304
+      },
+      {
+        "addr": "127.0.0.1:7204",
+        "epoch": 3,
+        "flags": "slave",
+        "master": "127.0.0.1:7203",
+        "pid": 9671,
+        "rssKB": 7028,
+        "slots": 0,
+        "usedMemory": 1812472
+      }
+    ],
+    "replicaCount": 3,
+    "slotsAssigned": "16384"
+  }
+}
