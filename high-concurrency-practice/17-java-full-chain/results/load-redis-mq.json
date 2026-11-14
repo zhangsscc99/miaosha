@@ -1,0 +1,1 @@
+{"label":"redis-mq","url":"http://127.0.0.1:18080/seckill?goodsId=1","concurrency":64,"seconds":15.03,"okInWindow":291357,"qps":19389,"rps":19389,"ok":320639,"soldOut":0,"limited":0,"errors":0,"p50Ms":2.307,"p90Ms":6.021,"p99Ms":15.727,"p999Ms":42.348}

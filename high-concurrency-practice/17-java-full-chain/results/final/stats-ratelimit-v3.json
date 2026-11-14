@@ -1,0 +1,1 @@
+{"mode":"v4","metrics":{"requests":230506,"ok":0,"accepted":95776,"soldOut":0,"limited":134730,"errors":0,"backpressure":0},"mq":{"outbound":0,"inbound":0,"published":95776,"confirmed":95776,"persisted":95776,"publishFailed":0,"persistFailed":0},"localStock":4904224,"soldOut":false}

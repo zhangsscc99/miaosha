@@ -1,0 +1,1 @@
+{"label":"baseline-db","url":"http://127.0.0.1:18080/seckill?goodsId=1","concurrency":64,"seconds":15.14,"okInWindow":72424,"qps":4784,"rps":4784,"ok":81876,"soldOut":0,"limited":0,"errors":0,"p50Ms":12.706,"p90Ms":14.325,"p99Ms":25.683,"p999Ms":69.661}

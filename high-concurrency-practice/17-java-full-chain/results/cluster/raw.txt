@@ -1,0 +1,1 @@
+[loadgen] {"label":"cluster-3pods","url":"http://127.0.0.1:8080/seckill?goodsId=1","concurrency":192,"seconds":15.07,"okInWindow":76164,"qps":5055,"rps":5055,"ok":88726,"soldOut":0,"limited":0,"errors":0,"p50Ms":26.926,"p90Ms":80.354,"p99Ms":210.582,"p999Ms":314.697}

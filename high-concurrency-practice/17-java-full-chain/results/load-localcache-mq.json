@@ -1,0 +1,1 @@
+{"label":"localcache-mq","url":"http://127.0.0.1:18080/seckill?goodsId=1","concurrency":64,"seconds":15.00,"okInWindow":291080,"qps":19405,"rps":19405,"ok":331817,"soldOut":0,"limited":0,"errors":0,"p50Ms":2.118,"p90Ms":6.153,"p99Ms":19.698,"p999Ms":68.414}

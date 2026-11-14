@@ -1,0 +1,1 @@
+[correctness] {"stock":100,"requests":3000,"sent":3000,"accepted":100,"soldOut":2900,"errors":0,"dbOrders":100,"dbStock":0,"redisStock":0,"localStock":0,"seconds":1.33,"pass":true}

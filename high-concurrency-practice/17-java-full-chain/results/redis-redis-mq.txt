@@ -1,0 +1,3 @@
+cmdstat_decr:calls=320639,usec=74982,usec_per_call=0.23,rejected_calls=0,failed_calls=0
+cmdstat_get:calls=320640,usec=76552,usec_per_call=0.24,rejected_calls=0,failed_calls=0
+cmdstat_eval:calls=320639,usec=1359310,usec_per_call=4.24,rejected_calls=0,failed_calls=0

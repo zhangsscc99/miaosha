@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: seckill-config
+data:
+  SERVER_PORT: "8080"
+  LAB_MYSQL_URL: "jdbc:mysql://mysql-primary.database.svc:3306/miaosha?useSSL=false&rewriteBatchedStatements=true&characterEncoding=utf8"
+  LAB_DB_POOL: "8"
+  LAB_REDIS_HOST: "redis-cluster.redis.svc"
+  LAB_REDIS_PORT: "6379"
+  LAB_MQ_HOST: "rabbitmq.mq.svc"
+  LAB_MQ_PORT: "5672"
+  LAB_MQ_QUEUE: "hc_order_queue"
+  LAB_STOCK_CHUNK: "2000"
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: seckill-api
+  annotations:
+    nginx.ingress.kubernetes.io/limit-rps: "5000"
+    nginx.ingress.kubernetes.io/limit-connections: "2000"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "2"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "5"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: seckill.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: seckill-api
+                port:
+                  number: 80

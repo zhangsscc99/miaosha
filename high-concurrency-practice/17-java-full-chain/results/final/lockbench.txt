@@ -1,0 +1,4 @@
+[lockbench] {"strategy":"local","threads":8,"ops":24000,"qps":4400575,"p50Us":0.2,"p99Us":31.9,"retries":0,"seconds":0.01}
+[lockbench] {"strategy":"redlock","threads":8,"ops":24000,"qps":13621,"p50Us":67.1,"p99Us":12006.2,"retries":24822,"seconds":1.76}
+[lockbench] {"strategy":"lua","threads":8,"ops":24000,"qps":164206,"p50Us":44.6,"p99Us":125.8,"retries":0,"seconds":0.15}
+[{"strategy":"local","threads":8,"ops":24000,"qps":4400575,"p50Us":0.2,"p99Us":31.9,"retries":0,"seconds":0.01},{"strategy":"redlock","threads":8,"ops":24000,"qps":13621,"p50Us":67.1,"p99Us":12006.2,"retries":24822,"seconds":1.76},{"strategy":"lua","threads":8,"ops":24000,"qps":164206,"p50Us":44.6,"p99Us":125.8,"retries":0,"seconds":0.15}]

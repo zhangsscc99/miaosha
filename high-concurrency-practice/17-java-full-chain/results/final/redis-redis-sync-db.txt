@@ -1,0 +1,3 @@
+cmdstat_decr:calls=174702,usec=47425,usec_per_call=0.27,rejected_calls=0,failed_calls=0
+cmdstat_get:calls=174703,usec=55068,usec_per_call=0.32,rejected_calls=0,failed_calls=0
+cmdstat_eval:calls=174702,usec=866084,usec_per_call=4.96,rejected_calls=0,failed_calls=0,slowlog_count=1,slowlog_time_ms_sum=11.81,slowlog_time_ms_max=11.81

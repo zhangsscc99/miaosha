@@ -1,0 +1,1 @@
+{"label":"ratelimit-v3","url":"http://127.0.0.1:18080/seckill?goodsId=1","concurrency":256,"seconds":15.14,"okInWindow":75944,"qps":5016,"rps":13432,"ok":95776,"soldOut":0,"limited":134730,"errors":0,"p50Ms":18.117,"p90Ms":55.162,"p99Ms":132.347,"p999Ms":253.653}

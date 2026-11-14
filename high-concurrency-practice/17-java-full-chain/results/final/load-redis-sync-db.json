@@ -1,0 +1,1 @@
+{"label":"redis-sync-db","url":"http://127.0.0.1:18080/seckill?goodsId=1","concurrency":64,"seconds":15.15,"okInWindow":147599,"qps":9744,"rps":9744,"ok":174702,"soldOut":0,"limited":0,"errors":0,"p50Ms":5.014,"p90Ms":11.865,"p99Ms":35.956,"p999Ms":72.949}

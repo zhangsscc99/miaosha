@@ -1,0 +1,1 @@
+{"mode":"v2","metrics":{"requests":175601,"ok":0,"accepted":175601,"soldOut":0,"limited":0,"errors":0,"backpressure":0},"mq":{"outbound":0,"inbound":0,"published":175601,"confirmed":175601,"persisted":175601,"publishFailed":0,"persistFailed":0},"redisStock":4824399}
