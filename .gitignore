@@ -58,3 +58,7 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
+
+# 第 19 章：静态页、nginx 缓存和压测中间文件，不进仓库
+high-concurrency-practice/19-nginx-edge-static/runtime/
+high-concurrency-practice/19-nginx-edge-static/results/runs/

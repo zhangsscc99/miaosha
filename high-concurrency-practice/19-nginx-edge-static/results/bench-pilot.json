@@ -1,0 +1,278 @@
+{
+  "mode": "pilot",
+  "rows": [
+    {
+      "label": "static-baseline",
+      "round": 1,
+      "url": "http://127.0.0.1:18080/p{id}.html",
+      "concurrency": 64,
+      "seconds": 2.93,
+      "rps": 38555,
+      "requests": 117986,
+      "ok200": 117986,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 117986,
+        "meanUs": 1656.7,
+        "p50Us": 1306,
+        "p99Us": 5651,
+        "maxUs": 50796
+      },
+      "bodyBytes": 956693894,
+      "contentLengthBytes": 956693894,
+      "headerCounts": {},
+      "edgePageDelta": 0,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 0,
+      "cpu": {
+        "nginxPct": 107.7,
+        "edgePct": 0.0,
+        "clientPct": 399.4
+      }
+    },
+    {
+      "label": "static-gzip",
+      "round": 1,
+      "url": "http://127.0.0.1:18081/p{id}.html",
+      "concurrency": 64,
+      "seconds": 2.93,
+      "rps": 31541,
+      "requests": 96566,
+      "ok200": 96566,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 96566,
+        "meanUs": 2027.0,
+        "p50Us": 1697,
+        "p99Us": 6447,
+        "maxUs": 13485
+      },
+      "bodyBytes": 184047807,
+      "contentLengthBytes": 0,
+      "headerCounts": {},
+      "edgePageDelta": 0,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 0,
+      "cpu": {
+        "nginxPct": 187.0,
+        "edgePct": 0.0,
+        "clientPct": 256.3
+      }
+    },
+    {
+      "label": "static-nokeepalive",
+      "round": 1,
+      "url": "http://127.0.0.1:18082/p{id}.html",
+      "concurrency": 64,
+      "seconds": 2.91,
+      "rps": 13608,
+      "requests": 41852,
+      "ok200": 41852,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 41852,
+        "meanUs": 4684.0,
+        "p50Us": 3061,
+        "p99Us": 17986,
+        "maxUs": 309836
+      },
+      "bodyBytes": 339358510,
+      "contentLengthBytes": 339358510,
+      "headerCounts": {},
+      "edgePageDelta": 0,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 0,
+      "cpu": {
+        "nginxPct": 56.0,
+        "edgePct": 0.0,
+        "clientPct": 317.6
+      }
+    },
+    {
+      "label": "static-openfilecache",
+      "round": 1,
+      "url": "http://127.0.0.1:18078/p{id}.html",
+      "concurrency": 64,
+      "seconds": 2.94,
+      "rps": 37251,
+      "requests": 113714,
+      "ok200": 113714,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 113714,
+        "meanUs": 1712.7,
+        "p50Us": 1395,
+        "p99Us": 5437,
+        "maxUs": 52441
+      },
+      "bodyBytes": 922054557,
+      "contentLengthBytes": 922054557,
+      "headerCounts": {},
+      "edgePageDelta": 0,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 0,
+      "cpu": {
+        "nginxPct": 50.4,
+        "edgePct": 0.3,
+        "clientPct": 365.6
+      }
+    },
+    {
+      "label": "static-sendfile-off",
+      "round": 1,
+      "url": "http://127.0.0.1:18089/p{id}.html",
+      "concurrency": 64,
+      "seconds": 3.02,
+      "rps": 41477,
+      "requests": 125797,
+      "ok200": 125797,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 125797,
+        "meanUs": 1541.1,
+        "p50Us": 1291,
+        "p99Us": 6661,
+        "maxUs": 42467
+      },
+      "bodyBytes": 1020029482,
+      "contentLengthBytes": 1020029482,
+      "headerCounts": {},
+      "edgePageDelta": 0,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 0,
+      "cpu": {
+        "nginxPct": 102.4,
+        "edgePct": 0.0,
+        "clientPct": 404.1
+      }
+    },
+    {
+      "label": "dyn-via-nginx",
+      "round": 1,
+      "url": "http://127.0.0.1:18083/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 3.04,
+      "rps": 16239,
+      "requests": 49095,
+      "ok200": 49095,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 49095,
+        "meanUs": 3938.0,
+        "p50Us": 2735,
+        "p99Us": 24815,
+        "maxUs": 144755
+      },
+      "bodyBytes": 398088605,
+      "contentLengthBytes": 398088605,
+      "headerCounts": {},
+      "edgePageDelta": 79822,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 79822,
+      "cpu": {
+        "nginxPct": 49.6,
+        "edgePct": 166.7,
+        "clientPct": 278.2
+      }
+    },
+    {
+      "label": "dyn-direct",
+      "round": 1,
+      "url": "http://127.0.0.1:18090/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 2.94,
+      "rps": 24601,
+      "requests": 74714,
+      "ok200": 74714,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 74714,
+        "meanUs": 2593.5,
+        "p50Us": 2341,
+        "p99Us": 9197,
+        "maxUs": 79161
+      },
+      "bodyBytes": 605821365,
+      "contentLengthBytes": 605821365,
+      "headerCounts": {},
+      "edgePageDelta": 118955,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 118955,
+      "cpu": {
+        "nginxPct": 0.0,
+        "edgePct": 152.5,
+        "clientPct": 343.4
+      }
+    },
+    {
+      "label": "api-via-nginx",
+      "round": 1,
+      "url": "http://127.0.0.1:18083/api?id={id}",
+      "concurrency": 64,
+      "seconds": 3.08,
+      "rps": 27272,
+      "requests": 83825,
+      "ok200": 83825,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 83825,
+        "meanUs": 2344.4,
+        "p50Us": 2088,
+        "p99Us": 9376,
+        "maxUs": 27998
+      },
+      "bodyBytes": 195584777,
+      "contentLengthBytes": 195584777,
+      "headerCounts": {},
+      "edgePageDelta": 0,
+      "edgeApiDelta": 130313,
+      "edgeRedisDelta": 130313,
+      "cpu": {
+        "nginxPct": 66.6,
+        "edgePct": 131.9,
+        "clientPct": 328.4
+      }
+    },
+    {
+      "label": "edgecache-steady",
+      "round": 1,
+      "url": "http://127.0.0.1:18084/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 2.93,
+      "rps": 25758,
+      "requests": 78815,
+      "ok200": 78815,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 78815,
+        "meanUs": 2479.3,
+        "p50Us": 1613,
+        "p99Us": 16817,
+        "maxUs": 43148
+      },
+      "bodyBytes": 639074493,
+      "contentLengthBytes": 639074493,
+      "headerCounts": {
+        "HIT": 77785,
+        "EXPIRED": 1030
+      },
+      "edgePageDelta": 2246,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 2246,
+      "cpu": {
+        "nginxPct": 95.5,
+        "edgePct": 8.5,
+        "clientPct": 401.7
+      }
+    }
+  ]
+}

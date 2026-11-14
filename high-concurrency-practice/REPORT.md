@@ -1,8 +1,8 @@
 # 秒杀高并发技术报告（面试用）
 
-日期：2026-11-12。扣库存的代码和原始 JSON 在 [`01-redis-lua-atomic-stock`](01-redis-lua-atomic-stock/README.md)，异步落库在 [`02-redis-stream-async-order`](02-redis-stream-async-order/README.md)，成功扣减拆进程在 [`03-redis-stock-shard`](03-redis-stock-shard/README.md)，多实例售罄标记和准入额度在 [`04-multi-instance-admission`](04-multi-instance-admission/README.md)，商品详情的缓存击穿和 singleflight 在 [`05-detail-cache-singleflight`](05-detail-cache-singleflight/README.md)，多 key 同时过期在 [`06-cache-avalanche`](06-cache-avalanche/README.md)，未支付订单到期关单在 [`07-unpaid-order-delay`](07-unpaid-order-delay/README.md)，cgroup 的 CPU 和内存限额在 [`08-cgroup-cpu-limit`](08-cgroup-cpu-limit/README.md)，一个 256MB 堆的 Kafka 进程在 [`09-kafka-winner-queue`](09-kafka-winner-queue/README.md)，固定窗口的跨秒双倍额度和拦截器的非原子计数在 [`10-fixed-window-boundary`](10-fixed-window-boundary/README.md)，一个本机 RabbitMQ 4.4.0 进程在 [`11-rabbitmq-winner-queue`](11-rabbitmq-winner-queue/README.md)，一个本机 RocketMQ 5.5.1 进程在 [`12-rocketmq-flush-delay`](12-rocketmq-flush-delay/README.md)，同机 Redis 主从和 `WAIT` 在 [`13-redis-replica-wait`](13-redis-replica-wait/README.md)，同机 Redis Sentinel 自动切换在 [`14-redis-sentinel-failover`](14-redis-sentinel-failover/README.md)，同机 Redis Cluster 的槽和迁移在 [`15-redis-cluster-slot`](15-redis-cluster-slot/README.md)，同机 3 主 3 副本和 `CLUSTER FAILOVER` 在 [`16-redis-cluster-failover`](16-redis-cluster-failover/README.md)，Java 全链路在 [`17-java-full-chain`](17-java-full-chain/README.md)，缓存穿透和布隆过滤器在 [`18-bloom-penetration`](18-bloom-penetration/README.md)。
+日期：2026-11-12。扣库存的代码和原始 JSON 在 [`01-redis-lua-atomic-stock`](01-redis-lua-atomic-stock/README.md)，异步落库在 [`02-redis-stream-async-order`](02-redis-stream-async-order/README.md)，成功扣减拆进程在 [`03-redis-stock-shard`](03-redis-stock-shard/README.md)，多实例售罄标记和准入额度在 [`04-multi-instance-admission`](04-multi-instance-admission/README.md)，商品详情的缓存击穿和 singleflight 在 [`05-detail-cache-singleflight`](05-detail-cache-singleflight/README.md)，多 key 同时过期在 [`06-cache-avalanche`](06-cache-avalanche/README.md)，未支付订单到期关单在 [`07-unpaid-order-delay`](07-unpaid-order-delay/README.md)，cgroup 的 CPU 和内存限额在 [`08-cgroup-cpu-limit`](08-cgroup-cpu-limit/README.md)，一个 256MB 堆的 Kafka 进程在 [`09-kafka-winner-queue`](09-kafka-winner-queue/README.md)，固定窗口的跨秒双倍额度和拦截器的非原子计数在 [`10-fixed-window-boundary`](10-fixed-window-boundary/README.md)，一个本机 RabbitMQ 4.4.0 进程在 [`11-rabbitmq-winner-queue`](11-rabbitmq-winner-queue/README.md)，一个本机 RocketMQ 5.5.1 进程在 [`12-rocketmq-flush-delay`](12-rocketmq-flush-delay/README.md)，同机 Redis 主从和 `WAIT` 在 [`13-redis-replica-wait`](13-redis-replica-wait/README.md)，同机 Redis Sentinel 自动切换在 [`14-redis-sentinel-failover`](14-redis-sentinel-failover/README.md)，同机 Redis Cluster 的槽和迁移在 [`15-redis-cluster-slot`](15-redis-cluster-slot/README.md)，同机 3 主 3 副本和 `CLUSTER FAILOVER` 在 [`16-redis-cluster-failover`](16-redis-cluster-failover/README.md)，Java 全链路在 [`17-java-full-chain`](17-java-full-chain/README.md)，缓存穿透和布隆过滤器在 [`18-bloom-penetration`](18-bloom-penetration/README.md)，nginx 边缘层在 [`19-nginx-edge-static`](19-nginx-edge-static/README.md)。
 
-RabbitMQ 是 4.4.0，Erlang/OTP 27，副本数 1，管理插件没开。RocketMQ 是 5.5.1，一个 NameServer 加一个 master，没有 slave。dockerd 和 kubelet 没有跑。第 8 章写的是它们会写进内核的 `cpu.max`、`cpu.weight`、`memory.max`。第 9 章跑的是本机一个 Kafka 4.2.2 进程，副本数 1。托管 Kafka 的钱仍用第 2 章的帮助中心目录价。第 10 章仍是这一个 64MB 的 Redis。
+RabbitMQ 是 4.4.0，Erlang/OTP 27，副本数 1，管理插件没开。RocketMQ 是 5.5.1，一个 NameServer 加一个 master，没有 slave。dockerd 和 kubelet 没有跑。第 8 章写的是它们会写进内核的 `cpu.max`、`cpu.weight`、`memory.max`。第 9 章跑的是本机一个 Kafka 4.2.2 进程，副本数 1。托管 Kafka 的钱仍用第 2 章的帮助中心目录价。第 10 章仍是这一个 64MB 的 Redis。第 19 章是本机 nginx 1.31.8 进程，不是 Ingress Controller，也不是 CDN。
 
 ## 30 秒版本
 
@@ -634,6 +634,22 @@ K8s 没有真集群。3 个 JVM 进程加轮询直连模拟 3 Pod，192 并发�
 
 边界：客户端和服务端在同一台 8 核机器上，压测时负载 15 左右，绝对值保守，只用比例；96 个分片是除法，没跑；没测 Cluster 下的位图分片、Cuckoo Filter、Ribbon Filter。
 
+## 第 19 章：nginx 边缘层
+
+前 18 章的瓶颈都在应用进程、Redis、数据库和消息队列里。第 19 章换到最外面一层：nginx 1.31.8，2 个 worker，1000 个 8,106 字节的静态商详页，上游是一个 Java 进程（一次 Redis `GET` 再拼 8KB），Redis 8.10.3。代码、脚本、原始 JSON 在 [`19-nginx-edge-static`](19-nginx-edge-static/README.md)。
+
+静态化把每请求 CPU 从 **97~133 µs** 降到 **27.9~29.6 µs**，RPS 从 **16,239~18,016** 涨到 **38,555~40,538**（2.0~2.4 倍），Redis 从 1 次/请求降到 **0**，p50 从 2.7 ms 降到 1.3 ms。2.3KB 的 JSON API 并不更便宜：27,272 RPS、每请求约 73 µs，因为拼 SKU 和优惠券的循环没少。直连上游比经 nginx 快 1.51 倍（24,601 对 16,239）；边缘层的价值不是让单请求更快，是让不该进来的请求不进来。
+
+gzip 把 8,106 字节压到 **1,906**（4.25 倍），RPS 从 38,555 降到 31,541（-18.2%），每请求 CPU 从 27.9 µs 涨到 **59.3 µs**。关掉 keepalive 是 **13,608**（-64.7%），p99 从 5.7 ms 涨到 18.0 ms。`open_file_cache` 同样的 RPS 下把 nginx CPU 从 **107.7% 降到 50.4%**（每请求 27.9 → 13.5 µs），但 RPS 没涨，因为客户端先到瓶颈。`sendfile off` 一次 41,477、一次 30,916，在这台 macOS 上没有稳定收益，不作为优化项。
+
+连接数不是越多越好：32 连接 **44,507**，64 是 42,002，128 是 34,598，256 掉到 **6,377** 并且另一轮客户端超时。客户端自己占 300%~450% CPU，3.8~4.5 万 RPS 是客户端上限，不是 nginx 上限。
+
+边缘缓存命中时是 19,445~25,758 RPS、每请求 40.4 µs，但真正值钱的是回源：1000 个商品、2 秒 TTL，回源被钉在 **413~767/秒**，相对 1.6~1.8 万/秒的动态页少 21~44 倍，而且和点击是 10 万还是 1000 万无关。冷启动 256 并发同时打一个不存在的缓存键，`proxy_cache_lock on` 把回源从 233~256 收成 **1**，但 255 个等待者的 p50 是 **549 ms**：nginx 的等待者每 **500 ms** 轮询一次（注入 0/5/100 ms 回源都是 505~515 ms，注入 500 ms 才变成 1,010 ms）。TTL 过期是另一件事：`proxy_cache_lock` 只保护「新元素」，256 个请求**全部**回源；`proxy_cache_use_stale updating` + `proxy_cache_background_update` 是回源 **1**、p50 **38~40 ms**，两个指标都更好。
+
+限流 `limit_req_zone rate=5000r/s`，64 连接 3 秒：`burst=1` 只放行 **4,224/53,287（7.9%）**、1,446/秒、49,063 个 503，因为 burst 同时是排队槽位，放行被上游延迟串行化；`burst=1000 nodelay` 放行 15,825/22,739，5,258/秒，6,914 个 503，p50 5.1 ms；`burst=1000` 排队放行 15,134/15,134，5,130/秒，**0 个 503**，p50 12.8 ms、p99 16~49 ms。503 是 `limit_req_status` 的默认值，不是 429。
+
+机器账（4c8g 940 元/月、Redis 151.2 元/月）：10 万 / 100 万 / 1000 万点击，全动态是 **3 / 25 / 243** 台加 **1 / 10 / 100** 个 Redis 分片，月费 **2,971 / 25,012 / 243,540**；静态页是 **1 / 8 / 74** 台，月费 **940 / 7,520 / 69,560**，少 **2,031 / 17,492 / 173,980 元/月**。边缘缓存是 2 / 11 / 101 台，回源仍是 500/秒；`open_file_cache` 把 10 万 / 100 万 / 1000 万从 74 台降到 37 台。带宽：8KB × 1000 万 = **81.1 GB/s = 648 Gbps**，gzip 后 **19.1 GB/s = 152 Gbps**；按 CDN 0.2 元/GB 只算流量，1 小时 **58,363 对 13,723 元**，省 **44,640 元**。gzip 多 75 台、**70,500 元/月**，活动超过 **1.6 小时**才回本，所以压缩的理由是带宽装不下，不是省钱。CDN 请求数费用、TLS、第二台机器、K8s Ingress 都没有测。
+
 ## 还不能讲成已经做过的事
 
 - 没测 MySQL。跨机器 RTT 没测。网络分区没测。第 13 章的 2 毫秒和 20 毫秒是本机代理里的 sleep。第 14 章的哨兵和第 15 章的三个主库也在这台机器上
@@ -661,5 +677,7 @@ K8s 没有真集群。3 个 JVM 进程加轮询直连模拟 3 Pod，192 并发�
 - 第 16 章的 210,942 是 16 连接 INCR，主库 99.2%，副本 17.5%。32 连接是 224,191，1.06 倍，不替换 210,942。225,778 是副本 READONLY GET，主库 CPU 是 0。241,459 是 1.07 倍，不替换 225,778。177,149 和 173,083 是同一台 4 核上同时跑的，不要相加，也不要拿去除。310.49 和 309.01 不要平均，1,053,690 的 histlen 不要除以 2 万。手动切换三次的差是 0、0、0。FORCE 只有第一次少 63，后两次没有 election won。TAKEOVER 少 167，没有采到双主。3 秒睡眠是一次切换、两次没有。8 秒的 3,340 和 8,001 不要合成一个时间。659、725、908 不要平均。套接字还在时丢掉 0，拆连接之后三次都是 2,000。no-failover 之后主库是 nil，副本是 MOVED，不是还留着 100。PFAIL 的 10,923 当时 slots_fail 是 0。TAKEOVER 之后的 SET 和关掉 coverage 之后的 SET 都是 CLUSTERDOWN。7,257.6、6,804、1,965.6、1,209.6、302.4、22,560 不要相加，也不要和第 15 章的 7,106.4、8,013.6 或第 14 章的 21,150 相加。没有第二台机器，没有网络分区，没有 DLedger
 
 - 第 18 章跑在 8 核 macOS 上，压测时负载 15 左右，绝对 RPS 偏保守，只引用比例。10 位/元素的 0.74% 是「误判率 × 90% 扫号占比」，扫号占比变了这个数就变。0.94% 的落库是热稳态，冷启动是 10.75%。96 个共享布隆分片和 1,022 个 Pod 都是除法，没跑。pipeline 的 42 万/秒是网关批处理形态，不拿来当接口容量。没有 Cuckoo Filter、Ribbon Filter，没有 Cluster 下的位图分片，没有第二台机器
+
+- 第 19 章跑在 8 核 macOS 上，压测客户端、nginx、Java 上游、Redis 在同一台机器；客户端自己占 300%~450% CPU，静态页的 3.8~4.5 万 RPS 是客户端上限，不是 nginx 上限。23:16 复跑时 load 17~31，静态页掉到 1.0 万，绝对值只在同一轮里比；`bench-pilot` 和 `bench-scale` 没有记录 load。没有第二台机器、没有 CDN、没有 TLS/HTTP2、没有 Ingress Controller、没有 kubelet。20 ms 回源是 `Thread.sleep` 注入的，不是真实渲染。过期测试等 6 秒，因为 `proxy_cache_valid 2s` 是秒级粒度。1000 万 QPS 的 648 Gbps、243 台、173,980 元都是除法，没有跑。CDN 只算流量 0.2 元/GB，不含 HTTPS 请求数费用；`open_file_cache` 的 2 倍 CPU 只在 macOS 上测到，Linux 要重测。`sendfile off` 在这台机器上没有稳定收益，不能讲成 Linux 上也一样
 
 下一章仍然先用一小部分资源跑通再写扩大之后的机器和费用。真的第二台机器、DLedger 还没跑。这台机器没有 dockerd，也没有 kubelet。第 16 章是同机 3 主 3 副本：热 key 的 INCR 是 210,942/秒，副本 CPU 是 17.5%。不要把第 16 章的副本说成第 15 章的第二个主库，也不要把第 14 章的哨兵说成 Cluster。第 11 章的 70,030 元/月、第 12 章的 156,040 元/月、第 13 章的 19,958.4 元/月、第 14 章的 21,150 元/月、第 15 章的 8,013.6 元/月和第 16 章的 7,257.6 元/月不是同一笔钱。

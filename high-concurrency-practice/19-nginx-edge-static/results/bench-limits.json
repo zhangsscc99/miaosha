@@ -1,0 +1,191 @@
+{
+  "mode": "limits",
+  "rows": [
+    {
+      "label": "limit-burst1",
+      "round": 1,
+      "url": "http://127.0.0.1:18086/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 2.92,
+      "rps": 17491,
+      "requests": 53287,
+      "ok200": 4224,
+      "unavailable": 49063,
+      "other": 0,
+      "latency": {
+        "count": 4224,
+        "meanUs": 5976.6,
+        "p50Us": 3161,
+        "p99Us": 58613,
+        "maxUs": 141708
+      },
+      "bodyBytes": 34250532,
+      "contentLengthBytes": 34250532,
+      "headerCounts": {},
+      "edgePageDelta": 4785,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 4785,
+      "loadavg": 7.14,
+      "cpu": {
+        "nginxPct": 35.3,
+        "edgePct": 64.4,
+        "clientPct": 270.7
+      }
+    },
+    {
+      "label": "limit-burst1000-nodelay",
+      "round": 1,
+      "url": "http://127.0.0.1:18087/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 3.01,
+      "rps": 7231,
+      "requests": 22739,
+      "ok200": 15825,
+      "unavailable": 6914,
+      "other": 0,
+      "latency": {
+        "count": 15825,
+        "meanUs": 11330.1,
+        "p50Us": 5094,
+        "p99Us": 93421,
+        "maxUs": 209100
+      },
+      "bodyBytes": 128317729,
+      "contentLengthBytes": 128317729,
+      "headerCounts": {},
+      "edgePageDelta": 16353,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 16353,
+      "loadavg": 9.36,
+      "cpu": {
+        "nginxPct": 26.5,
+        "edgePct": 68.0,
+        "clientPct": 206.4
+      }
+    },
+    {
+      "label": "limit-burst1000-queue",
+      "round": 1,
+      "url": "http://127.0.0.1:18088/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 2.95,
+      "rps": 4995,
+      "requests": 15134,
+      "ok200": 15134,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 15134,
+        "meanUs": 12809.4,
+        "p50Us": 12817,
+        "p99Us": 16125,
+        "maxUs": 28765
+      },
+      "bodyBytes": 122714530,
+      "contentLengthBytes": 122714530,
+      "headerCounts": {},
+      "edgePageDelta": 16923,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 16923,
+      "loadavg": 8.46,
+      "cpu": {
+        "nginxPct": 27.8,
+        "edgePct": 55.3,
+        "clientPct": 122.5
+      }
+    },
+    {
+      "label": "limit-burst1",
+      "round": 2,
+      "url": "http://127.0.0.1:18086/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 3.15,
+      "rps": 11505,
+      "requests": 36241,
+      "ok200": 3526,
+      "unavailable": 32715,
+      "other": 0,
+      "latency": {
+        "count": 3526,
+        "meanUs": 9901.1,
+        "p50Us": 5076,
+        "p99Us": 50229,
+        "maxUs": 143360
+      },
+      "bodyBytes": 28590716,
+      "contentLengthBytes": 28590716,
+      "headerCounts": {},
+      "edgePageDelta": 3945,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 3945,
+      "loadavg": 10.1,
+      "cpu": {
+        "nginxPct": 31.1,
+        "edgePct": 17.1,
+        "clientPct": 260.4
+      }
+    },
+    {
+      "label": "limit-burst1000-nodelay",
+      "round": 2,
+      "url": "http://127.0.0.1:18087/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 2.9,
+      "rps": 6926,
+      "requests": 21805,
+      "ok200": 15460,
+      "unavailable": 6345,
+      "other": 0,
+      "latency": {
+        "count": 15460,
+        "meanUs": 11896.5,
+        "p50Us": 6505,
+        "p99Us": 70672,
+        "maxUs": 150099
+      },
+      "bodyBytes": 125358076,
+      "contentLengthBytes": 125358076,
+      "headerCounts": {},
+      "edgePageDelta": 16612,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 16612,
+      "loadavg": 9.44,
+      "cpu": {
+        "nginxPct": 26.2,
+        "edgePct": 45.8,
+        "clientPct": 225.7
+      }
+    },
+    {
+      "label": "limit-burst1000-queue",
+      "round": 2,
+      "url": "http://127.0.0.1:18088/dyn?id={id}",
+      "concurrency": 64,
+      "seconds": 3.03,
+      "rps": 4733,
+      "requests": 14880,
+      "ok200": 14880,
+      "unavailable": 0,
+      "other": 0,
+      "latency": {
+        "count": 14880,
+        "meanUs": 13519.1,
+        "p50Us": 12835,
+        "p99Us": 48571,
+        "maxUs": 92228
+      },
+      "bodyBytes": 120654990,
+      "contentLengthBytes": 120654990,
+      "headerCounts": {},
+      "edgePageDelta": 16912,
+      "edgeApiDelta": 0,
+      "edgeRedisDelta": 16912,
+      "loadavg": 10.77,
+      "cpu": {
+        "nginxPct": 26.7,
+        "edgePct": 49.8,
+        "clientPct": 137.6
+      }
+    }
+  ]
+}

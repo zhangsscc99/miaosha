@@ -1,0 +1,146 @@
+{
+  "mode": "stale",
+  "rows": [
+    {
+      "label": "expired-lock",
+      "round": 1,
+      "port": 18084,
+      "concurrency": 256,
+      "delayMs": 20,
+      "wallMs": 134,
+      "latency": {
+        "count": 255,
+        "meanUs": 85547.3,
+        "p50Us": 82958,
+        "p99Us": 128063,
+        "maxUs": 129281
+      },
+      "codes": {
+        "200": 256
+      },
+      "cacheStatus": {
+        "EXPIRED": 256
+      },
+      "originPageRequests": 256,
+      "originRedis": 256
+    },
+    {
+      "label": "expired-stale",
+      "round": 1,
+      "port": 18076,
+      "concurrency": 256,
+      "delayMs": 20,
+      "wallMs": 65,
+      "latency": {
+        "count": 256,
+        "meanUs": 39626.6,
+        "p50Us": 40233,
+        "p99Us": 53299,
+        "maxUs": 58702
+      },
+      "codes": {
+        "200": 256
+      },
+      "cacheStatus": {
+        "STALE": 1,
+        "UPDATING": 255
+      },
+      "originPageRequests": 1,
+      "originRedis": 1
+    },
+    {
+      "label": "expired-lock",
+      "round": 2,
+      "port": 18084,
+      "concurrency": 256,
+      "delayMs": 20,
+      "wallMs": 144,
+      "latency": {
+        "count": 256,
+        "meanUs": 94426.7,
+        "p50Us": 94700,
+        "p99Us": 133084,
+        "maxUs": 133427
+      },
+      "codes": {
+        "200": 256
+      },
+      "cacheStatus": {
+        "EXPIRED": 256
+      },
+      "originPageRequests": 256,
+      "originRedis": 256
+    },
+    {
+      "label": "expired-stale",
+      "round": 2,
+      "port": 18076,
+      "concurrency": 256,
+      "delayMs": 20,
+      "wallMs": 67,
+      "latency": {
+        "count": 254,
+        "meanUs": 38812.2,
+        "p50Us": 38465,
+        "p99Us": 51359,
+        "maxUs": 54428
+      },
+      "codes": {
+        "200": 256
+      },
+      "cacheStatus": {
+        "STALE": 1,
+        "UPDATING": 255
+      },
+      "originPageRequests": 1,
+      "originRedis": 1
+    },
+    {
+      "label": "expired-lock",
+      "round": 3,
+      "port": 18084,
+      "concurrency": 256,
+      "delayMs": 20,
+      "wallMs": 117,
+      "latency": {
+        "count": 255,
+        "meanUs": 70678.9,
+        "p50Us": 66719,
+        "p99Us": 103207,
+        "maxUs": 105813
+      },
+      "codes": {
+        "200": 256
+      },
+      "cacheStatus": {
+        "EXPIRED": 256
+      },
+      "originPageRequests": 256,
+      "originRedis": 256
+    },
+    {
+      "label": "expired-stale",
+      "round": 3,
+      "port": 18076,
+      "concurrency": 256,
+      "delayMs": 20,
+      "wallMs": 71,
+      "latency": {
+        "count": 256,
+        "meanUs": 41443.7,
+        "p50Us": 39920,
+        "p99Us": 63104,
+        "maxUs": 64636
+      },
+      "codes": {
+        "200": 256
+      },
+      "cacheStatus": {
+        "STALE": 1,
+        "UPDATING": 255
+      },
+      "originPageRequests": 1,
+      "originRedis": 1
+    }
+  ]
+}
