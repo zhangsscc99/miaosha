@@ -1,0 +1,8 @@
+{
+  "scenario": "unroutable",
+  "note": "默认交换机上，路由键对应的队列不存在。confirm 只表示 broker 接过了这条发布，不表示进了队列。仓库的 sendMiaoshaMessage 没有 mandatory。",
+  "pass": true,
+  "detail": "acks=100 nacks=0 returns=0 queueAbsent=true",
+  "published": 100,
+  "acks": 100
+}

@@ -1,0 +1,11 @@
+{
+  "scenario": "restart-transient",
+  "note": "持久队列里的非持久化消息。kill -9 再启动。数量是这次的结果，不事先假定。",
+  "pass": true,
+  "detail": "acks=100 absent=false kept=0 type=classic",
+  "queue": "ms11-restart-transient",
+  "queueType": "classic",
+  "acks": 100,
+  "kept": 0,
+  "durable": true
+}

@@ -1,0 +1,20 @@
+{
+  "scenario": "sleep",
+  "note": "DEBUG SLEEP 6 堵住一个主库的主线程。node-timeout 写成 5000。这次 6 秒没有被标成 FAIL，观察节点上的 GET 一直成功。",
+  "pass": true,
+  "detail": "failMs=-1 wokeMs=6000 okGets=293 marked=0 state=ok",
+  "extra": {
+    "final": "0",
+    "firstFail": "",
+    "firstFailMs": -1,
+    "logs": [
+      "8395:M 12 Nov 2026 19:06:57.636 # Cluster state changed: ok"
+    ],
+    "marked": 0,
+    "okGets": 293,
+    "state": "ok",
+    "victim": "127.0.0.1:7102",
+    "watcher": "127.0.0.1:7101",
+    "wokeMs": 6000
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "detail": "fullDelta=0 partialOk=1 partialErr=0 keys=45",
+  "fullDelta": 0,
+  "lateKey": true,
+  "note": "从库改指一个没人听的端口，缓存的复制 ID 还在。主库只多写 15 个小键，积压是 1MB。再指回主库。",
+  "partialErrDelta": 0,
+  "partialOkDelta": 1,
+  "pass": true,
+  "replicaKeys": 45,
+  "scenario": "partial"
+}

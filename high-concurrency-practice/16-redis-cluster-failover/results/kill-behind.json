@@ -1,0 +1,82 @@
+{
+  "scenario": "kill-behind",
+  "note": "副本主线程睡 6 秒时，主库 INCR 2000 次再 kill -9。先不拆复制连接，再在睡着之后 CLIENT KILL TYPE replica。同机 nanosleep，不是断网。",
+  "pass": true,
+  "detail": "socketLost=0 dropLost=2000,2000,2000",
+  "extra": {
+    "dropped": [
+      {
+        "acked": 2000,
+        "dropLink": true,
+        "final": "0",
+        "healthy": "",
+        "killClientErr": "",
+        "killed": "127.0.0.1:7202",
+        "killedClients": 1,
+        "lost": 2000,
+        "masterGet": "2000",
+        "replica": "127.0.0.1:7206",
+        "restartErr": "",
+        "role": "master",
+        "roleMs": 6350,
+        "sinceKillMs": 7390,
+        "sleepErr": "",
+        "tag": "drop0"
+      },
+      {
+        "acked": 2000,
+        "dropLink": true,
+        "final": "0",
+        "healthy": "",
+        "killClientErr": "",
+        "killed": "127.0.0.1:7203",
+        "killedClients": 1,
+        "lost": 2000,
+        "masterGet": "2000",
+        "replica": "127.0.0.1:7204",
+        "restartErr": "",
+        "role": "master",
+        "roleMs": 6556,
+        "sinceKillMs": 7597,
+        "sleepErr": "",
+        "tag": "drop1"
+      },
+      {
+        "acked": 2000,
+        "dropLink": true,
+        "final": "0",
+        "healthy": "",
+        "killClientErr": "",
+        "killed": "127.0.0.1:7204",
+        "killedClients": 1,
+        "lost": 2000,
+        "masterGet": "2000",
+        "replica": "127.0.0.1:7203",
+        "restartErr": "",
+        "role": "master",
+        "roleMs": 6654,
+        "sinceKillMs": 6701,
+        "sleepErr": "",
+        "tag": "drop2"
+      }
+    ],
+    "socket": {
+      "acked": 2000,
+      "dropLink": false,
+      "final": "2000",
+      "healthy": "",
+      "killClientErr": "",
+      "killed": "127.0.0.1:7201",
+      "killedClients": -1,
+      "lost": 0,
+      "masterGet": "2000",
+      "replica": "127.0.0.1:7205",
+      "restartErr": "",
+      "role": "master",
+      "roleMs": 6651,
+      "sinceKillMs": 6695,
+      "sleepErr": "",
+      "tag": "socket"
+    }
+  }
+}

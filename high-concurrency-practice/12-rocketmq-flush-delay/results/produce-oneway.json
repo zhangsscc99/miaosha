@@ -1,0 +1,25 @@
+{
+  "scenario": "produce",
+  "note": "SendOneWay。调用返回不等于 broker 已经收下。不拿这个数去除机器。",
+  "pass": true,
+  "detail": "ok=92014 err=0 qps=45996 elapsed=2.000s p99us=2000 maxus=20000 queues=[0] brokerCPU=251.4 clientCPU=106.0",
+  "topic": "ms12_oneway",
+  "queues": 1,
+  "workers": 4,
+  "payload": 200,
+  "oneway": true,
+  "success": 92014,
+  "qps": 45995.52220839484,
+  "elapsedSec": 2.000499083,
+  "p50us": 20,
+  "p99us": 2000,
+  "maxus": 20000,
+  "brokerCpuPercent": 251.4372559699894,
+  "clientCpuPercent": 105.97355520007505,
+  "brokerRssKB": 1313656,
+  "rssBeforeKB": 1260172,
+  "routeMs": 2,
+  "queueIds": [
+    0
+  ]
+}

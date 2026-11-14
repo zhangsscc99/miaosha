@@ -1,0 +1,175 @@
+{
+  "cases": [
+    {
+      "addrUs": {},
+      "agreed": 0,
+      "casePass": true,
+      "ckquorum": "redis: NOQUORUM 1 usable Sentinels. Not enough available Sentinels to reach the specified quorum for this master. Not enough available Sentinels to reach the majority and authorize a failover",
+      "endAddrs": {
+        "26379": 6379
+      },
+      "endRoles": {
+        "6380": "slave",
+        "6380-master": "6379",
+        "6380-state": "connect"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1021606
+        }
+      ],
+      "firstAddrUs": 0,
+      "firstEventUs": {
+        "+sdown": 1021606
+      },
+      "firstRoleUs": 0,
+      "killDoneUs": 20272,
+      "marks": null,
+      "name": "quorum2-stop2",
+      "newPort": 0,
+      "peers": [
+        {
+          "flags": "s_down,sentinel,disconnected",
+          "port": "26381"
+        },
+        {
+          "flags": "s_down,sentinel,disconnected",
+          "port": "26380"
+        }
+      ],
+      "pingUs": 0,
+      "promoted": false,
+      "quorum": 2,
+      "replicaRole": "slave",
+      "stopped": 2,
+      "subscribed": 26379
+    },
+    {
+      "addrUs": {},
+      "agreed": 0,
+      "casePass": true,
+      "ckquorum": "redis: NOQUORUM 1 usable Sentinels. Not enough available Sentinels to reach the majority and authorize a failover",
+      "endAddrs": {
+        "26379": 6379
+      },
+      "endRoles": {
+        "6380": "slave",
+        "6380-master": "6379",
+        "6380-state": "connect"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1045912
+        },
+        {
+          "ch": "+odown",
+          "payload": "master miaosha 127.0.0.1 6379 #quorum 1/1",
+          "us": 1045916
+        },
+        {
+          "ch": "+try-failover",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1045917
+        },
+        {
+          "ch": "-failover-abort-not-elected",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 11238291
+        }
+      ],
+      "firstAddrUs": 0,
+      "firstEventUs": {
+        "+odown": 1045916,
+        "+sdown": 1045912,
+        "+try-failover": 1045917,
+        "-failover-abort-not-elected": 11238291
+      },
+      "firstRoleUs": 0,
+      "killDoneUs": 20236,
+      "marks": null,
+      "name": "quorum1-stop2",
+      "newPort": 0,
+      "peers": [
+        {
+          "flags": "s_down,sentinel,disconnected",
+          "port": "26381"
+        },
+        {
+          "flags": "s_down,sentinel,disconnected",
+          "port": "26380"
+        }
+      ],
+      "pingUs": 0,
+      "promoted": false,
+      "quorum": 1,
+      "replicaRole": "slave",
+      "stopped": 2,
+      "subscribed": 26379
+    },
+    {
+      "addrUs": {
+        "26379": 2033421,
+        "26380": 1960545
+      },
+      "agreed": 2,
+      "casePass": true,
+      "ckquorum": "OK 3 usable Sentinels. Quorum and failover authorization can be reached",
+      "endAddrs": {
+        "26379": 6380,
+        "26380": 6380
+      },
+      "endRoles": {
+        "6380": "master"
+      },
+      "events": [
+        {
+          "ch": "+sdown",
+          "payload": "master miaosha 127.0.0.1 6379",
+          "us": 1508644
+        },
+        {
+          "ch": "+sdown",
+          "payload": "sentinel 690ee308ac81201d6d12dd9677dcda3412b3349c 127.0.0.1 26381 @ miaosha 127.0.0.1 6379",
+          "us": 1937909
+        },
+        {
+          "ch": "+switch-master",
+          "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+          "us": 2034112
+        }
+      ],
+      "firstAddrUs": 1960545,
+      "firstEventUs": {
+        "+sdown": 1508644,
+        "+switch-master": 2034112
+      },
+      "firstRoleUs": 1909054,
+      "killDoneUs": 20467,
+      "marks": null,
+      "name": "quorum2-stop1",
+      "newPort": 6380,
+      "peers": [
+        {
+          "flags": "s_down,sentinel,disconnected",
+          "port": "26381"
+        },
+        {
+          "flags": "sentinel",
+          "port": "26380"
+        }
+      ],
+      "pingUs": 1910174,
+      "promoted": true,
+      "quorum": 2,
+      "stopped": 1,
+      "subscribed": 26379
+    }
+  ],
+  "pass": true,
+  "scenario": "quorum",
+  "watchSec": 15
+}

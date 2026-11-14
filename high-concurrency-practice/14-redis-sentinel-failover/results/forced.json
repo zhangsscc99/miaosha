@@ -1,0 +1,32 @@
+{
+  "ask": {
+    "demoteUs": 1744835,
+    "errors": 0,
+    "final": 36720,
+    "finalPort": 6380,
+    "gap": 14141,
+    "mode": "ask",
+    "modePass": true,
+    "note": "gap is acknowledged INCRs minus the value left on the elected master; not a 4s capacity run",
+    "overlapUs": 1508092,
+    "reconfErr": "",
+    "successNew": 26246,
+    "successOld": 24615
+  },
+  "cache": {
+    "demoteUs": 2053047,
+    "errors": 1,
+    "final": 17606,
+    "finalPort": 6380,
+    "gap": 104830,
+    "mode": "cache",
+    "modePass": true,
+    "note": "gap is acknowledged INCRs minus the value left on the elected master; not a 4s capacity run",
+    "overlapUs": 1885446,
+    "reconfErr": "",
+    "successNew": 67,
+    "successOld": 122369
+  },
+  "pass": true,
+  "scenario": "forced"
+}

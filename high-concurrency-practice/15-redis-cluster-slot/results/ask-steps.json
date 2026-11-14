@@ -1,0 +1,63 @@
+{
+  "scenario": "ask-steps",
+  "note": "迁走之前源节点直接读。迁走之后源节点回 ASK。目标节点没有 ASKING 时回 MOVED。ASKING 只覆盖下一条命令，中间夹一个 PING 就会被用掉。",
+  "pass": true,
+  "detail": "srcAfter=ASK 4748 127.0.0.1:7102 asking=100 afterPing=MOVED 4748 127.0.0.1:7101 new=100",
+  "extra": {
+    "slot": 4748,
+    "source": "127.0.0.1:7101",
+    "sourceKeysBeforeAssign": 0,
+    "steps": [
+      {
+        "name": "get-src",
+        "reply": "100"
+      },
+      {
+        "name": "get-dst-before",
+        "reply": "MOVED 4748 127.0.0.1:7101"
+      },
+      {
+        "name": "get-src-migrating",
+        "reply": "100"
+      },
+      {
+        "name": "get-dst-no-asking",
+        "reply": "MOVED 4748 127.0.0.1:7101"
+      },
+      {
+        "name": "get-dst-asking-before-migrate",
+        "reply": "nil"
+      },
+      {
+        "name": "migrate",
+        "reply": "OK"
+      },
+      {
+        "name": "get-src-after",
+        "reply": "ASK 4748 127.0.0.1:7102"
+      },
+      {
+        "name": "get-dst-after-no-asking",
+        "reply": "MOVED 4748 127.0.0.1:7101"
+      },
+      {
+        "name": "get-after-asking-ping",
+        "reply": "MOVED 4748 127.0.0.1:7101"
+      },
+      {
+        "name": "get-dst-asking",
+        "reply": "100"
+      },
+      {
+        "name": "get-old-after-setslot",
+        "reply": "MOVED 4748 127.0.0.1:7102"
+      },
+      {
+        "name": "get-new-owner",
+        "reply": "100"
+      }
+    ],
+    "tag": "t2",
+    "target": "127.0.0.1:7102"
+  }
+}

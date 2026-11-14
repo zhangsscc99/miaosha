@@ -1,0 +1,16 @@
+{
+  "aofCurrentSize": 10030,
+  "aofEnabled": 1,
+  "detail": "master=300 base=true extra=true replica=100",
+  "dirBytes": 10118,
+  "fsync": "always",
+  "masterHasBase": true,
+  "masterHasExtra": true,
+  "masterKeys": 300,
+  "note": "同一个数据目录把主库拉起来。从库仍指着断开的地址，避免空数据或重放把它盖掉。主库键数是这次 kill -9 之后 AOF 还在不在。fsync 是这一组写入时用的策略，不是重启后的配置。",
+  "pass": true,
+  "replicaHasBase": true,
+  "replicaHasExtra": false,
+  "replicaKeys": 100,
+  "scenario": "aof-after-always"
+}

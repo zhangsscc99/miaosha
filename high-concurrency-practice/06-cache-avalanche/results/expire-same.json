@@ -1,0 +1,331 @@
+{
+  "scenario": "expire-same",
+  "note": "2000 个 key 同一个 500 毫秒 TTL。每 50 毫秒用 EXISTS 数一次还在的 key。采样本身会触发惰性删除。",
+  "mode": "expire-same",
+  "keys": 2000,
+  "repeat": 0,
+  "instances": 0,
+  "workersPerInstance": 0,
+  "originPool": 0,
+  "serviceMs": 0,
+  "hz": 10,
+  "payloadBytes": 128,
+  "ops": 0,
+  "qps": 0,
+  "hits": 0,
+  "misses": 0,
+  "errors": 0,
+  "polls": 0,
+  "originLoads": 0,
+  "childLoads": 0,
+  "redisCommands": 0,
+  "childRedisCmds": 0,
+  "dbSize": 0,
+  "usedMemory": 1446816,
+  "finalMemory": 1048512,
+  "baseMemory": 989744,
+  "evictedKeys": 0,
+  "redisRssKB": 6796,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "originCpuSec": 0,
+  "originCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "wallSec": 0,
+  "p50us": 0,
+  "p99us": 0,
+  "maxus": 0,
+  "missP50us": 0,
+  "missP99us": 0,
+  "missMaxus": 0,
+  "hitP99us": 0,
+  "peakOrigin": 0,
+  "peakOrigin2": 0,
+  "bucketMs": 50,
+  "slide100ms": 0,
+  "maxDrop": 2000,
+  "samples": [
+    {
+      "tMs": 1,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1073
+    },
+    {
+      "tMs": 52,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2411
+    },
+    {
+      "tMs": 103,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2626
+    },
+    {
+      "tMs": 152,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1846
+    },
+    {
+      "tMs": 204,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 3143
+    },
+    {
+      "tMs": 252,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2180
+    },
+    {
+      "tMs": 302,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1606
+    },
+    {
+      "tMs": 352,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1633
+    },
+    {
+      "tMs": 402,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1606
+    },
+    {
+      "tMs": 451,
+      "alive": 2000,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1573
+    },
+    {
+      "tMs": 502,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2214
+    },
+    {
+      "tMs": 551,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1417
+    },
+    {
+      "tMs": 602,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1500
+    },
+    {
+      "tMs": 652,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1467
+    },
+    {
+      "tMs": 701,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1425
+    },
+    {
+      "tMs": 751,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1554
+    },
+    {
+      "tMs": 803,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2889
+    },
+    {
+      "tMs": 852,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2185
+    },
+    {
+      "tMs": 901,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1219
+    },
+    {
+      "tMs": 952,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2032
+    },
+    {
+      "tMs": 1004,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 3035
+    },
+    {
+      "tMs": 1052,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1909
+    },
+    {
+      "tMs": 1101,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1187
+    },
+    {
+      "tMs": 1152,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1991
+    },
+    {
+      "tMs": 1201,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1138
+    },
+    {
+      "tMs": 1252,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1893
+    },
+    {
+      "tMs": 1301,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1264
+    },
+    {
+      "tMs": 1353,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2124
+    },
+    {
+      "tMs": 1401,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 1238
+    },
+    {
+      "tMs": 1452,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2122
+    },
+    {
+      "tMs": 1503,
+      "alive": 0,
+      "expiredKeys": 0,
+      "keyspaceKeys": 0,
+      "avgTtlMs": 0,
+      "pingUs": 0,
+      "sampleUs": 2955
+    }
+  ],
+  "pass": true,
+  "detail": "ok"
+}

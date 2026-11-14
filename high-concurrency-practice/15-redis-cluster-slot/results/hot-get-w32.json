@@ -1,0 +1,59 @@
+{
+  "scenario": "hot-get-w32",
+  "note": "同一个键，连接直接打到槽所在的主库。另外两个主库不应该吃到这些 GET。",
+  "pass": true,
+  "workers": 32,
+  "elapsedSec": 4.000136788,
+  "ops": 911545,
+  "qps": 227878.45724039775,
+  "redisCommands": 911551,
+  "redisCpuPercent": 98.99661461277009,
+  "clientCpuPercent": 177.49393024006758,
+  "p50us": 200,
+  "p99us": 500,
+  "p999us": 500,
+  "maxus": 3856,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7101",
+      "port": 7101,
+      "pid": 8395,
+      "id": "349790b151086c1791db7cc1d6598f4faba63234",
+      "slots": 5461,
+      "flags": "myself,master",
+      "cpuPercent": 0.4999829020846974,
+      "rssKB": 7236,
+      "usedMemory": 2012280,
+      "commands": 2
+    },
+    {
+      "addr": "127.0.0.1:7102",
+      "port": 7102,
+      "pid": 8406,
+      "id": "25d42af1affdf8df367bee46e3ffbf16ec557dbf",
+      "slots": 5462,
+      "flags": "master",
+      "rssKB": 6960,
+      "usedMemory": 1838736,
+      "commands": 2
+    },
+    {
+      "addr": "127.0.0.1:7103",
+      "port": 7103,
+      "pid": 8417,
+      "id": "2db0a681615536d169d77c8c45f2ad7ac1a3eb9b",
+      "slots": 5461,
+      "flags": "master",
+      "cpuPercent": 98.49663171068539,
+      "rssKB": 7280,
+      "usedMemory": 2589936,
+      "ops": 911545,
+      "commands": 911547
+    }
+  ],
+  "extra": {
+    "key": "hot:get",
+    "owner": "127.0.0.1:7103",
+    "slot": 15961
+  }
+}

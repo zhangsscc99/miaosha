@@ -1,0 +1,26 @@
+>>> Performing hash slots allocation on 3 nodes...
+Master[0] -> Slots 0 - 5460
+Master[1] -> Slots 5461 - 10922
+Master[2] -> Slots 10923 - 16383
+M: 349790b151086c1791db7cc1d6598f4faba63234 127.0.0.1:7101
+   slots:[0-5460] (5461 slots) master
+M: 25d42af1affdf8df367bee46e3ffbf16ec557dbf 127.0.0.1:7102
+   slots:[5461-10922] (5462 slots) master
+M: 2db0a681615536d169d77c8c45f2ad7ac1a3eb9b 127.0.0.1:7103
+   slots:[10923-16383] (5461 slots) master
+>>> Nodes configuration updated
+>>> Assign a different config epoch to each node
+>>> Sending CLUSTER MEET messages to join the cluster
+Waiting for the cluster to join
+.
+>>> Performing Cluster Check (using node 127.0.0.1:7101)
+M: 349790b151086c1791db7cc1d6598f4faba63234 127.0.0.1:7101
+   slots:[0-5460] (5461 slots) master
+M: 2db0a681615536d169d77c8c45f2ad7ac1a3eb9b 127.0.0.1:7103
+   slots:[10923-16383] (5461 slots) master
+M: 25d42af1affdf8df367bee46e3ffbf16ec557dbf 127.0.0.1:7102
+   slots:[5461-10922] (5462 slots) master
+[OK] All nodes agree about slots configuration.
+>>> Check for open slots...
+>>> Check slots coverage...
+[OK] All 16384 slots covered.

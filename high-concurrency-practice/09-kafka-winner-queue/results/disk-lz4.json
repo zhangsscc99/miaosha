@@ -1,0 +1,23 @@
+{
+  "scenario": "disk",
+  "note": "logBytes 是 .log 的已分配字节（st_blocks）。indexLogical 是打开的索引文件的逻辑大小，预分配不一定占磁盘。256MB 是 JVM 堆。页缓存不算进 RSS。",
+  "pass": true,
+  "detail": "logAlloc=536576 logLogical=534781 indexAlloc=8192 indexLogical=20971516 bytesPerLog=5.37 rss=507444-\u003e507472",
+  "partitions": 1,
+  "compression": "lz4",
+  "payloadBytes": 200,
+  "elapsedSec": 1.482584968,
+  "qps": 67449.75981707107,
+  "success": 100000,
+  "brokerRssKB": 507472,
+  "produced": 100000,
+  "dirBytes": 552960,
+  "logBytes": 536576,
+  "logLogical": 534781,
+  "indexBytes": 8192,
+  "indexLogical": 20971516,
+  "otherBytes": 8192,
+  "bytesPerRecord": 5.36576,
+  "rssBeforeKB": 507444,
+  "rssAfterKB": 507472
+}

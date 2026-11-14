@@ -1,0 +1,10 @@
+{
+  "scenario": "ping",
+  "note": "建 topic 之后发 1 条再读 1 条。routeMs 是 NameServer 上能查到队列的等待。",
+  "pass": true,
+  "detail": "got=1 routeMs=1",
+  "topic": "ms12_ready",
+  "messages": 1,
+  "deliveries": 1,
+  "routeMs": 1
+}

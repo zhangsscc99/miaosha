@@ -1,0 +1,47 @@
+{
+  "scenario": "replica-get-w16",
+  "note": "READONLY 之后读副本上的同一个热 key。主库这一段不接 GET。",
+  "pass": true,
+  "detail": "qps=225778 err=0 p99us=200",
+  "workers": 16,
+  "elapsedSec": 4.000049763,
+  "ops": 903123,
+  "qps": 225777.9411530786,
+  "redisCommands": 903132,
+  "redisCpuPercent": 98.74877149122108,
+  "clientCpuPercent": 180.99774825226345,
+  "p50us": 100,
+  "p99us": 200,
+  "p999us": 200,
+  "maxus": 5021,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7205",
+      "port": 7205,
+      "pid": 9682,
+      "id": "c150430ee64493fef60d67664defb380693a64aa",
+      "flags": "slave",
+      "cpuPercent": 98.74877149122108,
+      "rssKB": 8420,
+      "usedMemory": 3384136,
+      "commands": 903126
+    },
+    {
+      "addr": "127.0.0.1:7201",
+      "port": 7201,
+      "pid": 9638,
+      "id": "1661d36179ddde4bc4184d482faa66b66d649b8a",
+      "slots": 5461,
+      "flags": "myself,master",
+      "rssKB": 8496,
+      "usedMemory": 3065984,
+      "commands": 6
+    }
+  ],
+  "extra": {
+    "master": "127.0.0.1:7201",
+    "masterCpu": 0,
+    "replica": "127.0.0.1:7205",
+    "replicaCpu": 98.7
+  }
+}

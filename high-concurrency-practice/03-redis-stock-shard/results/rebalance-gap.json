@@ -1,0 +1,51 @@
+{
+  "scenario": "rebalance-gap",
+  "note": "从 1 号桶把库存读走并清零，进程在写入 0 号桶之前停掉。这批库存从两个进程里都消失。",
+  "addrs": "127.0.0.1:6379,127.0.0.1:6380",
+  "workers": 1,
+  "elapsedSec": 0,
+  "ops": 2,
+  "qps": 0,
+  "success": 0,
+  "soldOut": 0,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 50,
+  "finalStock": 0,
+  "winners": 0,
+  "redisCommands": 0,
+  "redisCpuSec": 0,
+  "redisCpuPercent": 0,
+  "clientCpuSec": 0,
+  "clientCpuPercent": 0,
+  "redisRssKB": 12960,
+  "usedMemory": 2424576,
+  "p50us": 0,
+  "p99us": 0,
+  "p999us": 0,
+  "maxus": 0,
+  "pass": true,
+  "detail": "read=50 final=0 lost=50",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7507,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6512,
+      "usedMemory": 1212272,
+      "finalStock": 0,
+      "winners": 0
+    },
+    {
+      "addr": "127.0.0.1:6380",
+      "pid": 7513,
+      "cpus": "0-3",
+      "cpuPercent": 0,
+      "rssKB": 6448,
+      "usedMemory": 1212304,
+      "finalStock": 0,
+      "winners": 0
+    }
+  ]
+}

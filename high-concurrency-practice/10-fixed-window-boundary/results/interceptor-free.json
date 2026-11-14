@@ -1,0 +1,30 @@
+{
+  "scenario": "interceptor-free",
+  "note": "不插入屏障，128 个连接一起起跑，各做一次。跑 3 轮。每一轮放行都应该大于 5。具体次数随调度变，三轮都写下来。",
+  "pass": true,
+  "detail": "rounds 47/40 128/1 128/1",
+  "limit": 5,
+  "windowMs": 5000,
+  "workers": 128,
+  "admits": 303,
+  "rounds": [
+    {
+      "name": "round-1",
+      "attempts": 128,
+      "admits": 47,
+      "final": 40
+    },
+    {
+      "name": "round-2",
+      "attempts": 128,
+      "admits": 128,
+      "final": 1
+    },
+    {
+      "name": "round-3",
+      "attempts": 128,
+      "admits": 128,
+      "final": 1
+    }
+  ]
+}

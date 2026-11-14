@@ -1,0 +1,56 @@
+{
+  "scenario": "idle",
+  "note": "空闲 4 秒。命令增量是这一次采样用的 CLUSTER INFO，总线消息是节点之间的 gossip，不是库存流量。",
+  "pass": true,
+  "detail": "commands=6 busSent=24 busRecv=24 cpuSum=0.2 state=ok",
+  "elapsedSec": 4,
+  "redisCommands": 6,
+  "redisCpuPercent": 0.25,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7101",
+      "port": 7101,
+      "pid": 8395,
+      "id": "349790b151086c1791db7cc1d6598f4faba63234",
+      "slots": 5461,
+      "flags": "myself,master",
+      "cpuPercent": 0.25,
+      "rssKB": 7236,
+      "usedMemory": 2012280,
+      "commands": 2
+    },
+    {
+      "addr": "127.0.0.1:7102",
+      "port": 7102,
+      "pid": 8406,
+      "id": "25d42af1affdf8df367bee46e3ffbf16ec557dbf",
+      "slots": 5462,
+      "flags": "master",
+      "rssKB": 6952,
+      "usedMemory": 1838736,
+      "commands": 2
+    },
+    {
+      "addr": "127.0.0.1:7103",
+      "port": 7103,
+      "pid": 8417,
+      "id": "2db0a681615536d169d77c8c45f2ad7ac1a3eb9b",
+      "slots": 5461,
+      "flags": "master",
+      "rssKB": 6952,
+      "usedMemory": 1863544,
+      "commands": 2
+    }
+  ],
+  "extra": {
+    "busRecv": 24,
+    "busSent": 24,
+    "recv:7101": 9,
+    "recv:7102": 9,
+    "recv:7103": 6,
+    "sent:7101": 9,
+    "sent:7102": 9,
+    "sent:7103": 6,
+    "state": "ok"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "scenario": "interceptor-serial",
+  "note": "AccessInterceptor 的顺序：GET 为空就 SETEX 1，小于上限就 INCR，否则拒绝。单连接时正好 5 次。注解上的 maxCount=5、seconds=5。",
+  "pass": true,
+  "detail": "admits 5 final 5",
+  "limit": 5,
+  "windowMs": 5000,
+  "attempts": 20,
+  "admits": 5,
+  "rejects": 15,
+  "finalCount": 5
+}

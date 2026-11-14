@@ -1,0 +1,12 @@
+{
+  "scenario": "poison",
+  "note": "一直失败的消息在第 3 次之后写入死信流并 ACK，避免占着 PEL。",
+  "pass": true,
+  "detail": "orders=0 dlq=20 pending=0 failedAttempts=40 maxAttempt=3 deliveries=60",
+  "initialStock": 20,
+  "streamLen": 20,
+  "deliveries": 60,
+  "failedAttempts": 40,
+  "dlqLen": 20,
+  "sqliteSync": "FULL"
+}

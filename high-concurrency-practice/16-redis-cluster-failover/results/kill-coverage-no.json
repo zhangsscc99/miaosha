@@ -1,0 +1,47 @@
+{
+  "scenario": "kill-coverage-no",
+  "note": "同一台机器上把 cluster-require-full-coverage 设成 no 再 kill -9 一个主库。看活着的槽还答不答。测完改回 yes。",
+  "pass": true,
+  "detail": "trials=1",
+  "extra": {
+    "trials": [
+      {
+        "deadReply": "MOVED 13006 127.0.0.1:7203",
+        "deadReplyMs": 0,
+        "downPolls": 0,
+        "final": "kept",
+        "firstDownMs": -1,
+        "healthy": "",
+        "killed": "127.0.0.1:7203",
+        "lastDownMs": -1,
+        "logs": [
+          "9816:S 12 Nov 2026 20:05:33.079 # Start of election delayed for 629 milliseconds (rank #0, offset 5794422).",
+          "9816:S 12 Nov 2026 20:05:33.785 # Failover election won: I'm the new master.",
+          "9816:S 12 Nov 2026 20:05:33.785 # configEpoch set to 17 after successful failover"
+        ],
+        "movedMs": -1,
+        "okPolls": 595,
+        "oldRole": "slave",
+        "oldRoleMs": 0,
+        "ownerAfter": "127.0.0.1:7204",
+        "pingMs": 43,
+        "probe": {
+          "err": 86972,
+          "firstOKMs": -1,
+          "ms": 1500,
+          "ok": 0,
+          "sample": "MOVED 13006 127.0.0.1:7204"
+        },
+        "recoveredMs": -1,
+        "replica": "127.0.0.1:7204",
+        "restartErr": "",
+        "roleMs": 3499,
+        "stateFailMs": -1,
+        "stateOkMs": -1,
+        "stock": "100",
+        "survivor": "127.0.0.1:7205",
+        "trial": 0
+      }
+    ]
+  }
+}

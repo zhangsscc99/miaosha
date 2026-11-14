@@ -1,0 +1,23 @@
+{
+  "scenario": "memory",
+  "note": "2 万个 200 字节的值，用同一个 hash tag 放在一个主库上。副本是另一份。repl-backlog 是额外的环形缓冲，不摊进每个键。",
+  "pass": true,
+  "detail": "masterPer=310.49 replicaPer=309.01 usage=288 backlog=1048576",
+  "extra": {
+    "keys": 20000,
+    "master": "127.0.0.1:7201",
+    "masterAfter": 9307512,
+    "masterBefore": 3097640,
+    "masterDelta": 6209872,
+    "masterPerKey": 310.4936,
+    "memoryUsage": 288,
+    "replBacklogHistlen": 1053690,
+    "replBacklogSize": 1048576,
+    "replica": "127.0.0.1:7205",
+    "replicaAfter": 9228528,
+    "replicaBefore": 3048248,
+    "replicaDelta": 6180280,
+    "replicaPerKey": 309.014,
+    "valueBytes": 200
+  }
+}

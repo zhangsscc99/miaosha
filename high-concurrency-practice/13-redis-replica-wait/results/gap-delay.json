@@ -1,0 +1,16 @@
+{
+  "delayMs": 2,
+  "detail": "delayMs=2 writes=50859 samples=198 max=271 p50=158 mean=158.2 neg=0",
+  "maxGap": 271,
+  "meanGap": 158.24747474747474,
+  "minGap": 0,
+  "negative": 0,
+  "note": "一个连接 INCR 一秒。每 5 毫秒先读主库再读从库。差值含这两次读取本身的间隔。delay 是代理 sleep，不是第二台机器。",
+  "p50Gap": 158,
+  "pass": true,
+  "positive": 197,
+  "readErrors": 0,
+  "samples": 198,
+  "scenario": "gap",
+  "writes": 50859
+}

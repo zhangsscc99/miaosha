@@ -1,0 +1,7 @@
+{
+  "scenario": "ack-max-prefetch50",
+  "note": "prefetch=50，把窗口里最大的 delivery tag 用 multiple=true 确认，并且一条订单都不记。这是 basicAck(tag, true) 的语义，不是 receive 现在一条一条调用的形状。",
+  "pass": true,
+  "detail": "ready=0 unacked=0 second=0",
+  "prefetch": 50
+}

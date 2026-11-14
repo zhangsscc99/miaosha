@@ -1,0 +1,70 @@
+{
+  "scenario": "hash",
+  "note": "本地 CRC16 和 CLUSTER KEYSLOT 对照。hash tag 只取第一对非空花括号。",
+  "pass": true,
+  "detail": "mismatch=0 tagBad=0 maxInOneSlot=13",
+  "extra": {
+    "checked": 500,
+    "mismatch": 0,
+    "mismatchSamples": null,
+    "spreadKeys": 100000,
+    "spreadMaxInOneSlot": 13,
+    "spreadPerNode": {
+      "127.0.0.1:7101": 33296,
+      "127.0.0.1:7102": 33387,
+      "127.0.0.1:7103": 33317
+    },
+    "spreadSlotsUsed": 16260,
+    "tagBad": 0,
+    "tags": [
+      {
+        "key": "foo",
+        "local": 12182,
+        "match": true,
+        "redis": 12182
+      },
+      {
+        "key": "foo{bar}",
+        "local": 5061,
+        "match": true,
+        "redis": 5061
+      },
+      {
+        "key": "foo{bar}baz",
+        "local": 5061,
+        "match": true,
+        "redis": 5061
+      },
+      {
+        "key": "foo{}bar",
+        "local": 14292,
+        "match": true,
+        "redis": 14292
+      },
+      {
+        "key": "{bar",
+        "local": 4015,
+        "match": true,
+        "redis": 4015
+      },
+      {
+        "key": "foo{bar",
+        "local": 15278,
+        "match": true,
+        "redis": 15278
+      },
+      {
+        "key": "{bar}baz",
+        "local": 5061,
+        "match": true,
+        "redis": 5061
+      },
+      {
+        "key": "a{b}c{d}",
+        "local": 3300,
+        "match": true,
+        "redis": 3300
+      }
+    ]
+  }
+}

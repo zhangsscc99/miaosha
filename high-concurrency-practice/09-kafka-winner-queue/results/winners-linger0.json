@@ -1,0 +1,23 @@
+{
+  "scenario": "winners",
+  "note": "先发 200 条把元数据预热掉，再计 5000 条的墙钟。这是客户端等到 ack 的时间。消费组把预热和这 5000 条一起读完。",
+  "pass": true,
+  "detail": "userFacingMs=5.1 p99us\u003c=2000 drain=5200 in 7.7ms",
+  "workers": 4,
+  "partitions": 1,
+  "acks": "1",
+  "compression": "none",
+  "inflight": 5,
+  "payloadBytes": 200,
+  "qps": 984078.786134881,
+  "success": 5000,
+  "brokerRssKB": 506672,
+  "p50us": 1000,
+  "p99us": 2000,
+  "p999us": 2000,
+  "maxus": 2448,
+  "deliveries": 5200,
+  "userFacingSec": 0.005080894,
+  "drainSec": 0.007720364,
+  "drainQps": 673543.3717892057
+}

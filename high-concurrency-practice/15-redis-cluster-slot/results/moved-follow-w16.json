@@ -1,0 +1,59 @@
+{
+  "scenario": "moved-follow-w16",
+  "note": "每次都先打到没有这个槽的主库，读到 MOVED 再去真正的主库。槽位缓存故意不更新。",
+  "pass": true,
+  "workers": 16,
+  "elapsedSec": 4.000102846,
+  "ops": 532056,
+  "qps": 133010.5800984698,
+  "redisCommands": 532062,
+  "redisCpuPercent": 138.74643262109765,
+  "clientCpuPercent": 180.24536562128185,
+  "p50us": 200,
+  "p99us": 500,
+  "p999us": 2000,
+  "maxus": 14662,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7101",
+      "port": 7101,
+      "pid": 8395,
+      "id": "349790b151086c1791db7cc1d6598f4faba63234",
+      "slots": 5461,
+      "flags": "myself,master",
+      "cpuPercent": 69.74820666898424,
+      "rssKB": 7252,
+      "usedMemory": 2400272,
+      "commands": 2
+    },
+    {
+      "addr": "127.0.0.1:7102",
+      "port": 7102,
+      "pid": 8406,
+      "id": "25d42af1affdf8df367bee46e3ffbf16ec557dbf",
+      "slots": 5462,
+      "flags": "master",
+      "cpuPercent": 0.2499935722902661,
+      "rssKB": 6908,
+      "usedMemory": 1838736,
+      "commands": 2
+    },
+    {
+      "addr": "127.0.0.1:7103",
+      "port": 7103,
+      "pid": 8417,
+      "id": "2db0a681615536d169d77c8c45f2ad7ac1a3eb9b",
+      "slots": 5461,
+      "flags": "master",
+      "cpuPercent": 68.74823237982316,
+      "rssKB": 6844,
+      "usedMemory": 2226824,
+      "commands": 532058
+    }
+  ],
+  "extra": {
+    "owner": "127.0.0.1:7103",
+    "slot": 11846,
+    "wrong": "127.0.0.1:7101"
+  }
+}

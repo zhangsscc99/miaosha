@@ -1,0 +1,11 @@
+{
+  "scenario": "redelivery",
+  "note": "先记下订单再提交位移。进程在提交前退出，同一组的下一个消费者会再读到这些记录。用户 id 唯一，订单仍是 200。",
+  "pass": true,
+  "detail": "first=200 second=200 unique=200",
+  "produced": 200,
+  "deliveries": 400,
+  "unique": 200,
+  "orders": 200,
+  "secondFetch": 200
+}

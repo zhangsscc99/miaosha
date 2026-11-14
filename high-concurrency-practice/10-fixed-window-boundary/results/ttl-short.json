@@ -1,0 +1,12 @@
+{
+  "scenario": "ttl-short",
+  "algo": "fixed",
+  "note": "窗口 id 还在同一个 10 秒槽里。TTL 写成 2 秒时，真实睡过 2.3 秒后计数没了，又能放行一倍。TTL 写成两个窗口的那份还在。仓库里的脚本把 expire 写成 2，key 本身带了秒，所以 1 秒窗口盖得住；窗口比 2 秒长时盖不住。",
+  "pass": true,
+  "detail": "short 30 then extra 0 after sleep 30 present=false; long 30 extra 0 after 0 final 30",
+  "limit": 30,
+  "windowMs": 10000,
+  "admitsBefore": 30,
+  "admitsAfter": 30,
+  "finalCount": 30
+}

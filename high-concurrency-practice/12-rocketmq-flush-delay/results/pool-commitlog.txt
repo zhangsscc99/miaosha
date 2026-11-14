@@ -1,0 +1,6 @@
+# 堆外缓冲那组，kill -9 之后、broker 还没再启动时，直接读 CommitLog 文件。
+# 文件按 broker-pool.conf 的 mappedFileSizeCommitLog=16777216 预分配。
+# 扫描规则和 bench 里的 walkFile 一样：大端 totalSize + magic，magic 不是消息也不是空白就停。
+file 00000000000000000000 size 16777216 first16 00000000000000000000000000000000
+stop at 0 total 0 magic 0
+count_in_scan 0

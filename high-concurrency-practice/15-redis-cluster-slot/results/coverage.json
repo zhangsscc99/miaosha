@@ -1,0 +1,41 @@
+{
+  "scenario": "coverage",
+  "note": "默认要求所有槽都有主库。一个主库被 kill -9 之后，活着的节点上的键也变成 CLUSTERDOWN。关掉这项之后，活着的槽还能读，死掉的槽是 MOVED 到已经没有进程的地址。没有 AOF，重启后原来的 20 个键是空的。没有副本，所以没有故障转移。",
+  "pass": true,
+  "detail": "failMs=6699 down=20 ownMs=2023 late=OK watchWhenOwn=CLUSTERDOWN The cluster is down recoveredMs=17848 missing=20 slotsFail=5461 localOK=20 foreign=MOVED 12776 127.0.0.1:7103",
+  "extra": {
+    "coverageNoDial": "dial tcp 127.0.0.1:7103: connect: connection refused",
+    "coverageNoFailMs": 7048,
+    "coverageNoForeign": "MOVED 12776 127.0.0.1:7103",
+    "coverageNoLocalOK": 20,
+    "coverageNoSlotsFail": 5461,
+    "coverageNoState": "ok",
+    "downOf20": 20,
+    "firstFail": "CLUSTERDOWN The cluster is down",
+    "firstFailMs": 6699,
+    "foreignWhileDown": "CLUSTERDOWN The cluster is down",
+    "gapSetErr": "CLUSTERDOWN The cluster is down",
+    "gapSetOK": 0,
+    "gapValue": "gap",
+    "lateSet": "OK",
+    "logs": [
+      "8395:M 12 Nov 2026 19:06:57.636 # Cluster state changed: ok",
+      "8395:M 12 Nov 2026 19:07:57.707 * Marking node 2db0a681615536d169d77c8c45f2ad7ac1a3eb9b as failing (quorum reached).",
+      "8395:M 12 Nov 2026 19:07:57.707 # Cluster state changed: fail",
+      "8395:M 12 Nov 2026 19:08:08.859 * Clear FAIL state for node 2db0a681615536d169d77c8c45f2ad7ac1a3eb9b: is reachable again and nobody is serving its slots after some time.",
+      "8395:M 12 Nov 2026 19:08:08.859 # Cluster state changed: ok",
+      "8395:M 12 Nov 2026 19:08:15.910 * Marking node 2db0a681615536d169d77c8c45f2ad7ac1a3eb9b as failing (quorum reached)."
+    ],
+    "missingKeys": 20,
+    "pingMs": 6755,
+    "recoveredMs": 17848,
+    "restartMs": 55,
+    "victim": "127.0.0.1:7103",
+    "victimOwnMs": 2023,
+    "victimSlots": 5461,
+    "watchWhenOwn": "CLUSTERDOWN The cluster is down",
+    "watcher": "127.0.0.1:7101",
+    "watcherStillDownOf20": 20,
+    "watcherValue": "v"
+  }
+}

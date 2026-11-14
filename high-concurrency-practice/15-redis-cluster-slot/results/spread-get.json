@@ -1,0 +1,57 @@
+{
+  "scenario": "spread-get",
+  "note": "三个主库各 16 条连接，各自读自己槽上的键。这不是把一个库存键拆开。",
+  "pass": true,
+  "workers": 48,
+  "elapsedSec": 4.000088012,
+  "ops": 1236170,
+  "qps": 309035.7002874866,
+  "redisCommands": 1236176,
+  "redisCpuPercent": 174.24616606160816,
+  "clientCpuPercent": 195.99568750688778,
+  "p50us": 100,
+  "p99us": 2000,
+  "p999us": 10000,
+  "maxus": 16009,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7101",
+      "port": 7101,
+      "pid": 8395,
+      "id": "349790b151086c1791db7cc1d6598f4faba63234",
+      "slots": 5461,
+      "flags": "myself,master",
+      "cpuPercent": 52.99883386665844,
+      "rssKB": 7320,
+      "usedMemory": 2403056,
+      "ops": 383539,
+      "commands": 383541
+    },
+    {
+      "addr": "127.0.0.1:7102",
+      "port": 7102,
+      "pid": 8406,
+      "id": "25d42af1affdf8df367bee46e3ffbf16ec557dbf",
+      "slots": 5462,
+      "flags": "master",
+      "cpuPercent": 59.74868534967626,
+      "rssKB": 7180,
+      "usedMemory": 2253840,
+      "ops": 416484,
+      "commands": 416486
+    },
+    {
+      "addr": "127.0.0.1:7103",
+      "port": 7103,
+      "pid": 8417,
+      "id": "2db0a681615536d169d77c8c45f2ad7ac1a3eb9b",
+      "slots": 5461,
+      "flags": "master",
+      "cpuPercent": 61.49864684527346,
+      "rssKB": 6996,
+      "usedMemory": 2229608,
+      "ops": 436147,
+      "commands": 436149
+    }
+  ]
+}

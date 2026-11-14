@@ -1,0 +1,20 @@
+{
+  "scenario": "disk",
+  "note": "同一段 200 字节写进持久化经典队列，不压缩。message_bytes 和 mnesia 目录的前后差分开记。目录差包含段文件，不只是正文。",
+  "pass": true,
+  "detail": "acks=100000 messages=100000 messageBytes=20000000 bytesPer=200.00 queueMem=4120344 memPer=41.20 apparentDelta=39803200 apparentPer=398.03 allocDelta=40001536 allocPer=400.02 rssKB 218956-\u003e247944 elapsedMs=1192.8 type=classic",
+  "queueType": "classic",
+  "confirms": 100000,
+  "messages": 100000,
+  "elapsedSec": 1.192765547,
+  "brokerRssKB": 247944,
+  "messageBytes": 20000000,
+  "queueMemory": 4120344,
+  "bytesPerMessage": 200,
+  "memoryPerMessage": 41.20344,
+  "diskApparentDelta": 39803200,
+  "diskAllocDelta": 40001536,
+  "apparentPerMessage": 398.032,
+  "allocPerMessage": 400.01536,
+  "payload": 200
+}

@@ -1,0 +1,20 @@
+{
+  "scenario": "consume",
+  "note": "先把胜出消息放进流里，再计时把它们写进 SQLite。这是落库速度，不是点击速度。一批一提交时，崩溃最多重放这一批，主键让重放不会多出订单。",
+  "pass": true,
+  "detail": "orders=4000/4000 pending=0 qps=9293 sync=FULL batch=1 consumers=4 p99us\u003c=1000",
+  "workers": 4,
+  "elapsedSec": 0.430417764,
+  "qps": 9293.296732985213,
+  "orders": 4000,
+  "redisCpuSec": 0.11,
+  "redisCpuPercent": 25.556566015709336,
+  "redisRssKB": 8528,
+  "p50us": 100,
+  "p99us": 1000,
+  "p999us": 100000,
+  "maxus": 430249,
+  "sqliteSync": "FULL",
+  "batch": 1,
+  "drainQps": 9293.296732985213
+}

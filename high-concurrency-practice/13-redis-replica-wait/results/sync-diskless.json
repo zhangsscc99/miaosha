@@ -1,0 +1,36 @@
+{
+  "detail": "mode=yes keys=30000 samples=3",
+  "diskless": "yes",
+  "masterKeys": 30000,
+  "masterUsedMemory": 10959024,
+  "note": "对已经在从库里的数据集连续做 3 次全量同步。REPLICAOF NO ONE 再挂回去。墙钟含每秒一次的 replicationCron，fork 用 latest_fork_usec。磁盘复制是 repl-diskless-sync no。",
+  "pass": true,
+  "replicaKeys": 30000,
+  "samples": [
+    {
+      "cowBytes": 483328,
+      "forkUsec": 307,
+      "forksDelta": 1,
+      "fullDelta": 1,
+      "partialOkDelta": 0,
+      "wallMs": 37
+    },
+    {
+      "cowBytes": 512000,
+      "forkUsec": 323,
+      "forksDelta": 1,
+      "fullDelta": 1,
+      "partialOkDelta": 0,
+      "wallMs": 35
+    },
+    {
+      "cowBytes": 507904,
+      "forkUsec": 261,
+      "forksDelta": 1,
+      "fullDelta": 1,
+      "partialOkDelta": 0,
+      "wallMs": 32
+    }
+  ],
+  "scenario": "sync-diskless"
+}

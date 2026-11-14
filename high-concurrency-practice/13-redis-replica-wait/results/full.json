@@ -1,0 +1,16 @@
+{
+  "backlogConfig": "16384",
+  "backlogHistlen": 25987,
+  "cowBytes": 479232,
+  "detail": "backlog=16384 hist=25987 full=1 partial=0 fork=207 wallMs=21 keys=810",
+  "forkUsec": 207,
+  "forksDelta": 1,
+  "fullDelta": 1,
+  "lateKey": true,
+  "note": "积压收成 16384 字节后断开，再写 800 个 200 字节的值。部分同步放不下这段，重连走全量。墙钟含 replicationCron，不拿它当传输速度。",
+  "partialOkDelta": 0,
+  "pass": true,
+  "replicaKeys": 810,
+  "scenario": "full",
+  "wallMs": 21
+}

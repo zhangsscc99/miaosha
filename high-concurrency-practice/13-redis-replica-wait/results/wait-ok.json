@@ -1,0 +1,8 @@
+{
+  "detail": "wait1=20/20",
+  "n": 20,
+  "note": "从库在线时，同一条连接 SET 之后 WAIT 1 1000。",
+  "pass": true,
+  "scenario": "wait-ok",
+  "wait1": 20
+}

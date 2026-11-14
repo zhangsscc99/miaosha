@@ -1,0 +1,48 @@
+{
+  "scenario": "incr-w32",
+  "note": "热 key 的 INCR 打在主库上。副本在复制这条流，不接这个命令。",
+  "pass": true,
+  "detail": "qps=224191 err=0 p99us=500",
+  "workers": 32,
+  "elapsedSec": 4.000105482,
+  "ops": 896786,
+  "qps": 224190.5879820996,
+  "redisCommands": 1793580,
+  "redisCpuPercent": 109.99709932149234,
+  "clientCpuPercent": 168.49555668792235,
+  "p50us": 200,
+  "p99us": 500,
+  "p999us": 500,
+  "maxus": 3588,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7201",
+      "port": 7201,
+      "pid": 9638,
+      "id": "1661d36179ddde4bc4184d482faa66b66d649b8a",
+      "slots": 5461,
+      "flags": "myself,master",
+      "cpuPercent": 98.49740257424541,
+      "rssKB": 8680,
+      "usedMemory": 3793312,
+      "commands": 896792
+    },
+    {
+      "addr": "127.0.0.1:7205",
+      "port": 7205,
+      "pid": 9682,
+      "id": "c150430ee64493fef60d67664defb380693a64aa",
+      "flags": "slave",
+      "cpuPercent": 11.499696747246926,
+      "rssKB": 8220,
+      "usedMemory": 3042432,
+      "commands": 896788
+    }
+  ],
+  "extra": {
+    "master": "127.0.0.1:7201",
+    "masterCpu": 98.5,
+    "replica": "127.0.0.1:7205",
+    "replicaCpu": 11.5
+  }
+}

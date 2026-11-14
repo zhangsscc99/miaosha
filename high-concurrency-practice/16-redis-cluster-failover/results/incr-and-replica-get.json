@@ -1,0 +1,52 @@
+{
+  "scenario": "incr-and-replica-get",
+  "note": "同一个热 key，16 条连接 INCR 主库，同时 16 条连接 READONLY GET 副本。4 个核是同一台机器。",
+  "pass": true,
+  "detail": "incr=177149 get=173083 masterCpu=97.7 replicaCpu=97.5",
+  "workers": 32,
+  "elapsedSec": 4.000064189,
+  "ops": 1400951,
+  "qps": 350232.1297374561,
+  "redisCommands": 2109567,
+  "redisCpuPercent": 195.2468668247164,
+  "clientCpuPercent": 198.4968146719908,
+  "nodes": [
+    {
+      "addr": "127.0.0.1:7201",
+      "port": 7201,
+      "pid": 9638,
+      "id": "1661d36179ddde4bc4184d482faa66b66d649b8a",
+      "slots": 5461,
+      "flags": "myself,master",
+      "cpuPercent": 97.74843140648413,
+      "rssKB": 8460,
+      "usedMemory": 3429152,
+      "commands": 708614
+    },
+    {
+      "addr": "127.0.0.1:7205",
+      "port": 7205,
+      "pid": 9682,
+      "id": "c150430ee64493fef60d67664defb380693a64aa",
+      "flags": "slave",
+      "cpuPercent": 97.49843541823225,
+      "rssKB": 8748,
+      "usedMemory": 3425064,
+      "commands": 1400953
+    }
+  ],
+  "extra": {
+    "getErr": 0,
+    "getMaxus": 12012,
+    "getOps": 692343,
+    "getP99us": 500,
+    "getQPS": 173082.97249426966,
+    "incrErr": 0,
+    "incrMaxus": 13188,
+    "incrOps": 708608,
+    "incrP99us": 500,
+    "incrQPS": 177149.15724318643,
+    "masterCpu": 97.7,
+    "replicaCpu": 97.5
+  }
+}

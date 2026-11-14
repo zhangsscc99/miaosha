@@ -1,0 +1,30 @@
+{
+  "scenario": "rank",
+  "note": "同一个主库两个副本。7207 的主线程睡 12 秒，期间主库 INCR 2000 次，然后 kill -9。醒着的那个副本应该留下这 2000。",
+  "pass": true,
+  "detail": "winner=127.0.0.1:7204 final=2000 acked=2000 asleepAfter=slave",
+  "extra": {
+    "acked": 2000,
+    "asleep": "127.0.0.1:7207",
+    "asleepLogs": [
+      "10196:S 12 Nov 2026 20:08:01.067 # Configuration change detected. Reconfiguring myself as a replica of 6e4f020c5d420c1400529db27b1cf549ba0935d6"
+    ],
+    "asleepRoleAfterWake": "slave",
+    "awake": "127.0.0.1:7204",
+    "awakeLogs": [
+      "10181:S 12 Nov 2026 20:07:52.969 # Cluster state changed: fail",
+      "10181:S 12 Nov 2026 20:07:52.981 # Start of election delayed for 874 milliseconds (rank #0, offset 56152).",
+      "10181:S 12 Nov 2026 20:07:53.887 # Failover election won: I'm the new master.",
+      "10181:S 12 Nov 2026 20:07:53.887 # configEpoch set to 11 after successful failover",
+      "10181:M 12 Nov 2026 20:07:53.887 # Cluster state changed: ok"
+    ],
+    "final": "2000",
+    "healthy": "",
+    "info": "# Replication\r\nrole:master\r\nconnected_slaves:2\r\nslave0:ip=127.0.0.1,port=7204,state=online,offset=129,lag=0\r\nslave1:ip=127.0.0.1,port=7207,state=online,offset=129,lag=0\r\nmaster_failover_state:no-failover\r\nmaster_replid:4596cda490792977b7dc19f469a23a27ab667bdb\r\nmaster_replid2:2d399afdcecab83d5b6ea60dfad7ea132aceeebe\r\nmaster_repl_offset:56152\r\nsecond_repl_offset:73\r\nrepl_backlog_active:1\r\nrepl_backlog_size:1048576\r\nrepl_backlog_first_byte_offset:73\r\nrepl_backlog_histlen:56080\r\n",
+    "master": "127.0.0.1:7203",
+    "restartErr": "",
+    "sleepErr": "",
+    "winMs": 5731,
+    "winner": "127.0.0.1:7204"
+  }
+}

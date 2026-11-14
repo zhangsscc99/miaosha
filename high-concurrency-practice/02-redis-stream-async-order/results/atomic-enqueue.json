@@ -1,0 +1,20 @@
+{
+  "scenario": "atomic-enqueue",
+  "note": "Lua 里同时扣库存和 XADD。消费者先写库再 ACK；不 ACK 就重投，主键冲突挡住第二张订单。",
+  "pass": true,
+  "detail": "wantSuccess=100 wantDup=900 wantSoldOut=3000 orders=100 redeliveries=100 pending=0",
+  "workers": 64,
+  "elapsedSec": 0.046957315,
+  "qps": 85183.74613199243,
+  "ops": 4000,
+  "success": 100,
+  "soldOut": 3000,
+  "duplicate": 900,
+  "initialStock": 100,
+  "winners": 100,
+  "streamLen": 100,
+  "orders": 100,
+  "deliveries": 100,
+  "redeliveries": 100,
+  "sqliteSync": "FULL"
+}

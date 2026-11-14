@@ -1,0 +1,19 @@
+{
+  "aofCurrentSize": 9941,
+  "base": 100,
+  "baseSec": 0.011068389,
+  "detail": "fsync=always wait=1 master=300 replica=100 dir=10118 extraSec=0.021",
+  "dirBytesAfterWrites": 10118,
+  "dirBytesBeforeWrites": 218,
+  "extra": 200,
+  "extraSec": 0.021338461,
+  "fsync": "always",
+  "masterKeysBeforeKill": 300,
+  "note": "AOF 开着。100 个键复制到从库后断开，再写 200 个，立刻 kill -9。这是杀进程，不是断电。目录字节含 Redis 7 的 AOF 清单和可能的 RDB 前导。",
+  "pass": true,
+  "replicaHasBase": true,
+  "replicaHasExtra": false,
+  "replicaKeys": 100,
+  "scenario": "aof-cut-always",
+  "waitReplicas": 1
+}

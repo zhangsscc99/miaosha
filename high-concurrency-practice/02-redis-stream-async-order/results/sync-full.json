@@ -1,0 +1,17 @@
+{
+  "scenario": "sync-path",
+  "note": "胜出的请求在返回前等待 SQLite 提交。用户看到结果的时间和订单落库的时间是同一个数。",
+  "pass": true,
+  "detail": "stock=5000 orders=5000 userFacingSec=0.3762 qps=13291",
+  "workers": 4,
+  "elapsedSec": 0.376202142,
+  "qps": 13290.727090012155,
+  "ops": 8765,
+  "initialStock": 5000,
+  "streamLen": 5000,
+  "orders": 5000,
+  "sqliteSync": "FULL",
+  "batch": 1,
+  "userFacingSec": 0.376202142,
+  "orderVisibleSec": 0.376202142
+}

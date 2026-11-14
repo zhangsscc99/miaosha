@@ -1,0 +1,43 @@
+{
+  "note": "REPLICAOF NO ONE on the same host, no Sentinel",
+  "pass": true,
+  "samples": [
+    {
+      "commandUs": 88,
+      "i": 0,
+      "ok": true,
+      "role": "master",
+      "roleUs": 88
+    },
+    {
+      "commandUs": 169,
+      "i": 1,
+      "ok": true,
+      "role": "master",
+      "roleUs": 169
+    },
+    {
+      "commandUs": 107,
+      "i": 2,
+      "ok": true,
+      "role": "master",
+      "roleUs": 107
+    },
+    {
+      "commandUs": 86,
+      "i": 3,
+      "ok": true,
+      "role": "master",
+      "roleUs": 86
+    },
+    {
+      "commandUs": 373,
+      "i": 4,
+      "ok": true,
+      "role": "master",
+      "roleUs": 373
+    }
+  ],
+  "scenario": "manual",
+  "sentinels": 0
+}

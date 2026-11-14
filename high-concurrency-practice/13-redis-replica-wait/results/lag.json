@@ -1,0 +1,16 @@
+{
+  "appliedBeforeReject": 108513,
+  "debugError": "",
+  "detail": "applied=108513 rejectMs=1881 lag=2 good=0 recoverMs=152 debug=\u003cnil\u003e",
+  "elapsedToRejectMs": 1881,
+  "goodSlavesAtReject": 0,
+  "lagAtReject": 2,
+  "note": "从库 DEBUG SLEEP 6 秒，主线程不回 ack。min-replicas-max-lag 是 1，good 计数由每秒一次的 replicationCron 更新。拒绝发生之前已经成功的 INCR 留在主库。",
+  "pass": true,
+  "recoverMs": 152,
+  "recovered": true,
+  "scenario": "lag",
+  "secondRejected": true,
+  "valueAtReject": 108513,
+  "valueUnchanged": true
+}

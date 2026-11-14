@@ -1,0 +1,9 @@
+{
+  "scenario": "tag",
+  "note": "消费者只订 TagA。TagB 不应该被投递。",
+  "pass": true,
+  "detail": "tagA=20 tagB=0 wantA=20",
+  "topic": "ms12_tag",
+  "messages": 40,
+  "deliveries": 20
+}

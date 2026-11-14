@@ -1,0 +1,9 @@
+{
+  "scenario": "redelivery",
+  "note": "200 条读完不确认就关连接。下一次仍是 200 条，redelivered，按用户收成 200 单。",
+  "pass": true,
+  "detail": "second=200 redelivered=200 users=200",
+  "orders": 200,
+  "deliveries": 200,
+  "redelivered": 200
+}

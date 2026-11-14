@@ -1,0 +1,43 @@
+{
+  "scenario": "local-bench",
+  "note": "单协程空转 1 秒，每次读一次时间再做一次内存判断。这是决策本身的速度，不是 HTTP，也不是 Redis。比较的是同一段循环里几种规则差多少。",
+  "pass": true,
+  "detail": "1s loops finished",
+  "phases": [
+    {
+      "name": "fixed-admit",
+      "attempts": 9770542,
+      "admits": 9770542,
+      "wallMs": 1000.000095,
+      "note": "qps 9770541 clientCpu 100.0%"
+    },
+    {
+      "name": "fixed-reject",
+      "attempts": 9775753,
+      "admits": 0,
+      "wallMs": 1000.000152,
+      "note": "qps 9775752 clientCpu 101.0%"
+    },
+    {
+      "name": "slide-admit",
+      "attempts": 9593843,
+      "admits": 9593843,
+      "wallMs": 1000.000217,
+      "note": "qps 9593841 clientCpu 100.0%"
+    },
+    {
+      "name": "log-admit",
+      "attempts": 7883777,
+      "admits": 7883777,
+      "wallMs": 1038.837339,
+      "note": "qps 7589039 clientCpu 117.4%"
+    },
+    {
+      "name": "bucket-admit",
+      "attempts": 9814079,
+      "admits": 9814079,
+      "wallMs": 999.999971,
+      "note": "qps 9814079 clientCpu 100.0%"
+    }
+  ]
+}

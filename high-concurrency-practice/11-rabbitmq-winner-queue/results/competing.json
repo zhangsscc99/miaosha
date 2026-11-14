@@ -1,0 +1,9 @@
+{
+  "scenario": "competing",
+  "note": "一个经典队列、两个消费者。和第 9 章一个分区两个消费者不一样，这里两边都该分到消息。",
+  "pass": true,
+  "detail": "split=500+500 confirms=1000",
+  "acks": 1000,
+  "split": "500+500",
+  "prefetch": 10
+}

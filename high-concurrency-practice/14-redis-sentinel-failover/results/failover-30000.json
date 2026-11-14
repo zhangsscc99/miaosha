@@ -1,0 +1,64 @@
+{
+  "addrUs": {
+    "26379": 31782929,
+    "26380": 31723561,
+    "26381": 31776574
+  },
+  "agreed": 3,
+  "downAfterMs": 30000,
+  "endAddrs": {
+    "26379": 6380,
+    "26380": 6380,
+    "26381": 6380
+  },
+  "endRoles": {
+    "6380": "master"
+  },
+  "events": [
+    {
+      "ch": "+sdown",
+      "payload": "master miaosha 127.0.0.1 6379",
+      "us": 30485377
+    },
+    {
+      "ch": "+odown",
+      "payload": "master miaosha 127.0.0.1 6379 #quorum 3/2",
+      "us": 31583970
+    },
+    {
+      "ch": "+switch-master",
+      "payload": "miaosha 127.0.0.1 6379 127.0.0.1 6380",
+      "us": 31777802
+    }
+  ],
+  "firstAddrUs": 31723561,
+  "firstEventUs": {
+    "+odown": 31583970,
+    "+sdown": 30485377,
+    "+switch-master": 31777802
+  },
+  "firstRoleUs": 30834383,
+  "killDoneUs": 20215,
+  "marks": [
+    {
+      "addrs": {
+        "26379": 6379,
+        "26380": 6379,
+        "26381": 6379
+      },
+      "roles": {
+        "6380": "slave"
+      },
+      "us": 20002519
+    }
+  ],
+  "newPort": 6380,
+  "pass": true,
+  "pingUs": 30835956,
+  "promoted": true,
+  "scenario": "failover-30000",
+  "stillOldAt20s": true,
+  "stockAfter": "100",
+  "stockOk": true,
+  "subscribed": 26379
+}

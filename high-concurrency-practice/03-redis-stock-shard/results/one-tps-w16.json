@@ -1,0 +1,41 @@
+{
+  "scenario": "one-tps",
+  "note": "一个进程、一个库存 key 的成功扣减。后面的双进程拿这组当对照。",
+  "addrs": "127.0.0.1:6379",
+  "workers": 16,
+  "elapsedSec": 4.000078975,
+  "ops": 567157,
+  "qps": 141786.4506037659,
+  "success": 567157,
+  "soldOut": 0,
+  "duplicate": 0,
+  "errors": 0,
+  "initialStock": 5000000,
+  "finalStock": 4283260,
+  "winners": 716740,
+  "redisCommands": 2835786,
+  "redisCpuSec": 4,
+  "redisCpuPercent": 99.9980256639808,
+  "clientCpuSec": 4.98,
+  "clientCpuPercent": 124.4975419516561,
+  "redisRssKB": 43604,
+  "usedMemory": 32863240,
+  "p50us": 200,
+  "p99us": 200,
+  "p999us": 500,
+  "maxus": 537,
+  "pass": true,
+  "detail": "",
+  "nodes": [
+    {
+      "addr": "127.0.0.1:6379",
+      "pid": 7451,
+      "cpus": "0-3",
+      "cpuPercent": 99.9980256639808,
+      "rssKB": 43604,
+      "usedMemory": 32863240,
+      "finalStock": 4283260,
+      "winners": 716740
+    }
+  ]
+}

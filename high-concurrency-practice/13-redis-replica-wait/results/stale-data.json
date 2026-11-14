@@ -1,0 +1,9 @@
+{
+  "detail": "default=true refuse=redis: MASTERDOWN Link with MASTER is down and replica-serve-stale-data is set to 'no'. after=old",
+  "note": "链路断开时，默认仍返回旧值。replica-serve-stale-data no 之后 GET 被拒绝。这不是 NO ONE，从库角色还在。",
+  "pass": true,
+  "refusedError": "redis: MASTERDOWN Link with MASTER is down and replica-serve-stale-data is set to 'no'.",
+  "scenario": "stale-data",
+  "servedAfterYes": true,
+  "servedWhileDefault": true
+}

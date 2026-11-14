@@ -1,0 +1,8 @@
+{
+  "scenario": "restart-undurable",
+  "note": "非持久队列。kill -9 之后队列应该不在。消息本身是持久化的，队列先没了。",
+  "pass": true,
+  "detail": "declare rejected: Exception (541) Reason: \"INTERNAL_ERROR - Feature `transient_nonexcl_queues` is deprecated.\\nBy default, this feature is not permitted anymore.\\nThe feature will be removed from a future major RabbitMQ version, regardless of the configuration; actual version to be determined.\\nTo...\"",
+  "queue": "ms11-restart-undurable",
+  "persistent": true
+}
