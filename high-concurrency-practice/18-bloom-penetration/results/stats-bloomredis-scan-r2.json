@@ -1,0 +1,15 @@
+{
+ "mode": "bloomredis",
+ "workload": "scan",
+ "round": 2,
+ "requests": 175492,
+ "dbQueries": 18876,
+ "redisCmds": 175492,
+ "bloomRejects": 156616,
+ "nullHits": 0,
+ "ok200": 17550,
+ "notFound": 157942,
+ "errors": 0,
+ "bloomBytes": 62504,
+ "fpTheory": 0.00819
+}

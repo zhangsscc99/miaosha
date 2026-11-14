@@ -1,6 +1,6 @@
 # 秒杀高并发技术报告（面试用）
 
-日期：2026-11-12。扣库存的代码和原始 JSON 在 [`01-redis-lua-atomic-stock`](01-redis-lua-atomic-stock/README.md)，异步落库在 [`02-redis-stream-async-order`](02-redis-stream-async-order/README.md)，成功扣减拆进程在 [`03-redis-stock-shard`](03-redis-stock-shard/README.md)，多实例售罄标记和准入额度在 [`04-multi-instance-admission`](04-multi-instance-admission/README.md)，商品详情的缓存击穿和 singleflight 在 [`05-detail-cache-singleflight`](05-detail-cache-singleflight/README.md)，多 key 同时过期在 [`06-cache-avalanche`](06-cache-avalanche/README.md)，未支付订单到期关单在 [`07-unpaid-order-delay`](07-unpaid-order-delay/README.md)，cgroup 的 CPU 和内存限额在 [`08-cgroup-cpu-limit`](08-cgroup-cpu-limit/README.md)，一个 256MB 堆的 Kafka 进程在 [`09-kafka-winner-queue`](09-kafka-winner-queue/README.md)，固定窗口的跨秒双倍额度和拦截器的非原子计数在 [`10-fixed-window-boundary`](10-fixed-window-boundary/README.md)，一个本机 RabbitMQ 4.4.0 进程在 [`11-rabbitmq-winner-queue`](11-rabbitmq-winner-queue/README.md)，一个本机 RocketMQ 5.5.1 进程在 [`12-rocketmq-flush-delay`](12-rocketmq-flush-delay/README.md)，同机 Redis 主从和 `WAIT` 在 [`13-redis-replica-wait`](13-redis-replica-wait/README.md)，同机 Redis Sentinel 自动切换在 [`14-redis-sentinel-failover`](14-redis-sentinel-failover/README.md)，同机 Redis Cluster 的槽和迁移在 [`15-redis-cluster-slot`](15-redis-cluster-slot/README.md)，同机 3 主 3 副本和 `CLUSTER FAILOVER` 在 [`16-redis-cluster-failover`](16-redis-cluster-failover/README.md)。
+日期：2026-11-12。扣库存的代码和原始 JSON 在 [`01-redis-lua-atomic-stock`](01-redis-lua-atomic-stock/README.md)，异步落库在 [`02-redis-stream-async-order`](02-redis-stream-async-order/README.md)，成功扣减拆进程在 [`03-redis-stock-shard`](03-redis-stock-shard/README.md)，多实例售罄标记和准入额度在 [`04-multi-instance-admission`](04-multi-instance-admission/README.md)，商品详情的缓存击穿和 singleflight 在 [`05-detail-cache-singleflight`](05-detail-cache-singleflight/README.md)，多 key 同时过期在 [`06-cache-avalanche`](06-cache-avalanche/README.md)，未支付订单到期关单在 [`07-unpaid-order-delay`](07-unpaid-order-delay/README.md)，cgroup 的 CPU 和内存限额在 [`08-cgroup-cpu-limit`](08-cgroup-cpu-limit/README.md)，一个 256MB 堆的 Kafka 进程在 [`09-kafka-winner-queue`](09-kafka-winner-queue/README.md)，固定窗口的跨秒双倍额度和拦截器的非原子计数在 [`10-fixed-window-boundary`](10-fixed-window-boundary/README.md)，一个本机 RabbitMQ 4.4.0 进程在 [`11-rabbitmq-winner-queue`](11-rabbitmq-winner-queue/README.md)，一个本机 RocketMQ 5.5.1 进程在 [`12-rocketmq-flush-delay`](12-rocketmq-flush-delay/README.md)，同机 Redis 主从和 `WAIT` 在 [`13-redis-replica-wait`](13-redis-replica-wait/README.md)，同机 Redis Sentinel 自动切换在 [`14-redis-sentinel-failover`](14-redis-sentinel-failover/README.md)，同机 Redis Cluster 的槽和迁移在 [`15-redis-cluster-slot`](15-redis-cluster-slot/README.md)，同机 3 主 3 副本和 `CLUSTER FAILOVER` 在 [`16-redis-cluster-failover`](16-redis-cluster-failover/README.md)，Java 全链路在 [`17-java-full-chain`](17-java-full-chain/README.md)，缓存穿透和布隆过滤器在 [`18-bloom-penetration`](18-bloom-penetration/README.md)。
 
 RabbitMQ 是 4.4.0，Erlang/OTP 27，副本数 1，管理插件没开。RocketMQ 是 5.5.1，一个 NameServer 加一个 master，没有 slave。dockerd 和 kubelet 没有跑。第 8 章写的是它们会写进内核的 `cpu.max`、`cpu.weight`、`memory.max`。第 9 章跑的是本机一个 Kafka 4.2.2 进程，副本数 1。托管 Kafka 的钱仍用第 2 章的帮助中心目录价。第 10 章仍是这一个 64MB 的 Redis。
 
@@ -608,6 +608,32 @@ K8s 没有真集群。3 个 JVM 进程加轮询直连模拟 3 Pod，192 并发�
 
 边界：没有 TLS、网关鉴权、风控、真实支付；客户端和服务端抢同一台机器，v3 三轮在 **13,733~31,460** 之间波动，绝对值偏保守；K8s 清单没有 `apply`；202 返回时消息只进了本地有界队列，严格场景要本地消息表/事务消息。这些都在第 17 章的文档里写明了，不当作已经验证的结论。
 
+## 第 18 章：请求的 id 根本不存在
+
+前 17 章都在「商品存在、被抢光」的范围内。第 18 章换成**请求的 id 根本不存在**：爬虫枚举、羊毛党试号、下架商品的旧链接。这类请求在缓存里永远查不到，每一次都落库，售罄标记和库存行锁都拦不住它。代码、脚本、原始 JSON 在 [`18-bloom-penetration`](18-bloom-penetration/README.md)。
+
+5 种写法 × 2 种流量形状（扫号：每次新 id；重放：同一批 1000 个 id）× 3 轮，64 并发、每轮 10 秒，5 万商品、90% 流量是不存在的 id，RPS 取中位数：
+
+- **无防护**：9,587（扫号）/ 10,103（重放），落库 **100%**，p50 4.85 ms，p99 34.9 ms
+- **空值占位**（`__NULL__` 60 秒）：扫号 **8,591**（**-10.4%**），落库仍 **90~100%**；重放 14,366，落库 4.33%
+- **进程内布隆**：**14,680**（1.53 倍）/ **18,481**，落库 **10.74%**，Redis **0 次/请求**，p50 2.79 ms、p99 23.9 ms
+- **共享布隆**（Redis 位图 + 一次 `EVALSHA`）：13,156 / 13,663，落库 10.74%，Redis 1 次/请求
+- **布隆 + 空值**：**17,186** / 17,526，落库 **0.94%**（热）/ 10.75%（冷），Redis **0.11 次/请求**
+
+扫号下空值占位是**负优化**：每个 id 都是新的，写进去的空值一次都读不到，反而多 2 次 Redis 命令和一次写，落库一次没少。这一点和第 5 章负缓存的结论不冲突——负缓存只对「同一批不存在 id 被重复请求」有效。
+
+布隆的 10.74% 拆得开：**10% 是真实商品**，**0.74% 是误判**（0.819% × 90%）。布隆只假阳性、不假阴性，所以误判只会多查一次库，不会卖错、不会少卖。30 组全部 `correct: true`：真实 id 都 200，不存在的 id 都 404。
+
+布隆自己的物理参数（10 万 / 100 万 / 1000 万元素，7 / 10 / 14 位每元素）：实测误判率和理论 `(1-e^{-kn/m})^k` 差 **1% 以内**；10 位/元素是 **1.25 字节/key**，1000 万商品 **12.5MB**、插入 213.9 ms、全量重建 **168 ms**；单线程查一次 **21.85 ns**，8 线程 **2.24 亿次/秒**。1 亿位的位图在 Redis 里正好 **12,500,001 字节**。
+
+共享布隆：20 万 key 构建用 140 万次 `SETBIT`，0.638 秒（**219 万/秒**）；16 连接一次 `EVALSHA` 查 7 个位是 **156,736 ops/s**，p99 231 µs；同样 7 个位在客户端发 7 次 `GETBIT` 只有 **33,020**，1 条连接 8,834；pipeline 100 个查询能到 **423,700/秒**，但那是网关批处理的形态，容量仍按 15.7 万/分片算。
+
+1 亿个 id：布隆 **119MB**，空值占位 **5.96GB**（实测 64 字节/key）；10 亿个是 1.16GB 对 59.6GB。三档 QPS 的月费（4c8g ¥400、Redis ¥500、MySQL 8c32g ¥3,000，1.5 倍余量，MySQL 单主库按 4,000 QPS）：10 万 **¥12.04 万 → ¥1.94 万**（-84%），100 万 **¥118.78 万 → ¥16.42 万**（-86%），1000 万 **¥1187.6 万 → ¥162.08 万**（-86%）。省下的是 MySQL 主库：38 台降到 5 台，3,750 台降到 404 台。共享布隆在 1000 万 QPS 要 96 个分片、多 **¥4.8 万/月**；进程内布隆这 96 个分片是 0，代价是每个 Pod 12.5MB 堆。
+
+误判率就是钱：10 位/元素（0.81%）在 1000 万 QPS 下漏 8.1 万 QPS 进存储，要 31 个主库、**¥9.3 万/月**；加到 14 位/元素（0.115%）内存只涨 40%，主库降到 4 个、**¥1.2 万/月**。
+
+边界：客户端和服务端在同一台 8 核机器上，压测时负载 15 左右，绝对值保守，只用比例；96 个分片是除法，没跑；没测 Cluster 下的位图分片、Cuckoo Filter、Ribbon Filter。
+
 ## 还不能讲成已经做过的事
 
 - 没测 MySQL。跨机器 RTT 没测。网络分区没测。第 13 章的 2 毫秒和 20 毫秒是本机代理里的 sleep。第 14 章的哨兵和第 15 章的三个主库也在这台机器上
@@ -633,5 +659,7 @@ K8s 没有真集群。3 个 JVM 进程加轮询直连模拟 3 Pod，192 并发�
 - 第 14 章的 1.406 到 1.514 秒是从库 `ROLE` 变成 master，get-master 改口是 1.986 到 2.195 秒。373 微秒是没有哨兵的 `REPLICAOF NO ONE`。+sdown 的 51.5、121.9、88.2 毫秒比配置的 500 毫秒短。30.485 秒只有一次，20 秒时还没切。quorum 1 在 11.238 秒放弃，从库没变。关掉一个哨兵后马上问到的 OK 3 usable，不能当成那个进程一直健康。2 毫秒代理的差是 0、0、0，从库被指走之后三次都是 2000。直连的 -1 是回复没读到。374 次 `SET` 和大约 250 毫秒的 `INCR` 不是容量。96,880、4,308、74,433 不要平均。104,830 和 14,141 不要相除，每次都问的那一组 errors 是 0。56,324 的 CPU 是 46.3%，不拿去除。64 连接是 224,040，不替换 223,444。0.2% 是周期已经缩短之后的 4 秒。哨兵 `used_memory` 0 不拿去规划，RSS 是 6,052 到 6,164 KB。21,150、6,804、15,120、453.6、83,660 不要相加，也不要和第 13 章的 19,958.4、第 1 章的 14,969 相加。没有网络分区，没有第二台机器
 - 第 15 章的 216,211 是 16 连接直连 GET，所在主库 98.5%，另外两个 CPU 是 0。32 连接是 227,878，1.05 倍，不替换 216,211。231,251 是 INCR，不和 GET 平均。196,266 的 CPU 是 95.0%，不拿来比 cluster 更快。309,036 是 1.43 倍，不是 3 倍，不要除以 3。133,011 是 0.615 倍。错节点和 ASK 源的命令增量是 2，CPU 分别是 69.7% 和 55.0%。92,693 是迁移窗口，不是月费。742 微秒和 730 微秒不引用 CPU。7.6 毫秒那一段也不引用。DEBUG SLEEP 6 秒没有 FAIL，293 次 GET 都成功。6,699 毫秒、2,023 毫秒、17,848 毫秒、11.152 秒不要混成一个切换时间。2,023 毫秒只有一次。20 个 nil 是没有 AOF 的 kill -9。coverage 关掉之后状态是 ok，MOVED 的那一端是 connection refused。309.08 和 288.75 不要平均。8 秒内第三方没改口，不要说成永远不改。8,013.6、4,384.8、9,223.2、302.4、3,024、30,240、22,090、604.8、151.2 不要相加，也不要和第 1 章的 14,969、第 13 章的 19,958.4、第 14 章的 21,150 相加。没有副本，没有 CLUSTER FAILOVER，没有第二台机器
 - 第 16 章的 210,942 是 16 连接 INCR，主库 99.2%，副本 17.5%。32 连接是 224,191，1.06 倍，不替换 210,942。225,778 是副本 READONLY GET，主库 CPU 是 0。241,459 是 1.07 倍，不替换 225,778。177,149 和 173,083 是同一台 4 核上同时跑的，不要相加，也不要拿去除。310.49 和 309.01 不要平均，1,053,690 的 histlen 不要除以 2 万。手动切换三次的差是 0、0、0。FORCE 只有第一次少 63，后两次没有 election won。TAKEOVER 少 167，没有采到双主。3 秒睡眠是一次切换、两次没有。8 秒的 3,340 和 8,001 不要合成一个时间。659、725、908 不要平均。套接字还在时丢掉 0，拆连接之后三次都是 2,000。no-failover 之后主库是 nil，副本是 MOVED，不是还留着 100。PFAIL 的 10,923 当时 slots_fail 是 0。TAKEOVER 之后的 SET 和关掉 coverage 之后的 SET 都是 CLUSTERDOWN。7,257.6、6,804、1,965.6、1,209.6、302.4、22,560 不要相加，也不要和第 15 章的 7,106.4、8,013.6 或第 14 章的 21,150 相加。没有第二台机器，没有网络分区，没有 DLedger
+
+- 第 18 章跑在 8 核 macOS 上，压测时负载 15 左右，绝对 RPS 偏保守，只引用比例。10 位/元素的 0.74% 是「误判率 × 90% 扫号占比」，扫号占比变了这个数就变。0.94% 的落库是热稳态，冷启动是 10.75%。96 个共享布隆分片和 1,022 个 Pod 都是除法，没跑。pipeline 的 42 万/秒是网关批处理形态，不拿来当接口容量。没有 Cuckoo Filter、Ribbon Filter，没有 Cluster 下的位图分片，没有第二台机器
 
 下一章仍然先用一小部分资源跑通再写扩大之后的机器和费用。真的第二台机器、DLedger 还没跑。这台机器没有 dockerd，也没有 kubelet。第 16 章是同机 3 主 3 副本：热 key 的 INCR 是 210,942/秒，副本 CPU 是 17.5%。不要把第 16 章的副本说成第 15 章的第二个主库，也不要把第 14 章的哨兵说成 Cluster。第 11 章的 70,030 元/月、第 12 章的 156,040 元/月、第 13 章的 19,958.4 元/月、第 14 章的 21,150 元/月、第 15 章的 8,013.6 元/月和第 16 章的 7,257.6 元/月不是同一笔钱。

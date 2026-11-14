@@ -1,0 +1,1 @@
+{"label":"bloom","workload":"scan","concurrency":64,"seconds":10.01,"requests":112454,"rps":11230,"ok200":11246,"notFound404":101208,"other":0,"existingSent":11246,"missingSent":101208,"correct":true,"latency":{"count":112454,"meanUs":5696.3,"p50Us":3664,"p99Us":40510,"maxUs":158937}}

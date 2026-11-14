@@ -1,0 +1,1 @@
+{"label":"nullcache","workload":"scan","concurrency":64,"seconds":10.07,"requests":93931,"rps":9325,"ok200":9394,"notFound404":84537,"other":0,"existingSent":9394,"missingSent":84537,"correct":true,"latency":{"count":93931,"meanUs":6862.9,"p50Us":5345,"p99Us":31041,"maxUs":277023}}

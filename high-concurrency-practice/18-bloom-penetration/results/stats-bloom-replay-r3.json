@@ -1,0 +1,15 @@
+{
+ "mode": "bloom",
+ "workload": "replay",
+ "round": 3,
+ "requests": 231624,
+ "dbQueries": 25245,
+ "redisCmds": 0,
+ "bloomRejects": 206379,
+ "nullHits": 0,
+ "ok200": 23163,
+ "notFound": 208461,
+ "errors": 0,
+ "bloomBytes": 62504,
+ "fpTheory": 0.00819
+}

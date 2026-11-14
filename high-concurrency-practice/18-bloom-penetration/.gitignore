@@ -1,0 +1,4 @@
+target/
+results/server-*.log
+results/redis-6381.log
+*.class

@@ -1,0 +1,1 @@
+{"label":"bloomredis","workload":"replay","concurrency":64,"seconds":10.07,"requests":121122,"rps":12034,"ok200":12112,"notFound404":109010,"other":0,"existingSent":12112,"missingSent":109010,"correct":true,"latency":{"count":121122,"meanUs":5318.1,"p50Us":3643,"p99Us":29398,"maxUs":184913}}

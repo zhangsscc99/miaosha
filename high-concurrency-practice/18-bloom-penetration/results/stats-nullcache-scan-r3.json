@@ -1,0 +1,15 @@
+{
+ "mode": "nullcache",
+ "workload": "scan",
+ "round": 3,
+ "requests": 115436,
+ "dbQueries": 103892,
+ "redisCmds": 115436,
+ "bloomRejects": 0,
+ "nullHits": 0,
+ "ok200": 11544,
+ "notFound": 103892,
+ "errors": 0,
+ "bloomBytes": 62504,
+ "fpTheory": 0.00819
+}

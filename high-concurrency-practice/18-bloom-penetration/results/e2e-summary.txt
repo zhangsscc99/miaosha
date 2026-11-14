@@ -1,0 +1,20 @@
+mode=none
+  used_memory=1.20M
+  keys=0
+  evicted_keys:0
+mode=nullcache
+  used_memory=21.81M
+  keys=226858
+  evicted_keys:0
+mode=bloom
+  used_memory=1.21M
+  keys=0
+  evicted_keys:0
+mode=bloomredis
+  used_memory=1.44M
+  keys=1
+  evicted_keys:0
+mode=bloomnull
+  used_memory=3.77M
+  keys=27828
+  evicted_keys:0

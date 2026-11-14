@@ -1,0 +1,15 @@
+{
+ "mode": "bloom",
+ "workload": "scan",
+ "round": 1,
+ "requests": 140959,
+ "dbQueries": 15164,
+ "redisCmds": 0,
+ "bloomRejects": 125795,
+ "nullHits": 0,
+ "ok200": 14096,
+ "notFound": 126863,
+ "errors": 0,
+ "bloomBytes": 62504,
+ "fpTheory": 0.00819
+}
